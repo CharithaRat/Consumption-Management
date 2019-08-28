@@ -1,0 +1,237 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h5>
+    <b>BOM Assign Page</b>
+    <small> - [BOM Assign Informations]</small>
+  </h5>
+  <ol class="breadcrumb">
+    <li><a href="#" routerLink="/pages/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li class="active">BOM Assign</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+
+  <!--------------------------
+    | Your Page Content Here |
+    -------------------------->
+  <!--====================================================================-->
+  <div class="row">
+    <!--1st column-->
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h5 class="box-title">BOM Assign Informations</h5>
+        </div>
+        <div class="box-body">
+          <form class="form-horizontal">
+            <!--<div class="row">-->
+            <div class="col-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>BOM ID</label>
+                </div>
+                <div class="col-xs-8">
+                  <!--Need to load current bom id's-->
+                  <select class="form-control" id="bomid">
+                    <option>Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Description</label>
+                </div>
+                <div class="col-xs-8">
+                  <!--Need to load bom description after select a bom-->
+                  <input type="text" id="txtbomdes" class="form-control" placeholder="BOM Description">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>BOM Usage</label>
+                </div>
+                <div class="col-xs-8">
+                  <select class="form-control" id="bomuse">
+                    <option>Floor</option>
+                    <option>Wall build by Bricks</option>
+                    <option>Wall Covering</option>
+                    <option>Basement</option>
+                    <option>Basement Beams</option>
+                    <option>Top Beams</option>
+                    <option>Slab</option>
+                    <option>Roof</option>
+                  </select>
+                </div>
+              </div>
+              <!--<div class="form-group">-->
+                <!--<div class="col-xs-4">-->
+                  <!--<label>BOM Unit</label>-->
+                <!--</div>-->
+                <!--<div class="col-xs-8">-->
+                  <!--<select class="form-control">-->
+                    <!--<option>CMT</option>-->
+                  <!--</select>-->
+                <!--</div>-->
+              <!--</div>-->
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Date</label>
+                </div>
+                <div class="col-xs-8">
+                  <!--Date Picker-->
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-left" id="datepicker">
+                  </div>
+                  <!--Date Picker-->
+                </div>
+              </div>
+              <!--<div class="form-group">-->
+                <!--<div class="col-xs-4">-->
+                  <!--<label><b>BOM VALUE : </b></label>-->
+                <!--</div>-->
+                <!--<div class="col-xs-8">-->
+                  <!--<input type="text" id="txtbomvalue" class="form-control" placeholder="BOM Value" disabled>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="form-group">-->
+                <!--<div class="col-xs-4">-->
+                  <!--<label>Gurantee Period</label>-->
+                <!--</div>-->
+                <!--<div class="col-xs-8">-->
+                  <!--<input type="text" id="txtbomperiod" class="form-control" placeholder="Gurantee Period">-->
+                <!--</div>-->
+              <!--</div>-->
+            </div>
+            <div class="col-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-3">
+                  <label>Length</label>
+                </div>
+                <div class="col-xs-9">
+                  <input type="text" id="length" class="form-control" placeholder="Length">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-3">
+                  <label>Width</label>
+                </div>
+                <div class="col-xs-9">
+                  <input type="text" id="width" class="form-control" placeholder="Width">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-3">
+                  <label>Height</label>
+                </div>
+                <div class="col-xs-9">
+                  <input type="text" id="height" class="form-control" placeholder="Height">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-3">
+                  <label>Covering Unit</label>
+                </div>
+                <div class="col-xs-3">
+                  <input type="text" id="txtcovAreaUnit" class="form-control" placeholder="L x W Unit">
+                </div>
+                <div class="col-xs-3">
+                  <label>Covering Area</label>
+                </div>
+                <div class="col-xs-3">
+                  <input type="text" id="txtcovarea" class="form-control" placeholder="Area L x W">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-3">
+                  <label>BOM Cost</label>
+                </div>
+                <div class="col-xs-9">
+                  <input type="text" id="txtbomcost" class="form-control" placeholder="BOM Cost">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-3">
+                  <label>Cost/Unit Area</label>
+                </div>
+                <div class="col-xs-9">
+                  <input type="text" id="txtareacost" class="form-control" placeholder="Cost/Unit Area">
+                </div>
+              </div>
+            </div>
+            <!--Box footer previous-->
+          </form>
+
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-12 col-sm-12">
+            <div class="box-footer">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="bmSave">Save</button>
+                &nbsp;
+                <button type="button" class="btn btn-success" id="bmUpdate">Update</button>
+                &nbsp;
+                <button type="button" class="btn btn-openid" id="bmDelete">Delete</button>
+                <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Display Table-->
+  <div class="row">
+    <!-- ============================================================== -->
+    <!-- basic table -->
+    <!-- ============================================================== -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="box">
+        <div class="box-header">
+          <h6 class="box-title">BOM Assign Details</h6>
+        </div>
+        <div class="box-body">
+          <table class="table table-bordered table-hover table-responsive" id="tabCustomers">
+            <thead>
+            <tr>
+              <th scope="col">BOM Id</th>
+              <th scope="col">Usage Area</th>
+              <th scope="col">Length</th>
+              <th scope="col">Width</th>
+              <th scope="col">Height</th>
+              <th scope="col">Covered Area</th>
+              <th scope="col">Bom Cost</th>
+              <th scope="col">Cost/Unit Area</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
+              <td>{{customer.id | uppercase}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.address}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end basic table -->
+    <!-- ============================================================== -->
+  </div>
+
+  <!--====================================================================-->
+</section>
+<!-- /.content -->

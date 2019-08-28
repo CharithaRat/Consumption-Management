@@ -1,0 +1,313 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h5>
+    <b>Budget Page</b>
+    <small> - [Budget Informations]</small>
+  </h5>
+  <ol class="breadcrumb">
+    <li><a href="#" routerLink="/pages/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li class="active">Budjet</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+
+  <!--------------------------
+    | Your Page Content Here |
+    -------------------------->
+  <!--====================================================================-->
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h5 class="box-title">Budget Informations</h5>
+      </div>
+      <div class="box-body">
+        <form class="form-horizontal">
+          <div class="row">
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Budget ID</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="txtbudgetid" class="form-control" placeholder="Budget Id">
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Model ID</label>
+                </div>
+                <div class="col-xs-8">
+                  <select class="form-control" id="modelid">
+                    <option>Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Description</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="txtmodeldes" class="form-control" placeholder="Model Description">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Date</label>
+                </div>
+                <div class="col-xs-8">
+                  <!--Date Picker-->
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-left" id="datepicker">
+                  </div>
+                  <!--Date Picker-->
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>XBOM ID</label>
+                </div>
+                <div class="col-xs-8">
+                  <select class="form-control" id="xbomid">
+                    <option>Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Budget Cost</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="budgetcost" class="form-control" placeholder="Budget Cost" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>BOM ID</label>
+                </div>
+                <div class="col-xs-8">
+                  <select class="form-control" id="tbomid">
+                    <option>Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>BOM Type</label>
+                </div>
+                <div class="col-xs-8">
+                  <select class="form-control" id="tbomtype">
+                    <option>Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>BOM Usage</label>
+                </div>
+                <div class="col-xs-8">
+                  <select class="form-control" id="tbomusage">
+                    <option>Floor</option>
+                    <option>Wall build by Bricks</option>
+                    <option>Wall Covering</option>
+                    <option>Basement</option>
+                    <option>Basement Beams</option>
+                    <option>Top Beams</option>
+                    <option>Slab</option>
+                    <option>Roof</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Length</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="length" class="form-control" placeholder="Length">
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Width</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="width" class="form-control" placeholder="Width">
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Height</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="height" class="form-control" placeholder="Height">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Covered Area/CMT</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="covAreaPerCmt" class="form-control" placeholder="Covered Area/CMT">
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Required Area</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="reqArea" class="form-control" placeholder="Required Area">
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>BOM Units</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="bomUnits" class="form-control" placeholder="BOM Units">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>BOM Cost</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="bomCost" class="form-control" placeholder="BOM Cost">
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Actual Cost</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" id="bomactcost" class="form-control" placeholder="Actual Cost">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12 col-sm-12">
+          <div class="box-footer">
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" id="bmSave">Save</button>
+              &nbsp;
+              <button type="button" class="btn btn-success" id="bmUpdate">Update</button>
+              &nbsp;
+              <button type="button" class="btn btn-openid" id="bmDelete">Delete</button>
+              <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Table Details-->
+  <!--Display Table-->
+  <div class="row">
+    <!-- ============================================================== -->
+    <!-- basic table -->
+    <!-- ============================================================== -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="box">
+        <div class="box-header">
+          <h6 class="box-title">XBOM Details</h6>
+        </div>
+        <div class="box-body">
+          <table class="table table-bordered table-hover table-responsive" id="tabCustomers">
+            <thead>
+            <tr>
+              <th scope="col">BOM Id</th>
+              <th scope="col">BOM Type</th>
+              <th scope="col">BOM Usage</th>
+              <th scope="col">Length</th>
+              <th scope="col">Width</th>
+              <th scope="col">Height</th>
+              <th scope="col">Covered Area/CMT</th>
+              <th scope="col">Required Area</th>
+              <th scope="col">No. of CMT</th>
+              <th scope="col">Bom Cost/CMT</th>
+              <th scope="col">Total Cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
+              <td>{{customer.id | uppercase}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.address}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end basic table -->
+    <!-- ============================================================== -->
+  </div>
+  <!--====================================================================-->
+</section>
+<!-- /.content -->

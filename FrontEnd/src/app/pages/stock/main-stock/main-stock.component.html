@@ -1,0 +1,208 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h5>
+    <b>Main Stock Page</b>
+    <small> - [Stock Informations]</small>
+  </h5>
+  <ol class="breadcrumb">
+    <li><a href="#" routerLink="/pages/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li class="active">Main Stock</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+
+  <!--------------------------
+    | Your Page Content Here |
+    -------------------------->
+  <!--====================================================================-->
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Search Stock</h3>
+        </div>
+        <div class="box-body">
+          <!--<div class="row">-->
+            <form id="form" data-parsley-validate="" novalidate="">
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Search By</label>
+                </div>
+                <div class="col-xs-8">
+                  <select class="form-control" id="searchtype">
+                    <option>Material Id</option>
+                    <option>Material Name</option>
+                  </select>
+                </div>
+              </div>
+              &nbsp;
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label>Search Key</label>
+                </div>
+                <div class="col-xs-8">
+                  <input type="text" #txtID name="inpId" placeholder="Material Id" class="form-control">
+                </div>
+              </div>
+            </form>
+          <!--</div>-->
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12 col-sm-12">
+              <div class="box-footer">
+                <button type="button" id="btnSearch" class="btn btn-space btn-primary" (click)="getID(txtID)">Search
+                </button>
+                &nbsp;
+                <button class="btn btn-danger btn-info pull-right" (cancel)="newCustomer()">Cancel
+                </button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h5 class="box-title">Stock Search Informations</h5>
+        </div>
+        <div class="box-body">
+          <form action="#" id="stockform" data-parsley-validate="">
+            <!--<div class="form-group">-->
+              <table>
+                <tr>
+                  <td><label for="matid" style="text-align: left">Material Id:</label>&nbsp;</td>
+                  <td>
+                    <div class="col-12 col-md-12 col-lg-6" data-width="100%">
+                      <input type="text" id="matid" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Material Id" [value]="sCustomer?.id" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="matname" style="text-align: left">Material Name:</label>&nbsp;</td>
+                  <td>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <input type="text" id="matname" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Material Name" [value]="sCustomer?.name" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="unit" style="text-align: left">Material Unit:</label>&nbsp;</td>
+                  <td>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <input type="text" id="unit" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Material Unit" [value]="sCustomer?.address" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="matqty" style="text-align: left">Material Qty:</label>&nbsp;</td>
+                  <td>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <input type="text" id="matqty" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Material Qty" [value]="sCustomer?.address" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="matcost" style="text-align: left">Material Cost:</label>&nbsp;</td>
+                  <td>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <input type="text" id="matcost" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Material Cost" [value]="sCustomer?.address" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="matamount" style="text-align: left">Total Amount:</label>&nbsp;</td>
+                  <td>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <input type="text" id="matamount" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Total Amount" [value]="sCustomer?.address" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="matlocation" style="text-align: left">Material Location:</label>&nbsp;</td>
+                  <td>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <input type="text" id="matlocation" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Location" [value]="sCustomer?.address" disabled>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            <!--</div>-->
+          </form>
+        </div>
+      </div>
+      <!--<div class="row">-->
+      <!--<div class="col-12 col-md-12 col-sm-12">-->
+      <!--<div class="box-footer">-->
+      <!--<div class="form-group">-->
+      <!--<button type="submit" class="btn btn-primary" id="bmSave">Save</button>-->
+      <!--&nbsp;-->
+      <!--<button type="button" class="btn btn-success" id="bmUpdate">Update</button>-->
+      <!--&nbsp;-->
+      <!--<button type="button" class="btn btn-openid" id="bmDelete">Delete</button>-->
+      <!--<button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel">Cancel</button>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+    </div>
+  </div>
+
+  <!--Display Table-->
+  <div class="row">
+    <!-- ============================================================== -->
+    <!-- basic table -->
+    <!-- ============================================================== -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="box">
+        <div class="box-header">
+          <h6 class="box-title">GRN Details</h6>
+        </div>
+        <div class="box-body">
+          <table class="table table-bordered table-hover table-responsive" id="tabCustomers">
+            <thead>
+            <tr>
+              <th scope="col">Material ID</th>
+              <th scope="col">Material Description</th>
+              <th scope="col">Material Unit</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Serial No</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Value</th>
+              <th scope="col">Location</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
+              <td>{{customer.id | uppercase}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.address}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end basic table -->
+    <!-- ============================================================== -->
+  </div>
+  <!--====================================================================-->
+</section>
+<!-- /.content -->

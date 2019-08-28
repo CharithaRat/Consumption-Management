@@ -1,0 +1,213 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h5>
+    <b>GRN Page</b>
+    <small> - [GRN Informations]</small>
+  </h5>
+  <ol class="breadcrumb">
+    <li><a href="#" routerLink="/pages/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li class="active">GRN</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+
+  <!--------------------------
+    | Your Page Content Here |
+    -------------------------->
+  <!--====================================================================-->
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h5 class="box-title">GRN Informations</h5>
+      </div>
+      <div class="box-body">
+        <form class="form-horizontal">
+          <div class="col-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>Material Id</label>
+              </div>
+              <div class="col-xs-8">
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected">Auto</option>
+                  <option>Alaska</option>
+                  <option>California</option>
+                  <option>Delaware</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Washington</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>Item Description</label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" id="itemdes" class="form-control" placeholder="Description">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>Unit</label>
+              </div>
+              <div class="col-xs-8">
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected">Auto</option>
+                  <option>Alaska</option>
+                  <option>California</option>
+                  <option>Delaware</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Washington</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>Unit Price</label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" id="itemunitp" class="form-control" placeholder="Unit Price">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>GRN Qty</label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" id="itemgrnqty" class="form-control" placeholder="GRN Qty">
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>GRN ID</label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" id="grnid" class="form-control" placeholder="GRN Id" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>GRN Date</label>
+              </div>
+              <div class="col-xs-8">
+                <!--Date Picker-->
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-left" id="datepicker">
+                </div>
+                <!--Date Picker-->
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>Supplier</label>
+              </div>
+              <div class="col-xs-8">
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected">Auto</option>
+                  <option>Alaska</option>
+                  <option>California</option>
+                  <option>Delaware</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Washington</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>Supplier Name</label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" id="supname" class="form-control" placeholder="Supplier Name">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>GRN Amount</label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" id="grnamount" class="form-control" placeholder="GRN Amount">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-4">
+                <label>Total Amount</label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" id="ttlamount" class="form-control" placeholder="Total Amount" disabled>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12 col-sm-12">
+          <div class="box-footer">
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" id="bmSave">Save</button>
+              &nbsp;
+              <button type="button" class="btn btn-success" id="bmUpdate">Update</button>
+              &nbsp;
+              <button type="button" class="btn btn-openid" id="bmDelete">Delete</button>
+              <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Display Table-->
+  <div class="row">
+    <!-- ============================================================== -->
+    <!-- basic table -->
+    <!-- ============================================================== -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="box">
+        <div class="box-header">
+          <h6 class="box-title">GRN Details</h6>
+        </div>
+        <div class="box-body">
+          <table class="table table-bordered table-hover table-responsive" id="tabCustomers">
+            <thead>
+            <tr>
+              <th scope="col">Material ID</th>
+              <th scope="col">Material Description</th>
+              <th scope="col">Material Unit</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Amount</th>
+              <th scope="col" maxlength="0px">BIN_ITEM</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
+              <td>{{customer.id | uppercase}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.address}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end basic table -->
+    <!-- ============================================================== -->
+  </div>
+  <!--====================================================================-->
+</section>
+<!-- /.content -->

@@ -1,0 +1,132 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h5>
+    <b>Unit Page</b>
+    <small> - [Unit Informations]</small>
+  </h5>
+  <ol class="breadcrumb">
+    <li><a href="#" routerLink="/pages/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li class="active">Unit</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+
+  <!--------------------------
+    | Your Page Content Here |
+    -------------------------->
+  <!--====================================================================-->
+  <div class="row">
+    <!--Unit Informations-->
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="box">
+        <div class="box-header with-border">
+          <h5 class="box-title">Unit Informations</h5>
+        </div>
+        <div class="box-body">
+          <form>
+            <div class="form-group">
+              <label for="txtunitcode">Unit Code</label>
+              <input type="text" id="txtunitcode" class="form-control" placeholder="Code">
+            </div>
+            <div class="form-group">
+              <label for="txtunitdes">Unit Description</label>
+              <input type="text" id="txtunitdes" class="form-control" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label for="txtunitsimbol">Unit Symbol</label>
+              <input type="text" id="txtunitsimbol" class="form-control" placeholder="Symbol">
+            </div>
+            <div class="box-footer">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="uSave">Save</button>
+                &nbsp;
+                <button type="button" class="btn btn-danger btn-info pull-right" id="uCancel">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--Unit Relation Informations-->
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="box">
+        <div class="box-header with-border">
+          <h5 class="box-title">Unit Relation Informations</h5>
+        </div>
+        <div class="box-body">
+          <form>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="txtbaseunit">Base Unit Code</label>
+                  <!--<input type="text" id="txtbaseunit" class="form-control" placeholder="Code">-->
+                  <select class="form-control select2" id="txtbaseunit" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option disabled="disabled">California (disabled)</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="txtreunit">Relate Unit Code</label>
+                  <!--<input type="text" id="txtreunit" class="form-control" placeholder="Description">-->
+                  <select class="form-control select2" id="txtreunit" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option disabled="disabled">California (disabled)</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="txtunitrate">Unit Rate</label>
+                  <input type="text" id="txtunitrate" class="form-control" placeholder="Symbol">
+                </div>
+              </div>
+            </div>
+              <div class="box-footer">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary" id="rSave">Save</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-danger btn-info pull-right" id="rCancel">Cancel</button>
+                </div>
+              </div>
+            <div class="form-group">
+              <table class="table table-bordered">
+                <thead>
+                <tr>
+                  <td>Base Unit</td>
+                  <td>Relate Unit</td>
+                  <td>Unit Rate</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--====================================================================-->
+</section>
+<!-- /.content -->

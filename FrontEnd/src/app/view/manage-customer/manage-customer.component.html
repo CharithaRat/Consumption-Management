@@ -1,0 +1,262 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Customer Page
+    <small>Manage Customer Informations</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#" routerLink="/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li class="active">Customer</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+
+  <!--------------------------
+    | Your Page Content Here |
+    -------------------------->
+  <!--====================================================================-->
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Search Customer</h3>
+        </div>
+        <div class="box-body">
+          <form id="form" data-parsley-validate="" novalidate="">
+            <div class="form-group">
+              <!--<label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-left">Name</label>-->
+              <div class="col-9 col-lg-12">
+                <input type="text" #txtID name="inpId" placeholder="Customer ID" class="form-control">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row pt-2 pt-sm-2 mt-6">
+          <div class="col-sm-6 pl-3">
+            <div class="box-footer">
+              <button type="button" id="btnSearch" class="btn btn-space btn-primary" (click)="getID(txtID)">Search
+              </button>
+              &nbsp;
+              <button class="btn btn-space btn-secondary" (cancel)="newCustomer()">Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="child-align: right">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="reset" class="btn btn-success" data-target="#addCustomerModal" id="bttnSave"
+                data-toggle="modal" (click)="newCustomer()">New Customer
+        </button>
+        <!--<button #createStatus type="reset" class="btn btn-success" [(formtartget)]="newCustomer(createStatus)" data-target="#addCustomerModal" id="bttnSave">New Customer-->
+        <!--</button>-->
+        <button type="button" class="btn btn-primary" onclick="" id="btnAll">All Customers</button>
+        <button type="button" class="btn btn-secondary" id="bttnEdit" data-toggle="modal"
+                data-target="#editCustomerModal">Edit
+        </button>
+        <button type="button" class="btn btn-danger" id="btnDelete" (click)="deleteCustomer()">Delete</button>
+      </div>
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Customer Search Details in Here!</h3>
+        </div>
+        <div class="box-body">
+          <!--<p>Customer Search Details in Here!</p>-->
+          <!---->
+          <form action="#" id="cusviewform" data-parsley-validate="">
+            <div class="form-group">
+              <table>
+                <tr>
+                  <td><label for="idn" style="text-align: left">ID:</label>&nbsp;</td>
+                  <td>
+                    <!--<div id="idn" style="text-align: left">{{scustomer.id}}</div>-->
+                    <div class="col-9 col-lg-12">
+                      <input type="text" id="idn" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Customer Id" [value]="sCustomer?.id" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="name" style="text-align: left">Name:</label>&nbsp;</td>
+                  <td>
+                    <!--<div id="name" style="text-align: left">{{scustomer.name}}</div>-->
+                    <div class="col-9 col-lg-12">
+                      <input type="text" id="name" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Customer Name" [value]="sCustomer?.name" disabled>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="address" style="text-align: left">Address:</label>&nbsp;</td>
+                  <td>
+                    <!--<div id="address" style="text-align: left">{{scustomer.address}}</div>-->
+                    <div class="col-9 col-lg-12">
+                      <input type="text" id="address" style="text-align: left;width: auto" class="form-control"
+                             placeholder="Customer Address" [value]="sCustomer?.address" disabled>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </form>
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- ============================================================== -->
+    <!-- basic table -->
+    <!-- ============================================================== -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="box">
+        <div class="box-header">
+          <h5 class="box-title">Customer Informations</h5>
+        </div>
+        <div class="box-body">
+          <table class="table table-bordered table-hover" id="tabCustomers">
+            <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
+              <td>{{customer.id | uppercase}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.address}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end basic table -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!--Pop-Up Form for New Customer start-AJAX//New Modal Start-->
+  <!-- ============================================================== -->
+  <!--<div *ngIf="createStatus">-->
+  <div class="modal fade" id="addCustomerModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form (ngSubmit)="saveCustomer()" #frmCustomer="ngForm" class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create Customer</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group row">
+              <label for="cidedit1"
+                     class="col-3 col-lg-2 col-form-label text-right">ID</label>
+              <div class="col-9 col-lg-10">
+                <input #txtId name="txtd" [(ngModel)]="selectedCustomer.id" id="cidedit1" type="text"
+                       data-parsley-type="cid"
+                       placeholder="Customer ID" class="form-control" required pattern="^C\d{3}$">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="cnameedit1"
+                     class="col-3 col-lg-2 col-form-label text-right">Name</label>
+              <div class="col-9 col-lg-10">
+                <input name="txtName" [(ngModel)]="selectedCustomer.name" id="cnameedit1" type="text" minlength="4"
+                       placeholder="Customer Name"
+                       class="form-control" required pattern="\w{4}.+">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="caddressedit1" class="col-3 col-lg-2 col-form-label text-right">Address</label>
+              <div class="col-9 col-lg-10">
+                <input name="txtAddress" [(ngModel)]="selectedCustomer.address" id="caddressedit1" type="text"
+                       data-parsley-type="caddress"
+                       placeholder="Customer Address" class="form-control" required pattern="\w{4}.+">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!--</div>-->
+  <!-- /.modal -->
+  <!-- ============================================================== -->
+  <!--Pop-Up Form for New Customer start-AJAX//New Modal End-->
+  <!-- ============================================================== -->
+
+  <!--Pop-Up Form for New Customer end-->
+
+  <!-- ============================================================== -->
+  <!--Start customer data edit form-->
+  <!-- ============================================================== -->
+  <!--<div *ngIf="editStatus">-->
+  <div class="modal fade" id="editCustomerModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Edit Customer Details</h4>
+        </div>
+        <div class="modal-body">
+          <!--<form (ngSubmit)="editCustomer()" id="formedit" data-parsley-validate="" novalidate=""-->
+                <!--class="modal-content">-->
+          <form (ngSubmit)="editCustomer()" #frmEditCustomer="ngForm" class="modal-content">
+            <div class="form-group row">
+              <label for="cidedit" class="col-3 col-lg-2 col-form-label text-right">ID</label>
+              <div class="col-9 col-lg-10">
+                <input #CID type="text" [(ngModel)]="selectedCustomer.id" name="sid" data-parsley-type="cid"
+                       placeholder="Customer ID" class="form-control" id="cidedit" required pattern="^C\d{3}$">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="cnameedit" class="col-3 col-lg-2 col-form-label text-right">Name</label>
+              <div class="col-9 col-lg-10">
+                <input type="text" [(ngModel)]="selectedCustomer.name" name="sname" placeholder="Customer Name"
+                       class="form-control" id="cnameedit" required pattern="\w{4}.+">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="caddressedit"
+                     class="col-3 col-lg-2 col-form-label text-right">Address</label>
+              <div class="col-9 col-lg-10">
+                <input type="text" [(ngModel)]="selectedCustomer.address" name="saddress" data-parsley-type="caddress"
+                       placeholder="Customer Address" class="form-control" id="caddressedit" required
+                       pattern="\w{4}.+">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!--</div>-->
+  <!--====================================================================-->
+</section>
+<!-- /.content -->
