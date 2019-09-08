@@ -33,7 +33,7 @@
                   <label>BOM ID</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtbomid" class="form-control" placeholder="BOM Id">
+                  <!--<input type="text" id="txtbomid" class="form-control" placeholder="BOM Id" [(ngModel)]="" name="bomid">-->
                 </div>
               </div>
               <div class="form-group">
@@ -41,7 +41,7 @@
                   <label>Description</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtbomdes" class="form-control" placeholder="BOM Description">
+                  <!--<input type="text" id="txtbomdes" class="form-control" placeholder="BOM Description" [(ngModel)]="" name="bomdes">-->
                 </div>
               </div>
               <div class="form-group">
@@ -49,10 +49,10 @@
                   <label>BOM TYPE</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control">
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
+                  <select class="form-control" [(ngModel)]="selectedType" (change)="getSelectedType()" name="bomtype">
+                    <option [ngValue]="L1">Level 1</option>
+                    <option [ngValue]="L2">Level 2</option>
+                    <option [ngValue]="L3">Level 3</option>
                   </select>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                   <label>BOM Unit</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control">
+                  <select class="form-control" [(ngModel)]="selectedUnit" (change)="getSelectedUnit()" name="bomunit">
                     <option>CMT</option>
                   </select>
                 </div>
@@ -76,7 +76,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-left" id="datepicker">
+                    <!--<input type="text" class="form-control pull-left" id="datepicker" [(ngModel)]="" name="bomdate">-->
                   </div>
                   <!--Date Picker-->
                 </div>
@@ -86,7 +86,7 @@
                   <label><b>BOM VALUE : </b></label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtbomvalue" class="form-control" placeholder="BOM Value" disabled>
+                  <!--<input type="text" id="txtbomvalue" class="form-control" placeholder="BOM Value" disabled [(ngModel)]="" name="bomvalue">-->
                 </div>
               </div>
               <div class="form-group">
@@ -94,7 +94,7 @@
                   <label>Gurantee Period</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtbomperiod" class="form-control" placeholder="Gurantee Period">
+                  <!--<input type="text" id="txtbomperiod" class="form-control" placeholder="Gurantee Period" [(ngModel)]="" name="bomgurantee">-->
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
                   <label>Material Id</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtmatid" class="form-control" placeholder="Material Id">
+                  <!--<input type="text" id="txtmatid" class="form-control" placeholder="Material Id" [(ngModel)]="" name="bommaterial">-->
                 </div>
               </div>
               <div class="form-group">
@@ -112,7 +112,7 @@
                   <label>Name</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtmatname" class="form-control" placeholder="Material Name">
+                  <!--<input type="text" id="txtmatname" class="form-control" placeholder="Material Name" [(ngModel)]="" name="bommatname">-->
                 </div>
               </div>
               <div class="form-group">
@@ -120,7 +120,7 @@
                   <label>Material Unit</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control">
+                  <select class="form-control" [(ngModel)]="selectedMatUnit" (change)="getSelectedMatUnit()" name="">
                     <option>Level 1</option>
                     <option>Level 2</option>
                     <option>Level 3</option>

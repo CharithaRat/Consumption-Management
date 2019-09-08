@@ -24,4 +24,9 @@ public class SubMasterController {
     public SubMasterDTO getSingleSubMasterDetails(@PathVariable("id") String id){
         return subMasterService.getSelectedSubMasterDetails(id);
     }
+
+    @PostMapping
+    public void saveSubMasterDetails(@RequestBody SubMasterDTO dto){
+        subMasterService.saveSubMasterDetails(dto);
+    }
 }

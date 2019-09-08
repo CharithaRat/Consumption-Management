@@ -21,7 +21,7 @@ public class ContractorController {
     }
 
     @GetMapping("/{id}")
-    public ContractorDTO getContractor(@PathVariable("id") String id) {
+    public ContractorDTO getContractor(@PathVariable("id") int id) {
         return contractorService.getContractor(id);
     }
 
@@ -36,7 +36,7 @@ public class ContractorController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteContractor(@PathVariable("id") String id) {
+    public void deleteContractor(@PathVariable("id") int id) {
         contractorService.deleteContractor(id);
     }
 }

@@ -25,24 +25,27 @@
           <h5 class="box-title">Unit Informations</h5>
         </div>
         <div class="box-body">
-          <form>
+          <form #frmUnit="ngForm" (ngSubmit)="saveUnit()">
             <div class="form-group">
               <label for="txtunitcode">Unit Code</label>
-              <input type="text" id="txtunitcode" class="form-control" placeholder="Code">
+              <input type="text" id="txtunitcode" class="form-control" placeholder="Code"
+                     [(ngModel)]="selectedUnit.unitId" name="unitcode" minlength="2">
             </div>
             <div class="form-group">
               <label for="txtunitdes">Unit Description</label>
-              <input type="text" id="txtunitdes" class="form-control" placeholder="Description">
+              <input type="text" id="txtunitdes" class="form-control" placeholder="Description"
+                     [(ngModel)]="selectedUnit.unitDes" name="unitdes" minlength="4">
             </div>
             <div class="form-group">
               <label for="txtunitsimbol">Unit Symbol</label>
-              <input type="text" id="txtunitsimbol" class="form-control" placeholder="Symbol">
+              <input type="text" id="txtunitsimbol" class="form-control" placeholder="Symbol"
+                     [(ngModel)]="selectedUnit.unitSymbol" name="unitsymbol" minlength="1">
             </div>
             <div class="box-footer">
               <div class="form-group">
                 <button type="submit" class="btn btn-primary" id="uSave">Save</button>
                 &nbsp;
-                <button type="button" class="btn btn-danger btn-info pull-right" id="uCancel">Cancel</button>
+                <button type="button" class="btn btn-danger btn-info pull-right" id="uCancel" (cancel)="newUnit()">Cancel</button>
               </div>
             </div>
           </form>
@@ -56,36 +59,36 @@
           <h5 class="box-title">Unit Relation Informations</h5>
         </div>
         <div class="box-body">
-          <form>
+          <form #frmUnitRelation="ngForm" (ngSubmit)="saveUnitRelation()">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="txtbaseunit">Base Unit Code</label>
                   <!--<input type="text" id="txtbaseunit" class="form-control" placeholder="Code">-->
-                  <select class="form-control select2" id="txtbaseunit" style="width: 100%;">
-                    <option selected="selected">Alabama</option>
-                    <option>Alaska</option>
-                    <option disabled="disabled">California (disabled)</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
+                  <select class="form-control select2" id="txtbaseunit" style="width: 100%;" name="baseunit" [(ngModel)]="selectedLevel1" (change)="selectedbaseUnit()">
+                    <option *ngFor="let unit of units" [ngValue]="unit.unitSymbol" >
+                      {{unit.unitSymbol}}
+                    </option>
                   </select>
+                  <!--<select class="form-control select2" id="txtbaseunit" style="width: 100%;" name="baseunit" [(ngModel)]="selectedunitRelation.baseUnit" (change)="selectedbaseUnit()">
+                    <option *ngFor="let unit of units" [ngValue]="unit.unitSymbol" >
+                      {{unit.unitSymbol}}
+                    </option>
+                  </select>-->
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="txtreunit">Relate Unit Code</label>
                   <!--<input type="text" id="txtreunit" class="form-control" placeholder="Description">-->
-                  <select class="form-control select2" id="txtreunit" style="width: 100%;">
-                    <option selected="selected">Alabama</option>
-                    <option>Alaska</option>
-                    <option disabled="disabled">California (disabled)</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
+                  <select class="form-control select2" id="txtreunit" style="width: 100%;" name="relunit"
+                          [(ngModel)]="selectedLevel2" (change)="selectedrelateUnit()">
+                    <option *ngFor="let unit of units" [ngValue]="unit.unitSymbol">{{unit.unitSymbol}}</option>
                   </select>
+                  <!--<select class="form-control select2" id="txtreunit" style="width: 100%;" name="relunit"
+                          [(ngModel)]="selectedunitRelation.relUnit" (change)="selectedrelateUnit()">
+                    <option *ngFor="let unit of units" [ngValue]="unit.unitSymbol">{{unit.unitSymbol}}</option>
+                  </select>-->
                 </div>
               </div>
             </div>
@@ -93,17 +96,18 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="txtunitrate">Unit Rate</label>
-                  <input type="text" id="txtunitrate" class="form-control" placeholder="Symbol">
+                  <input type="text" id="txtunitrate" class="form-control" placeholder="Symbol"
+                         [(ngModel)]="selectedunitRelation.unitRate" name="unitrate" required>
                 </div>
               </div>
             </div>
-              <div class="box-footer">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary" id="rSave">Save</button>
-                  &nbsp;
-                  <button type="button" class="btn btn-danger btn-info pull-right" id="rCancel">Cancel</button>
-                </div>
+            <div class="box-footer">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="rSave">Save</button>
+                &nbsp;
+                <button type="button" class="btn btn-danger btn-info pull-right" id="rCancel" (cancel)="newUnitRelation()">Cancel</button>
               </div>
+            </div>
             <div class="form-group">
               <table class="table table-bordered">
                 <thead>
@@ -114,10 +118,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                <tr *ngFor="let unit of unitRelations" (click)="tableRowClick(unit)">
+                  <td>{{unit.baseUnit}}</td>
+                  <td>{{unit.relUnit}}</td>
+                  <td>{{unit.unitRate}}</td>
                 </tr>
                 </tbody>
               </table>

@@ -1,9 +1,6 @@
 package lk.ijse.absd.consm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +10,14 @@ public class MainStock {
     @Id
     private String BIN_ITEM;
 
-    @ManyToMany
-    private List<Grn> grns = new ArrayList<>();
+    @ManyToOne
+    private Grn grn;
 
-    @OneToMany(mappedBy = "mainStock")
-    private List<ReqNote> reqNotes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "mainStks")
-    private List<IssueDtl> issueDtls = new ArrayList<>();
+//    @OneToMany(mappedBy = "mainStock")
+//    private List<ReqNote> reqNotes = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "mainStks")
+//    private List<IssueDtl> issueDtls = new ArrayList<>();
 
     private String MAT_ID;
     private String MAT_DES;
@@ -33,11 +30,10 @@ public class MainStock {
     public MainStock() {
     }
 
-    public MainStock(String BIN_ITEM, List<Grn> grns, List<ReqNote> reqNotes, List<IssueDtl> issueDtls, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_QTY, double MAT_COST, double TTL_AMOUNT, String LOCATION) {
+    public MainStock(String BIN_ITEM, Grn grn, String MAT_ID, String MAT_DES, String MAT_UNIT,
+                     double MAT_QTY, double MAT_COST, double TTL_AMOUNT, String LOCATION) {
         this.BIN_ITEM = BIN_ITEM;
-        this.grns = grns;
-        this.reqNotes = reqNotes;
-        this.issueDtls = issueDtls;
+        this.grn = grn;
         this.MAT_ID = MAT_ID;
         this.MAT_DES = MAT_DES;
         this.MAT_UNIT = MAT_UNIT;
@@ -46,6 +42,32 @@ public class MainStock {
         this.TTL_AMOUNT = TTL_AMOUNT;
         this.LOCATION = LOCATION;
     }
+//    public MainStock(String BIN_ITEM, List<Grn> grns, String MAT_ID, String MAT_DES, String MAT_UNIT,
+//                     double MAT_QTY, double MAT_COST, double TTL_AMOUNT, String LOCATION) {
+//        this.BIN_ITEM = BIN_ITEM;
+//        this.grns = grns;
+//        this.MAT_ID = MAT_ID;
+//        this.MAT_DES = MAT_DES;
+//        this.MAT_UNIT = MAT_UNIT;
+//        this.MAT_QTY = MAT_QTY;
+//        this.MAT_COST = MAT_COST;
+//        this.TTL_AMOUNT = TTL_AMOUNT;
+//        this.LOCATION = LOCATION;
+//    }
+
+//    public MainStock(String BIN_ITEM, List<Grn> grns, List<ReqNote> reqNotes, List<IssueDtl> issueDtls, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_QTY, double MAT_COST, double TTL_AMOUNT, String LOCATION) {
+//        this.BIN_ITEM = BIN_ITEM;
+//        this.grns = grns;
+//        this.reqNotes = reqNotes;
+//        this.issueDtls = issueDtls;
+//        this.MAT_ID = MAT_ID;
+//        this.MAT_DES = MAT_DES;
+//        this.MAT_UNIT = MAT_UNIT;
+//        this.MAT_QTY = MAT_QTY;
+//        this.MAT_COST = MAT_COST;
+//        this.TTL_AMOUNT = TTL_AMOUNT;
+//        this.LOCATION = LOCATION;
+//    }
 
     public MainStock(String BIN_ITEM, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_QTY, double MAT_COST, double TTL_AMOUNT, String LOCATION) {
         this.BIN_ITEM = BIN_ITEM;
@@ -122,37 +144,59 @@ public class MainStock {
         this.LOCATION = LOCATION;
     }
 
-    public List<Grn> getGrns() {
-        return grns;
+    public Grn getGrn() {
+        return grn;
     }
 
-    public void setGrns(List<Grn> grns) {
-        this.grns = grns;
+    public void setGrn(Grn grn) {
+        this.grn = grn;
     }
+//    public List<Grn> getGrns() {
+//        return grns;
+//    }
+//
+//    public void setGrns(List<Grn> grns) {
+//        this.grns = grns;
+//    }
 
-    public List<ReqNote> getReqNotes() {
-        return reqNotes;
-    }
+//    public List<ReqNote> getReqNotes() {
+//        return reqNotes;
+//    }
+//
+//    public void setReqNotes(List<ReqNote> reqNotes) {
+//        this.reqNotes = reqNotes;
+//    }
+//
+//    public List<IssueDtl> getIssueDtls() {
+//        return issueDtls;
+//    }
+//
+//    public void setIssueDtls(List<IssueDtl> issueDtls) {
+//        this.issueDtls = issueDtls;
+//    }
 
-    public void setReqNotes(List<ReqNote> reqNotes) {
-        this.reqNotes = reqNotes;
-    }
-
-    public List<IssueDtl> getIssueDtls() {
-        return issueDtls;
-    }
-
-    public void setIssueDtls(List<IssueDtl> issueDtls) {
-        this.issueDtls = issueDtls;
-    }
+//    @Override
+//    public String toString() {
+//        return "MainStock{" +
+//                "BIN_ITEM='" + BIN_ITEM + '\'' +
+//                ", grns=" + grns +
+//                ", reqNotes=" + reqNotes +
+//                ", issueDtls=" + issueDtls +
+//                ", MAT_ID='" + MAT_ID + '\'' +
+//                ", MAT_DES='" + MAT_DES + '\'' +
+//                ", MAT_UNIT='" + MAT_UNIT + '\'' +
+//                ", MAT_QTY=" + MAT_QTY +
+//                ", MAT_COST=" + MAT_COST +
+//                ", TTL_AMOUNT=" + TTL_AMOUNT +
+//                ", LOCATION='" + LOCATION + '\'' +
+//                '}';
+//    }
 
     @Override
     public String toString() {
         return "MainStock{" +
                 "BIN_ITEM='" + BIN_ITEM + '\'' +
-                ", grns=" + grns +
-                ", reqNotes=" + reqNotes +
-                ", issueDtls=" + issueDtls +
+                ", grn=" + grn +
                 ", MAT_ID='" + MAT_ID + '\'' +
                 ", MAT_DES='" + MAT_DES + '\'' +
                 ", MAT_UNIT='" + MAT_UNIT + '\'' +

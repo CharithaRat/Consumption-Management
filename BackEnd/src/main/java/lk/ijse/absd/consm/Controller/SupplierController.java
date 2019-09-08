@@ -21,7 +21,7 @@ public class SupplierController {
     }
 
     @GetMapping("/{id}")
-    public SupplierDTO getSupplier(@PathVariable("id") String id) {
+    public SupplierDTO getSupplier(@PathVariable("id") int id) {
         return supplierService.getSupplier(id);
     }
 
@@ -36,7 +36,7 @@ public class SupplierController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSupplier(@PathVariable("id") String id) {
+    public void deleteSupplier(@PathVariable("id") int id) {
         supplierService.deleteSupplier(id);
     }
 }

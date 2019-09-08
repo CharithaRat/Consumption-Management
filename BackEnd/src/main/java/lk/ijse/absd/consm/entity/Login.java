@@ -9,8 +9,10 @@ public class Login {
 
     @Id
     private String USER_NAME;
+
     @OneToOne
     private Employee employee;
+
     private String PASSWORD;
     private String USER_TYPE;
     private String S_PASSWORD;

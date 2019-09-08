@@ -6,6 +6,7 @@ import lk.ijse.absd.consm.repository.EmployeeRepository;
 import lk.ijse.absd.consm.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
@@ -27,7 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDTO getEmployee(String id) {
+    public EmployeeDTO getEmployee(int id) {
         Employee employee = employeeRepository.findById(id).get();
         return new EmployeeDTO(employee.getEMP_ID(), employee.getEMP_NAME(), employee.getEMP_JOIN_DATE(), employee.getEMP_CONTACT(),
                 employee.getEMP_DESIGNATION(), employee.getADDRESS1(), employee.getADDRESS2(), employee.getADDRESS3());
@@ -35,18 +36,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void saveEmployee(EmployeeDTO dto) {
-        employeeRepository.save(new Employee(dto.getEMP_ID(), dto.getEMP_NAME(), dto.getEMP_JOIN_DATE(), dto.getEMP_CONTACT(), dto.getEMP_DESIGNATION(),
+        employeeRepository.save(new Employee(dto.getEMP_NAME(), dto.getEMP_JOIN_DATE(), dto.getEMP_CONTACT(), dto.getEMP_DESIGNATION(),
                 dto.getADDRESS1(), dto.getADDRESS2(), dto.getADDRESS3()));
+//        employeeRepository.
     }
 
     @Override
     public void updateEmployee(EmployeeDTO dto) {
-        employeeRepository.saveAndFlush(new Employee(dto.getEMP_ID(), dto.getEMP_NAME(), dto.getEMP_JOIN_DATE(), dto.getEMP_CONTACT(), dto.getEMP_DESIGNATION(),
+        employeeRepository.saveAndFlush(new Employee(dto.getEMP_NAME(), dto.getEMP_JOIN_DATE(), dto.getEMP_CONTACT(), dto.getEMP_DESIGNATION(),
                 dto.getADDRESS1(), dto.getADDRESS2(), dto.getADDRESS3()));
     }
 
     @Override
-    public void deleteEmployee(String id) {
+    public void deleteEmployee(int id) {
         employeeRepository.deleteById(id);
     }
 

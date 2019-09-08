@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface BudgetService {
     List<BudgetDTO> getAllBudgets();
-    BudgetDTO getBudget(String id);
+    BudgetDTO getBudget(int id);
     void saveBusget(BudgetDTO dto);
     void updateBudget(BudgetDTO dto);
-    void deleteBudget(String id);
+    void deleteBudget(int id);
 }

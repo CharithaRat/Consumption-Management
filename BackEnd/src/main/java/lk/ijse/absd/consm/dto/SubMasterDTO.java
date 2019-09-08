@@ -1,7 +1,11 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SubMasterDTO {
+    @JsonProperty("subId")
     private String SUB_ID;
+    @JsonProperty("subDes")
     private String SUB_DES;
 
     public SubMasterDTO() {

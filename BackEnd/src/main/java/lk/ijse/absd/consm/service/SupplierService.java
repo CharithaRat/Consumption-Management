@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface SupplierService {
     List<SupplierDTO> getAllSuppliers();
-    SupplierDTO getSupplier(String id);
+    SupplierDTO getSupplier(int id);
     void saveSupplier(SupplierDTO dto);
     void updateSupplier(SupplierDTO dto);
-    void deleteSupplier(String id);
+    void deleteSupplier(int id);
 }

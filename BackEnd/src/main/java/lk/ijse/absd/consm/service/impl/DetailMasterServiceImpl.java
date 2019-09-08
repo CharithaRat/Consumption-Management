@@ -30,4 +30,9 @@ public class DetailMasterServiceImpl implements DetailMasterService {
         DetailMaster dMaster = detailMasterRepository.findById(id).get();
         return new DetailMasterDTO(dMaster.getDETAIL_ID(), dMaster.getDETAIL_NAME());
     }
+
+    @Override
+    public void saveDetailMasterDetails(DetailMasterDTO dto) {
+        detailMasterRepository.save(new DetailMaster(dto.getDETAIL_ID(), dto.getDETAIL_NAME()));
+    }
 }

@@ -21,12 +21,13 @@ public class MaterialMasterController {
     }
 
     @GetMapping("/{id}")
-    public MaterialMasterDTO getMaterial(@PathVariable String id) {
+    public MaterialMasterDTO getMaterial(@PathVariable int id) {
         return materialMasterService.getMaterial(id);
     }
 
     @PostMapping
     public void saveMaterial(@RequestBody MaterialMasterDTO dto) {
+        System.out.println(dto);
         materialMasterService.saveMaterial(dto);
     }
 
@@ -36,7 +37,7 @@ public class MaterialMasterController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMaterial(@PathVariable("id") String id) {
+    public void deleteMaterial(@PathVariable("id") int id) {
         materialMasterService.deleteMaterial(id);
     }
 }

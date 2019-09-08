@@ -25,61 +25,62 @@
       <div class="box-body">
         <div class="row">
           <div class="col-md-6 col-sm-12">
-            <form>
+            <form #frmModel="ngForm" (ngSubmit)="saveModel()">
               <div class="form-group">
                 <label for="txtModelId">Model Id</label>
                 <!--<div class="col-sm-10">-->
-                  <input type="text" id="txtModelId" class="form-control" placeholder="Id">
+                <input type="text" id="txtModelId" class="form-control" placeholder="Id" [(ngModel)]="selectedmodel.modelId" name="modelid" required pattern="^MD\d{3}" minlength="5"><br>
+                <p>Hint: MDXXX</p>
                 <!--</div>-->
               </div>
               <div class="form-group">
                 <label for="txtModelName">Model Name</label>
                 <!--<div class="col-sm-10">-->
-                  <input type="text" id="txtModelName" class="form-control" placeholder="Name">
+                <input type="text" id="txtModelName" class="form-control" placeholder="Name" [(ngModel)]="selectedmodel.modelName" name="modelname" minlength="4">
                 <!--</div>-->
               </div>
               <div class="form-group">
                 <label>Create Date</label>
                 <!--<div class="col-sm-10">-->
-                  <!--Date Picker-->
-                  <div class="input-group date">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control pull-left" id="datepicker">
+                <!--Date Picker-->
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
                   </div>
-                  <!--Date Picker-->
+                  <input type="text" class="form-control pull-left" id="datepicker" [(ngModel)]="selectedmodel.modelCreDate" name="modeldate">
+                </div>
+                <!--Date Picker-->
                 <!--</div>-->
               </div>
               <div class="form-group">
                 <!--<div class="col-md-6 col-sm-10">-->
-                  <label>Model Type</label>
+                <label>Model Type</label>
                 <!--</div>-->
                 <!--<div class="col-md-6 col-sm-10">-->
-                  <select class="form-control">
-                    <option>Single</option>
-                    <option>2 Floors</option>
-                    <option>3 Floors</option>
-                    <option>">" 3 Floors</option>
-                  </select>
+                <select class="form-control" [(ngModel)]="selectedmodel.modelType" name="modeltype" required>
+                  <option>Single</option>
+                  <option>2 Floors</option>
+                  <option>3 Floors</option>
+                  <option>">" 3 Floors</option>
+                </select>
                 <!--</div>-->
               </div>
               <div class="box-footer">
-              <div class="form-group">
-                <!--<div class="col-sm-10">-->
-                <!--</div>-->
-                <!--<div class="col-sm-10">-->
+                <div class="form-group">
+                  <!--<div class="col-sm-10">-->
+                  <!--</div>-->
+                  <!--<div class="col-sm-10">-->
                   <button type="submit" id="btnSupSave" class="btn btn-primary">Save</button>
                   &nbsp;
-                  <button type="button" id="btnSupCancel" class="btn btn-danger btn-info pull-right">Cancel</button>
-                <!--</div>-->
-              </div>
+                  <button type="button" id="btnSupCancel" class="btn btn-danger btn-info pull-right" (cancel)="newModel()">Cancel</button>
+                  <!--</div>-->
+                </div>
               </div>
             </form>
           </div>
 
           <div class="col-md-6 col-sm-12">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-hover">
               <thead>
               <tr>
                 <td>Model Id</td>
@@ -89,11 +90,11 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+              <tr *ngFor="let model of models" (click)="tableRowClick(model)">
+                <td>{{model.modelId}}</td>
+                <td>{{model.modelName}}</td>
+                <td>{{model.modelCreDate}}</td>
+                <td>{{model.modelType}}</td>
               </tr>
               </tbody>
             </table>

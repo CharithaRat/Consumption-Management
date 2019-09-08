@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface BomAssignedService {
     List<BomAssignedDTO> getAllAssignedBomsDetails();
-    BomAssignedDTO getAssignedBomDetails(String id);
+    BomAssignedDTO getAssignedBomDetails(int id);
     void saveAssignedBomDetails(BomAssignedDTO dto);
     void updateAssignedBomDetails(BomAssignedDTO dto);
-    void deleteAssignedBomDetails(String id);
+    void deleteAssignedBomDetails(int id);
 }

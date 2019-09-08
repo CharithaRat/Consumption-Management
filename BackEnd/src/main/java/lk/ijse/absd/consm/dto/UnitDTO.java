@@ -1,8 +1,13 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UnitDTO {
+    @JsonProperty("unitId")
     private String UNIT_ID;
+    @JsonProperty("unitDes")
     private String UNIT_DES;
+    @JsonProperty("unitSymbol")
     private String UNIT_SYMBOL;
 
     public UnitDTO() {

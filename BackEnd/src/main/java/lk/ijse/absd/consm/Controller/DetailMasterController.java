@@ -16,12 +16,18 @@ public class DetailMasterController {
     private DetailMasterService detailMasterService;
 
     @GetMapping
-    public List<DetailMasterDTO> getAllDetailCodes(){
+    public List<DetailMasterDTO> getAllDetailCodes() {
         return detailMasterService.getAllDetailCodes();
     }
 
     @GetMapping("/{id}")
-    public DetailMasterDTO getSingleDetailMasterDetails(@PathVariable("id") String id){
+    public DetailMasterDTO getSingleDetailMasterDetails(@PathVariable("id") String id) {
         return detailMasterService.getSelectedDetailMasterDetails(id);
+    }
+
+    @PostMapping
+    public void saveDetailMaster(@RequestBody DetailMasterDTO dto) {
+        System.out.println(dto);
+        detailMasterService.saveDetailMasterDetails(dto);
     }
 }

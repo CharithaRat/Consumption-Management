@@ -1,27 +1,68 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BudgetDTO {
-    private String BUDGET_ID;
+    @JsonProperty("budgetId")
+    private int BUDGET_ID;
+    @JsonProperty("budgetCode")
+    private String BUDGET_CODE;
+    @JsonProperty("modelId")
     private String MODEL_ID;
+    @JsonProperty("xbomId")
     private String XBOM_ID;
+    @JsonProperty("bomId")
     private String BOM_ID;
+    @JsonProperty("bomType")
     private String BOM_TYPE;
+    @JsonProperty("bomUsage")
     private String BOM_USAGE;
+    @JsonProperty("lengeth")
     private double LENGTH;
+    @JsonProperty("width")
     private double WIDTH;
+    @JsonProperty("height")
     private double HEIGHT;
+    @JsonProperty("bomCost")
     private double BOM_COST;
+    @JsonProperty("noOfBomUnits")
     private double NO_OF_BOM_UNITS;
+    @JsonProperty("reqArea")
     private double REQ_AREA;
+    @JsonProperty("covAreaByCMT")
     private double COV_AREA_BY_CMT;
+    @JsonProperty("actCost")
     private double ACT_COST;
+    @JsonProperty("budDate")
     private String BUD_DATE;
+    @JsonProperty("ttlBudgetCost")
     private double TTL_BUDGET_COST;
 
     public BudgetDTO() {
     }
 
-    public BudgetDTO(String BUDGET_ID, String MODEL_ID, String XBOM_ID, String BOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
+    public BudgetDTO(int BUDGET_ID, String BUDGET_CODE, String MODEL_ID, String XBOM_ID, String BOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS,
+                     double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
+        this.BUDGET_ID = BUDGET_ID;
+        this.BUDGET_CODE = BUDGET_CODE;
+        this.MODEL_ID = MODEL_ID;
+        this.XBOM_ID = XBOM_ID;
+        this.BOM_ID = BOM_ID;
+        this.BOM_TYPE = BOM_TYPE;
+        this.BOM_USAGE = BOM_USAGE;
+        this.LENGTH = LENGTH;
+        this.WIDTH = WIDTH;
+        this.HEIGHT = HEIGHT;
+        this.BOM_COST = BOM_COST;
+        this.NO_OF_BOM_UNITS = NO_OF_BOM_UNITS;
+        this.REQ_AREA = REQ_AREA;
+        this.COV_AREA_BY_CMT = COV_AREA_BY_CMT;
+        this.ACT_COST = ACT_COST;
+        this.BUD_DATE = BUD_DATE;
+        this.TTL_BUDGET_COST = TTL_BUDGET_COST;
+    }
+
+    public BudgetDTO(int BUDGET_ID, String MODEL_ID, String XBOM_ID, String BOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
         this.BUDGET_ID = BUDGET_ID;
         this.MODEL_ID = MODEL_ID;
         this.XBOM_ID = XBOM_ID;
@@ -40,11 +81,11 @@ public class BudgetDTO {
         this.TTL_BUDGET_COST = TTL_BUDGET_COST;
     }
 
-    public String getBUDGET_ID() {
+    public int getBUDGET_ID() {
         return BUDGET_ID;
     }
 
-    public void setBUDGET_ID(String BUDGET_ID) {
+    public void setBUDGET_ID(int BUDGET_ID) {
         this.BUDGET_ID = BUDGET_ID;
     }
 
@@ -168,10 +209,41 @@ public class BudgetDTO {
         this.TTL_BUDGET_COST = TTL_BUDGET_COST;
     }
 
+    public String getBUDGET_CODE() {
+        return BUDGET_CODE;
+    }
+
+    public void setBUDGET_CODE(String BUDGET_CODE) {
+        this.BUDGET_CODE = BUDGET_CODE;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "BudgetDTO{" +
+//                "BUDGET_ID='" + BUDGET_ID + '\'' +
+//                ", MODEL_ID='" + MODEL_ID + '\'' +
+//                ", XBOM_ID='" + XBOM_ID + '\'' +
+//                ", BOM_ID='" + BOM_ID + '\'' +
+//                ", BOM_TYPE='" + BOM_TYPE + '\'' +
+//                ", BOM_USAGE='" + BOM_USAGE + '\'' +
+//                ", LENGTH=" + LENGTH +
+//                ", WIDTH=" + WIDTH +
+//                ", HEIGHT=" + HEIGHT +
+//                ", BOM_COST=" + BOM_COST +
+//                ", NO_OF_BOM_UNITS=" + NO_OF_BOM_UNITS +
+//                ", REQ_AREA=" + REQ_AREA +
+//                ", COV_AREA_BY_CMT=" + COV_AREA_BY_CMT +
+//                ", ACT_COST=" + ACT_COST +
+//                ", BUD_DATE='" + BUD_DATE + '\'' +
+//                ", TTL_BUDGET_COST=" + TTL_BUDGET_COST +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "BudgetDTO{" +
-                "BUDGET_ID='" + BUDGET_ID + '\'' +
+                "BUDGET_ID=" + BUDGET_ID +
+                ", BUDGET_CODE='" + BUDGET_CODE + '\'' +
                 ", MODEL_ID='" + MODEL_ID + '\'' +
                 ", XBOM_ID='" + XBOM_ID + '\'' +
                 ", BOM_ID='" + BOM_ID + '\'' +

@@ -2,14 +2,26 @@ package lk.ijse.absd.consm.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class MainMaster {
     @Id
     private String MAIN_ID;
+
+    @OneToMany(mappedBy = "mainm")
+    private List<MaterialMaster> materialmain;
+
     private String MAIN_DES;
 
     public MainMaster() {
+    }
+
+    public MainMaster(String MAIN_ID, List<MaterialMaster> materialmain, String MAIN_DES) {
+        this.MAIN_ID = MAIN_ID;
+        this.materialmain = materialmain;
+        this.MAIN_DES = MAIN_DES;
     }
 
     public MainMaster(String MAIN_ID, String MAIN_DES) {
@@ -33,10 +45,27 @@ public class MainMaster {
         this.MAIN_DES = MAIN_DES;
     }
 
+    public List<MaterialMaster> getMaterialmain() {
+        return materialmain;
+    }
+
+    public void setMaterialmain(List<MaterialMaster> materialmain) {
+        this.materialmain = materialmain;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "MainMaster{" +
+//                "MAIN_ID='" + MAIN_ID + '\'' +
+//                ", MAIN_DES='" + MAIN_DES + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "MainMaster{" +
                 "MAIN_ID='" + MAIN_ID + '\'' +
+                ", materialmain=" + materialmain +
                 ", MAIN_DES='" + MAIN_DES + '\'' +
                 '}';
     }

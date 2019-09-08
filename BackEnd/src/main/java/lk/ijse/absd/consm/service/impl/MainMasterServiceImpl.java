@@ -29,4 +29,9 @@ public class MainMasterServiceImpl implements MainMasterService {
         MainMaster master = mainMasterRepository.findById(id).get();
         return new MainMasterDTO(master.getMAIN_ID(), master.getMAIN_DES());
     }
+
+    @Override
+    public void saveMainMasterDetails(MainMasterDTO dto) {
+        mainMasterRepository.save(new MainMaster(dto.getMAIN_ID(), dto.getMAIN_DES()));
+    }
 }

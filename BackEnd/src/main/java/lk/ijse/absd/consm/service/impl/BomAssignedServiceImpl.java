@@ -26,7 +26,7 @@ public class BomAssignedServiceImpl implements BomAssignedService {
     }
 
     @Override
-    public BomAssignedDTO getAssignedBomDetails(String id) {
+    public BomAssignedDTO getAssignedBomDetails(int id) {
         BomAssigned assignedBom = bomAssignedRepository.findById(id).get();
         return new BomAssignedDTO(assignedBom.getBOM_ID(), assignedBom.getBOM_USAGE(), assignedBom.getLENGTH(), assignedBom.getWIDTH(), assignedBom.getHEIGHT(), assignedBom.getCOV_AREA_UNIT(), assignedBom.getCOV_AREA(), assignedBom.getBOM_COST(), assignedBom.getASSIGN_DATE(), assignedBom.getCOST_PER_UNITAREA());
     }
@@ -42,7 +42,7 @@ public class BomAssignedServiceImpl implements BomAssignedService {
     }
 
     @Override
-    public void deleteAssignedBomDetails(String id) {
+    public void deleteAssignedBomDetails(int id) {
         bomAssignedRepository.deleteById(id);
     }
 }

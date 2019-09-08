@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface SubMasterService {
     List<SubMasterDTO>  getAllSubCodes();
-    SubMasterDTO getSelectedSubMasterDetails(String id);;
+    SubMasterDTO getSelectedSubMasterDetails(String id);
+    void saveSubMasterDetails(SubMasterDTO dto);
 }

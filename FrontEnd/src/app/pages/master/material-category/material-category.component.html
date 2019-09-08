@@ -24,23 +24,42 @@
           <h5 class="box-title">Main Code</h5>
         </div>
         <div class="box-body">
-          <form>
+          <form #frmMain="ngForm" (ngSubmit)="saveMainCode()">
             <div class="form-group">
               <label for="txtMainCode">Code</label>
-              <input type="text" id="txtMainCode" class="form-control" placeholder="Code">
+              <input type="text" id="txtMainCode" class="form-control" placeholder="Code" [(ngModel)]="mainCode.mainId"
+                     name="maincode" required pattern="[A-Z]{2}" minlength="2">
+              <p>Hint: [XX] Digits</p>
             </div>
             <div class="form-group">
               <label for="txtDescription1">Description</label>
-              <input type="text" id="txtDescription1" class="form-control" placeholder="Description">
+              <input type="text" id="txtDescription1" class="form-control" placeholder="Description"
+                     [(ngModel)]="mainCode.mainDes" name="maindes" minlength="4">
             </div>
             <div class="box-footer">
               <div class="form-group">
                 <button type="submit" class="btn btn-primary" id="mSave">Save</button>
                 &nbsp;
-                <button type="button" class="btn btn-danger btn btn-info pull-right" id="mCancel">Cancel</button>
+                <button type="button" class="btn btn-danger btn btn-info pull-right" id="mCancel" (cancel)="newMain()">Cancel</button>
               </div>
             </div>
           </form>
+          <div>
+            <table class="table table-bordered table-hover" id="tabMainCodes">
+              <thead>
+              <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let mainc of mainCodes" (click)="tableRowClickMain(mainc)">
+                <td>{{mainc.mainId| uppercase}}</td>
+                <td>{{mainc.mainDes}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -51,23 +70,42 @@
           <h5 class="box-title">Sub Code</h5>
         </div>
         <div class="box-body">
-          <form>
+          <form #frmSub="ngForm" (ngSubmit)="saveSubCode()">
             <div class="form-group">
               <label for="txtSubCode">Code</label>
-              <input type="text" id="txtSubCode" class="form-control" placeholder="Code">
+              <input type="text" id="txtSubCode" class="form-control" placeholder="Code" [(ngModel)]="subCode.subId"
+                     name="subcode" required pattern="[A-Z]{3}" minlength="3">
+              <p>Hint: [XXX] Digits</p>
             </div>
             <div class="form-group">
               <label for="txtDescription2">Description</label>
-              <input type="text" id="txtDescription2" class="form-control" placeholder="Description">
+              <input type="text" id="txtDescription2" class="form-control" placeholder="Description"
+                     [(ngModel)]="subCode.subDes" name="subdes" minlength="4">
             </div>
             <div class="box-footer">
               <div class="form-group">
                 <button type="submit" class="btn btn-primary" id="suSave">Save</button>
                 &nbsp;
-                <button type="button" class="btn btn-danger btn btn-info pull-right" id="suCancel">Cancel</button>
+                <button type="button" class="btn btn-danger btn btn-info pull-right" id="suCancel" (cancel)="newSub()">Cancel</button>
               </div>
             </div>
           </form>
+          <div>
+            <table class="table table-bordered table-hover" id="tabSubCodes">
+              <thead>
+              <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let subc of subCodes" (click)="tableRowClickSub(subc)">
+                <td>{{subc.subId| uppercase}}</td>
+                <td>{{subc.subDes}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -78,23 +116,42 @@
           <h5 class="box-title">Detail Code</h5>
         </div>
         <div class="box-body">
-          <form>
+          <form #frmDetail="ngForm" (ngSubmit)="saveDetailCode()">
             <div class="form-group">
               <label for="txtDetailCode">Code</label>
-              <input type="text" id="txtDetailCode" class="form-control" placeholder="Code">
+              <input type="text" id="txtDetailCode" class="form-control" placeholder="Code"
+                     [(ngModel)]="detailCode.detailId" name="detailcode" required pattern="[A-Z]{3}" minlength="3">
+              <p>Hint: [XXX] Digits</p>
             </div>
             <div class="form-group">
               <label for="txtDescription3">Description</label>
-              <input type="text" id="txtDescription3" class="form-control" placeholder="Description">
+              <input type="text" id="txtDescription3" class="form-control" placeholder="Description"
+                     [(ngModel)]="detailCode.detailDes" name="detaildes" minlength="4">
             </div>
             <div class="box-footer">
               <div class="form-group">
                 <button type="submit" class="btn btn-primary" id="dSave">Save</button>
                 &nbsp;
-                <button type="button" class="btn btn-danger btn btn-info pull-right" id="dCancel">Cancel</button>
+                <button type="button" class="btn btn-danger btn btn-info pull-right" id="dCancel" (cancel)="newDetail()">Cancel</button>
               </div>
             </div>
           </form>
+          <div>
+            <table class="table table-bordered table-hover" id="tabDetailCodes">
+              <thead>
+              <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let detailc of detailCodes" (click)="tableRowClickDetail(detailc)">
+                <td>{{detailc.detailId| uppercase}}</td>
+                <td>{{detailc.detailDes}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

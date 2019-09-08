@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ContractorService {
     List<ContractorDTO> getAllContractors();
-    ContractorDTO getContractor(String id);
+    ContractorDTO getContractor(int id);
     void saveContractor(ContractorDTO dto);
     void updateContractor(ContractorDTO dto);
-    void deleteContractor(String id);
+    void deleteContractor(int id);
 }

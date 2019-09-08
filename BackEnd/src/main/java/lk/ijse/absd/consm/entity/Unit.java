@@ -13,8 +13,8 @@ public class Unit {
     @Id
     private String UNIT_ID;
 
-    @ManyToMany(mappedBy = "units")
-    private List<UnitRelation> relations = new ArrayList<>();
+//    @ManyToMany(mappedBy = "units")
+//    private List<UnitRelation> relations = new ArrayList<>();
 
     @OneToMany(mappedBy = "unit")
     private List<MaterialMaster> materialMasterList = new ArrayList<>();
@@ -63,13 +63,13 @@ public class Unit {
         this.UNIT_SYMBOL = UNIT_SYMBOL;
     }
 
-    public List<UnitRelation> getRelations() {
-        return relations;
-    }
+//    public List<UnitRelation> getRelations() {
+//        return relations;
+//    }
 
-    public void setRelations(List<UnitRelation> relations) {
-        this.relations = relations;
-    }
+//    public void setRelations(List<UnitRelation> relations) {
+//        this.relations = relations;
+//    }
 
     public List<MaterialMaster> getMaterialMasterList() {
         return materialMasterList;
@@ -83,7 +83,6 @@ public class Unit {
     public String toString() {
         return "Unit{" +
                 "UNIT_ID='" + UNIT_ID + '\'' +
-                ", relations=" + relations +
                 ", materialMasterList=" + materialMasterList +
                 ", UNIT_DES='" + UNIT_DES + '\'' +
                 ", UNIT_SYMBOL='" + UNIT_SYMBOL + '\'' +

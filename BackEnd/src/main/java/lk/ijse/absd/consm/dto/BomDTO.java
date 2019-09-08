@@ -1,18 +1,40 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BomDTO {
-    private String BOM_ID;
+    @JsonProperty("bomId")
+    private int BOM_ID;
+    @JsonProperty("bomCode")
+    private String BOM_CODE;
+    @JsonProperty("bomDes")
     private String BOM_DES;
+    @JsonProperty("bomType")
     private String BOM_TYPE;
+    @JsonProperty("bomUnit")
     private String BOM_UNIT;
+    @JsonProperty("bomDate")
     private String BOM_DATE;
+    @JsonProperty("bomValue")
     private double BOM_VALUE;
+    @JsonProperty("bomGurPeriod")
     private String BOM_GUR_PER;
 
     public BomDTO() {
     }
 
-    public BomDTO(String BOM_ID, String BOM_DES, String BOM_TYPE, String BOM_UNIT, String BOM_DATE, double BOM_VALUE, String BOM_GUR_PER) {
+    public BomDTO(int BOM_ID, String BOM_CODE, String BOM_DES, String BOM_TYPE, String BOM_UNIT, String BOM_DATE, double BOM_VALUE, String BOM_GUR_PER) {
+        this.BOM_ID = BOM_ID;
+        this.BOM_CODE = BOM_CODE;
+        this.BOM_DES = BOM_DES;
+        this.BOM_TYPE = BOM_TYPE;
+        this.BOM_UNIT = BOM_UNIT;
+        this.BOM_DATE = BOM_DATE;
+        this.BOM_VALUE = BOM_VALUE;
+        this.BOM_GUR_PER = BOM_GUR_PER;
+    }
+
+    public BomDTO(int BOM_ID, String BOM_DES, String BOM_TYPE, String BOM_UNIT, String BOM_DATE, double BOM_VALUE, String BOM_GUR_PER) {
         this.BOM_ID = BOM_ID;
         this.BOM_DES = BOM_DES;
         this.BOM_TYPE = BOM_TYPE;
@@ -22,11 +44,11 @@ public class BomDTO {
         this.BOM_GUR_PER = BOM_GUR_PER;
     }
 
-    public String getBOM_ID() {
+    public int getBOM_ID() {
         return BOM_ID;
     }
 
-    public void setBOM_ID(String BOM_ID) {
+    public void setBOM_ID(int BOM_ID) {
         this.BOM_ID = BOM_ID;
     }
 
@@ -78,10 +100,32 @@ public class BomDTO {
         this.BOM_GUR_PER = BOM_GUR_PER;
     }
 
+    public String getBOM_CODE() {
+        return BOM_CODE;
+    }
+
+    public void setBOM_CODE(String BOM_CODE) {
+        this.BOM_CODE = BOM_CODE;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "BomDTO{" +
+//                "BOM_ID='" + BOM_ID + '\'' +
+//                ", BOM_DES='" + BOM_DES + '\'' +
+//                ", BOM_TYPE='" + BOM_TYPE + '\'' +
+//                ", BOM_UNIT='" + BOM_UNIT + '\'' +
+//                ", BOM_DATE='" + BOM_DATE + '\'' +
+//                ", BOM_VALUE=" + BOM_VALUE +
+//                ", BOM_GUR_PER='" + BOM_GUR_PER + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "BomDTO{" +
-                "BOM_ID='" + BOM_ID + '\'' +
+                "BOM_ID=" + BOM_ID +
+                ", BOM_CODE='" + BOM_CODE + '\'' +
                 ", BOM_DES='" + BOM_DES + '\'' +
                 ", BOM_TYPE='" + BOM_TYPE + '\'' +
                 ", BOM_UNIT='" + BOM_UNIT + '\'' +

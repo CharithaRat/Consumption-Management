@@ -22,7 +22,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public EmployeeDTO getEmployee(@PathVariable("id") String id) {
+    public EmployeeDTO getEmployee(@PathVariable("id") int id) {
         return employeeService.getEmployee(id);
     }
 
@@ -42,17 +42,19 @@ public class EmployeeController {
 //    }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployee(@PathVariable("id") String id){
+    public void deleteEmployee(@PathVariable("id") int id){
         employeeService.deleteEmployee(id);
     }
 
     @PostMapping
     public void saveEmployee(@RequestBody EmployeeDTO dto){
+        System.out.println(dto);
         employeeService.saveEmployee(dto);
     }
 
     @PutMapping
     public void updateEmployee(@RequestBody EmployeeDTO dto){
+        System.out.println(dto);
         employeeService.updateEmployee(dto);
     }
 }

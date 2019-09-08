@@ -1,20 +1,19 @@
 package lk.ijse.absd.consm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class IssueDtl {
 
     @Id
-    private String ISU_NOTE_NO;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int ISU_NOTE_NO;
 
-    @ManyToOne
-    private MainStock mainStks;
-
-    @ManyToOne
-    private Contractor contractordet;
+//    @ManyToOne
+//    private MainStock mainStks;
+//
+//    @ManyToOne
+//    private Contractor contractordet;
 
     private String ISU_DATE;
     private String ISU_BY;
@@ -28,13 +27,47 @@ public class IssueDtl {
     private double MAT_ISU_QTY;
     private String MAT_SER_NO;
 
+    private String BIN_ITEM;
+    private int CONT_ID;
+
     public IssueDtl() {
     }
 
-    public IssueDtl(String ISU_NOTE_NO, MainStock mainStks, Contractor contractordet, String ISU_DATE, String ISU_BY, String REQ_BY, String REQ_ID, String REQ_DATE, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_REQ_QTY, double MAT_ISU_QTY, String MAT_SER_NO) {
+    public IssueDtl(String ISU_DATE, String ISU_BY, String REQ_BY, String REQ_ID, String REQ_DATE, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_REQ_QTY, double MAT_ISU_QTY, String MAT_SER_NO, String BIN_ITEM, int CONT_ID) {
+        this.ISU_DATE = ISU_DATE;
+        this.ISU_BY = ISU_BY;
+        this.REQ_BY = REQ_BY;
+        this.REQ_ID = REQ_ID;
+        this.REQ_DATE = REQ_DATE;
+        this.MAT_ID = MAT_ID;
+        this.MAT_DES = MAT_DES;
+        this.MAT_UNIT = MAT_UNIT;
+        this.MAT_REQ_QTY = MAT_REQ_QTY;
+        this.MAT_ISU_QTY = MAT_ISU_QTY;
+        this.MAT_SER_NO = MAT_SER_NO;
+        this.BIN_ITEM = BIN_ITEM;
+        this.CONT_ID = CONT_ID;
+    }
+
+//    public IssueDtl(int ISU_NOTE_NO, MainStock mainStks, Contractor contractordet, String ISU_DATE, String ISU_BY, String REQ_BY, String REQ_ID, String REQ_DATE, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_REQ_QTY, double MAT_ISU_QTY, String MAT_SER_NO) {
+//        this.ISU_NOTE_NO = ISU_NOTE_NO;
+//        this.mainStks = mainStks;
+//        this.contractordet = contractordet;
+//        this.ISU_DATE = ISU_DATE;
+//        this.ISU_BY = ISU_BY;
+//        this.REQ_BY = REQ_BY;
+//        this.REQ_ID = REQ_ID;
+//        this.REQ_DATE = REQ_DATE;
+//        this.MAT_ID = MAT_ID;
+//        this.MAT_DES = MAT_DES;
+//        this.MAT_UNIT = MAT_UNIT;
+//        this.MAT_REQ_QTY = MAT_REQ_QTY;
+//        this.MAT_ISU_QTY = MAT_ISU_QTY;
+//        this.MAT_SER_NO = MAT_SER_NO;
+//    }
+
+    public IssueDtl(int ISU_NOTE_NO, String ISU_DATE, String ISU_BY, String REQ_BY, String REQ_ID, String REQ_DATE, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_REQ_QTY, double MAT_ISU_QTY, String MAT_SER_NO) {
         this.ISU_NOTE_NO = ISU_NOTE_NO;
-        this.mainStks = mainStks;
-        this.contractordet = contractordet;
         this.ISU_DATE = ISU_DATE;
         this.ISU_BY = ISU_BY;
         this.REQ_BY = REQ_BY;
@@ -48,26 +81,11 @@ public class IssueDtl {
         this.MAT_SER_NO = MAT_SER_NO;
     }
 
-    public IssueDtl(String ISU_NOTE_NO, String ISU_DATE, String ISU_BY, String REQ_BY, String REQ_ID, String REQ_DATE, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_REQ_QTY, double MAT_ISU_QTY, String MAT_SER_NO) {
-        this.ISU_NOTE_NO = ISU_NOTE_NO;
-        this.ISU_DATE = ISU_DATE;
-        this.ISU_BY = ISU_BY;
-        this.REQ_BY = REQ_BY;
-        this.REQ_ID = REQ_ID;
-        this.REQ_DATE = REQ_DATE;
-        this.MAT_ID = MAT_ID;
-        this.MAT_DES = MAT_DES;
-        this.MAT_UNIT = MAT_UNIT;
-        this.MAT_REQ_QTY = MAT_REQ_QTY;
-        this.MAT_ISU_QTY = MAT_ISU_QTY;
-        this.MAT_SER_NO = MAT_SER_NO;
-    }
-
-    public String getISU_NOTE_NO() {
+    public int getISU_NOTE_NO() {
         return ISU_NOTE_NO;
     }
 
-    public void setISU_NOTE_NO(String ISU_NOTE_NO) {
+    public void setISU_NOTE_NO(int ISU_NOTE_NO) {
         this.ISU_NOTE_NO = ISU_NOTE_NO;
     }
 
@@ -159,28 +177,61 @@ public class IssueDtl {
         this.MAT_SER_NO = MAT_SER_NO;
     }
 
-    public MainStock getMainStks() {
-        return mainStks;
+    public String getBIN_ITEM() {
+        return BIN_ITEM;
     }
 
-    public void setMainStks(MainStock mainStks) {
-        this.mainStks = mainStks;
+    public void setBIN_ITEM(String BIN_ITEM) {
+        this.BIN_ITEM = BIN_ITEM;
     }
 
-    public Contractor getContractordet() {
-        return contractordet;
+    public int getCONT_ID() {
+        return CONT_ID;
     }
 
-    public void setContractordet(Contractor contractordet) {
-        this.contractordet = contractordet;
+    public void setCONT_ID(int CONT_ID) {
+        this.CONT_ID = CONT_ID;
     }
+//    public MainStock getMainStks() {
+//        return mainStks;
+//    }
+//
+//    public void setMainStks(MainStock mainStks) {
+//        this.mainStks = mainStks;
+//    }
+//
+//    public Contractor getContractordet() {
+//        return contractordet;
+//    }
+//
+//    public void setContractordet(Contractor contractordet) {
+//        this.contractordet = contractordet;
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "IssueDtl{" +
+//                "ISU_NOTE_NO='" + ISU_NOTE_NO + '\'' +
+//                ", mainStks=" + mainStks +
+//                ", contractordet=" + contractordet +
+//                ", ISU_DATE='" + ISU_DATE + '\'' +
+//                ", ISU_BY='" + ISU_BY + '\'' +
+//                ", REQ_BY='" + REQ_BY + '\'' +
+//                ", REQ_ID='" + REQ_ID + '\'' +
+//                ", REQ_DATE='" + REQ_DATE + '\'' +
+//                ", MAT_ID='" + MAT_ID + '\'' +
+//                ", MAT_DES='" + MAT_DES + '\'' +
+//                ", MAT_UNIT='" + MAT_UNIT + '\'' +
+//                ", MAT_REQ_QTY=" + MAT_REQ_QTY +
+//                ", MAT_ISU_QTY=" + MAT_ISU_QTY +
+//                ", MAT_SER_NO='" + MAT_SER_NO + '\'' +
+//                '}';
+//    }
 
     @Override
     public String toString() {
         return "IssueDtl{" +
-                "ISU_NOTE_NO='" + ISU_NOTE_NO + '\'' +
-                ", mainStks=" + mainStks +
-                ", contractordet=" + contractordet +
+                "ISU_NOTE_NO=" + ISU_NOTE_NO +
                 ", ISU_DATE='" + ISU_DATE + '\'' +
                 ", ISU_BY='" + ISU_BY + '\'' +
                 ", REQ_BY='" + REQ_BY + '\'' +
@@ -192,6 +243,8 @@ public class IssueDtl {
                 ", MAT_REQ_QTY=" + MAT_REQ_QTY +
                 ", MAT_ISU_QTY=" + MAT_ISU_QTY +
                 ", MAT_SER_NO='" + MAT_SER_NO + '\'' +
+                ", BIN_ITEM='" + BIN_ITEM + '\'' +
+                ", CONT_ID=" + CONT_ID +
                 '}';
     }
 }

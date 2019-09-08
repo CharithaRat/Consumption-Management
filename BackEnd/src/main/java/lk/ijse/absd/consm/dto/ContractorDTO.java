@@ -1,18 +1,27 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ContractorDTO {
-    private String CONT_ID;
+    @JsonProperty("contId")
+    private int CONT_ID;
+    @JsonProperty("contName")
     private String CONT_NAME;
+    @JsonProperty("contJoinDate")
     private String CONT_JOIN_DATE;
+    @JsonProperty("contContact")
     private String CONT_CONTACT;
+    @JsonProperty("contAddress1")
     private String ADDRESS1;
+    @JsonProperty("contAddress2")
     private String ADDRESS2;
+    @JsonProperty("contAddress3")
     private String ADDRESS3;
 
     public ContractorDTO() {
     }
 
-    public ContractorDTO(String CONT_ID, String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+    public ContractorDTO(String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
         this.CONT_ID = CONT_ID;
         this.CONT_NAME = CONT_NAME;
         this.CONT_JOIN_DATE = CONT_JOIN_DATE;
@@ -22,11 +31,21 @@ public class ContractorDTO {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public String getCONT_ID() {
+    public ContractorDTO(int CONT_ID, String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+        this.CONT_ID = CONT_ID;
+        this.CONT_NAME = CONT_NAME;
+        this.CONT_JOIN_DATE = CONT_JOIN_DATE;
+        this.CONT_CONTACT = CONT_CONTACT;
+        this.ADDRESS1 = ADDRESS1;
+        this.ADDRESS2 = ADDRESS2;
+        this.ADDRESS3 = ADDRESS3;
+    }
+
+    public int getCONT_ID() {
         return CONT_ID;
     }
 
-    public void setCONT_ID(String CONT_ID) {
+    public void setCONT_ID(int CONT_ID) {
         this.CONT_ID = CONT_ID;
     }
 

@@ -21,27 +21,27 @@ public class XbomServiceImpl implements XbomService {
     @Override
     public List<XbomDTO> getAllXboms() {
         List<Xbom> xboms = xbomRepository.findAll();
-        return xboms.stream().map(x -> new XbomDTO(x.getXBOM_ID(), x.getBOM_ID(), x.getBOM_TYPE(), x.getMODEL_ID(), x.getBOM_COST(), x.getXBOM_GUR_PER())).collect(Collectors.toList());
+        return xboms.stream().map(x -> new XbomDTO(x.getXBOM_ID(), x.getXBOM_CODE(), x.getBOM_ID(), x.getBOM_TYPE(), x.getMODEL_ID(), x.getBOM_COST(), x.getXBOM_GUR_PER())).collect(Collectors.toList());
     }
 
     @Override
-    public XbomDTO getXbom(String id) {
+    public XbomDTO getXbom(int id) {
         Xbom xbom = xbomRepository.findById(id).get();
-        return new XbomDTO(xbom.getXBOM_ID(), xbom.getBOM_ID(), xbom.getBOM_TYPE(), xbom.getMODEL_ID(), xbom.getBOM_COST(), xbom.getXBOM_GUR_PER());
+        return new XbomDTO(xbom.getXBOM_ID(),xbom.getXBOM_CODE(), xbom.getBOM_ID(), xbom.getBOM_TYPE(), xbom.getMODEL_ID(), xbom.getBOM_COST(), xbom.getXBOM_GUR_PER());
     }
 
     @Override
     public void saveXbom(XbomDTO dto) {
-        xbomRepository.save(new Xbom(dto.getXBOM_ID(), dto.getBOM_ID(), dto.getBOM_TYPE(), dto.getMODEL_ID(), dto.getBOM_COST(), dto.getXBOM_GUR_PER()));
+        xbomRepository.save(new Xbom(dto.getXBOM_CODE(), dto.getBOM_ID(), dto.getBOM_TYPE(), dto.getMODEL_ID(), dto.getBOM_COST(), dto.getXBOM_GUR_PER()));
     }
 
     @Override
     public void updateXbom(XbomDTO dto) {
-        xbomRepository.saveAndFlush(new Xbom(dto.getXBOM_ID(), dto.getBOM_ID(), dto.getBOM_TYPE(), dto.getMODEL_ID(), dto.getBOM_COST(), dto.getXBOM_GUR_PER()));
+        xbomRepository.saveAndFlush(new Xbom(dto.getXBOM_CODE(), dto.getBOM_ID(), dto.getBOM_TYPE(), dto.getMODEL_ID(), dto.getBOM_COST(), dto.getXBOM_GUR_PER()));
     }
 
     @Override
-    public void deleteXbom(String id) {
+    public void deleteXbom(int id) {
         xbomRepository.deleteById(id);
     }
 }

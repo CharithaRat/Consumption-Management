@@ -6,8 +6,13 @@ import java.util.List;
 
 public interface MaterialMasterService {
     List<MaterialMasterDTO> getAllMaterials();
-    MaterialMasterDTO getMaterial(String id);
+
+    MaterialMasterDTO getMaterial(int id);
+
     void saveMaterial(MaterialMasterDTO dto);
+//    MaterialMasterDTO saveMaterial(MaterialMasterDTO dto);
+
     void updateMaterial(MaterialMasterDTO dto);
-    void deleteMaterial(String id);
+
+    void deleteMaterial(int id);
 }

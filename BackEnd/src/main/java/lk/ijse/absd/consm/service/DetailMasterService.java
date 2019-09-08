@@ -7,4 +7,5 @@ import java.util.List;
 public interface DetailMasterService {
     List<DetailMasterDTO> getAllDetailCodes();
     DetailMasterDTO getSelectedDetailMasterDetails(String id);
+    void saveDetailMasterDetails(DetailMasterDTO dto);
 }

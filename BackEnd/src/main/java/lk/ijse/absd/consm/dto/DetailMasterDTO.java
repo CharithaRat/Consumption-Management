@@ -1,7 +1,11 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class DetailMasterDTO {
+    @JsonProperty("detailId")
     private String DETAIL_ID;
+    @JsonProperty("detailDes")
     private String DETAIL_NAME;
 
     public DetailMasterDTO() {

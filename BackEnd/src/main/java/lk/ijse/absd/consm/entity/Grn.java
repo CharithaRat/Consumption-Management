@@ -1,8 +1,6 @@
 package lk.ijse.absd.consm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,12 +8,13 @@ import java.util.List;
 public class Grn {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private String GRN_ID;
 
-    @ManyToMany
-    private List<MaterialMaster> mats = new ArrayList<>();
+//    @ManyToMany
+//    private List<MaterialMaster> mats = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "grns")
+    @OneToMany(mappedBy = "grn")
     private List<MainStock> mainStocks = new ArrayList<>();
 
     private String GRN_DATE;
@@ -32,9 +31,8 @@ public class Grn {
     public Grn() {
     }
 
-    public Grn(String GRN_ID, List<MaterialMaster> mats, List<MainStock> mainStocks, String GRN_DATE, String SUP_ID, String SUP_DES, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_UNIT_PRICE, double MAT_GRN_QTY, double GRN_AMOUT, double TTL_AMOUNT) {
-        this.GRN_ID = GRN_ID;
-        this.mats = mats;
+    public Grn(List<MainStock> mainStocks, String GRN_DATE, String SUP_ID, String SUP_DES, String MAT_ID, String MAT_DES, String MAT_UNIT,
+               double MAT_UNIT_PRICE, double MAT_GRN_QTY, double GRN_AMOUT, double TTL_AMOUNT) {
         this.mainStocks = mainStocks;
         this.GRN_DATE = GRN_DATE;
         this.SUP_ID = SUP_ID;
@@ -47,6 +45,21 @@ public class Grn {
         this.GRN_AMOUT = GRN_AMOUT;
         this.TTL_AMOUNT = TTL_AMOUNT;
     }
+//    public Grn(String GRN_ID, List<MaterialMaster> mats, List<MainStock> mainStocks, String GRN_DATE, String SUP_ID, String SUP_DES, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_UNIT_PRICE, double MAT_GRN_QTY, double GRN_AMOUT, double TTL_AMOUNT) {
+//        this.GRN_ID = GRN_ID;
+//        this.mats = mats;
+//        this.mainStocks = mainStocks;
+//        this.GRN_DATE = GRN_DATE;
+//        this.SUP_ID = SUP_ID;
+//        this.SUP_DES = SUP_DES;
+//        this.MAT_ID = MAT_ID;
+//        this.MAT_DES = MAT_DES;
+//        this.MAT_UNIT = MAT_UNIT;
+//        this.MAT_UNIT_PRICE = MAT_UNIT_PRICE;
+//        this.MAT_GRN_QTY = MAT_GRN_QTY;
+//        this.GRN_AMOUT = GRN_AMOUT;
+//        this.TTL_AMOUNT = TTL_AMOUNT;
+//    }
 
     public Grn(String GRN_ID, String GRN_DATE, String SUP_ID, String SUP_DES, String MAT_ID, String MAT_DES, String MAT_UNIT, double MAT_UNIT_PRICE, double MAT_GRN_QTY, double GRN_AMOUT, double TTL_AMOUNT) {
         this.GRN_ID = GRN_ID;
@@ -150,13 +163,13 @@ public class Grn {
         this.TTL_AMOUNT = TTL_AMOUNT;
     }
 
-    public List<MaterialMaster> getMats() {
-        return mats;
-    }
+//    public List<MaterialMaster> getMats() {
+//        return mats;
+//    }
 
-    public void setMats(List<MaterialMaster> mats) {
-        this.mats = mats;
-    }
+//    public void setMats(List<MaterialMaster> mats) {
+//        this.mats = mats;
+//    }
 
     public List<MainStock> getMainStocks() {
         return mainStocks;
@@ -170,7 +183,6 @@ public class Grn {
     public String toString() {
         return "Grn{" +
                 "GRN_ID='" + GRN_ID + '\'' +
-                ", mats=" + mats +
                 ", mainStocks=" + mainStocks +
                 ", GRN_DATE='" + GRN_DATE + '\'' +
                 ", SUP_ID='" + SUP_ID + '\'' +
@@ -184,4 +196,22 @@ public class Grn {
                 ", TTL_AMOUNT=" + TTL_AMOUNT +
                 '}';
     }
+//    @Override
+//    public String toString() {
+//        return "Grn{" +
+//                "GRN_ID='" + GRN_ID + '\'' +
+//                ", mats=" + mats +
+//                ", mainStocks=" + mainStocks +
+//                ", GRN_DATE='" + GRN_DATE + '\'' +
+//                ", SUP_ID='" + SUP_ID + '\'' +
+//                ", SUP_DES='" + SUP_DES + '\'' +
+//                ", MAT_ID='" + MAT_ID + '\'' +
+//                ", MAT_DES='" + MAT_DES + '\'' +
+//                ", MAT_UNIT='" + MAT_UNIT + '\'' +
+//                ", MAT_UNIT_PRICE=" + MAT_UNIT_PRICE +
+//                ", MAT_GRN_QTY=" + MAT_GRN_QTY +
+//                ", GRN_AMOUT=" + GRN_AMOUT +
+//                ", TTL_AMOUNT=" + TTL_AMOUNT +
+//                '}';
+//    }
 }

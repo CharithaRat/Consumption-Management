@@ -9,16 +9,19 @@ import java.util.List;
 public class Xbom implements Serializable {
 
     @Id
-    private String XBOM_ID;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int XBOM_ID;
 
-    @ManyToMany
-    private List<Bom> boms = new ArrayList<>();
+    private String XBOM_CODE;
+
+    @ManyToOne
+    private Bom bom;
 
     @OneToMany(mappedBy = "xbom")
     private List<Budget> budgets = new ArrayList<>();
 
-    @ManyToOne
-    private Model model;
+    @OneToMany(mappedBy = "xbomM")
+    private List<Model> models = new ArrayList<>();
 
     private String BOM_ID;
     private String BOM_TYPE;
@@ -29,11 +32,23 @@ public class Xbom implements Serializable {
     public Xbom() {
     }
 
-    public Xbom(String XBOM_ID, List<Bom> boms, List<Budget> budgets, Model model, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
-        this.XBOM_ID = XBOM_ID;
-        this.boms = boms;
+//    public Xbom(int XBOM_ID, List<Bom> boms, List<Budget> budgets, Model model, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
+//        this.XBOM_ID = XBOM_ID;
+//        this.boms = boms;
+//        this.budgets = budgets;
+//        this.model = model;
+//        this.BOM_ID = BOM_ID;
+//        this.BOM_TYPE = BOM_TYPE;
+//        this.MODEL_ID = MODEL_ID;
+//        this.BOM_COST = BOM_COST;
+//        this.XBOM_GUR_PER = XBOM_GUR_PER;
+//    }
+
+    public Xbom(String XBOM_CODE, Bom bom, List<Budget> budgets, List<Model> models, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
+        this.XBOM_CODE = XBOM_CODE;
+        this.bom = bom;
         this.budgets = budgets;
-        this.model = model;
+        this.models = models;
         this.BOM_ID = BOM_ID;
         this.BOM_TYPE = BOM_TYPE;
         this.MODEL_ID = MODEL_ID;
@@ -41,7 +56,16 @@ public class Xbom implements Serializable {
         this.XBOM_GUR_PER = XBOM_GUR_PER;
     }
 
-    public Xbom(String XBOM_ID, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
+    public Xbom(String XBOM_CODE, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
+        this.XBOM_CODE = XBOM_CODE;
+        this.BOM_ID = BOM_ID;
+        this.BOM_TYPE = BOM_TYPE;
+        this.MODEL_ID = MODEL_ID;
+        this.BOM_COST = BOM_COST;
+        this.XBOM_GUR_PER = XBOM_GUR_PER;
+    }
+
+    public Xbom(int XBOM_ID, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
         this.XBOM_ID = XBOM_ID;
         this.BOM_ID = BOM_ID;
         this.BOM_TYPE = BOM_TYPE;
@@ -50,11 +74,11 @@ public class Xbom implements Serializable {
         this.XBOM_GUR_PER = XBOM_GUR_PER;
     }
 
-    public String getXBOM_ID() {
+    public int getXBOM_ID() {
         return XBOM_ID;
     }
 
-    public void setXBOM_ID(String XBOM_ID) {
+    public void setXBOM_ID(int XBOM_ID) {
         this.XBOM_ID = XBOM_ID;
     }
 
@@ -98,13 +122,13 @@ public class Xbom implements Serializable {
         this.XBOM_GUR_PER = XBOM_GUR_PER;
     }
 
-    public List<Bom> getBoms() {
-        return boms;
-    }
-
-    public void setBoms(List<Bom> boms) {
-        this.boms = boms;
-    }
+//    public List<Bom> getBoms() {
+//        return boms;
+//    }
+//
+//    public void setBoms(List<Bom> boms) {
+//        this.boms = boms;
+//    }
 
     public List<Budget> getBudgets() {
         return budgets;
@@ -114,21 +138,53 @@ public class Xbom implements Serializable {
         this.budgets = budgets;
     }
 
-    public Model getModel() {
-        return model;
+    public String getXBOM_CODE() {
+        return XBOM_CODE;
     }
 
-    public void setModel(Model model) {
-        this.model = model;
+    public void setXBOM_CODE(String XBOM_CODE) {
+        this.XBOM_CODE = XBOM_CODE;
     }
+
+    public Bom getBom() {
+        return bom;
+    }
+
+    public void setBom(Bom bom) {
+        this.bom = bom;
+    }
+
+    public List<Model> getModels() {
+        return models;
+    }
+
+    public void setModels(List<Model> models) {
+        this.models = models;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Xbom{" +
+//                "XBOM_ID='" + XBOM_ID + '\'' +
+//                ", boms=" + boms +
+//                ", budgets=" + budgets +
+//                ", model=" + model +
+//                ", BOM_ID='" + BOM_ID + '\'' +
+//                ", BOM_TYPE='" + BOM_TYPE + '\'' +
+//                ", MODEL_ID='" + MODEL_ID + '\'' +
+//                ", BOM_COST=" + BOM_COST +
+//                ", XBOM_GUR_PER='" + XBOM_GUR_PER + '\'' +
+//                '}';
+//    }
 
     @Override
     public String toString() {
         return "Xbom{" +
-                "XBOM_ID='" + XBOM_ID + '\'' +
-                ", boms=" + boms +
+                "XBOM_ID=" + XBOM_ID +
+                ", XBOM_CODE='" + XBOM_CODE + '\'' +
+                ", bom=" + bom +
                 ", budgets=" + budgets +
-                ", model=" + model +
+                ", models=" + models +
                 ", BOM_ID='" + BOM_ID + '\'' +
                 ", BOM_TYPE='" + BOM_TYPE + '\'' +
                 ", MODEL_ID='" + MODEL_ID + '\'' +

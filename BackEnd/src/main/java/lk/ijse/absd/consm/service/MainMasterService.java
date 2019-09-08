@@ -7,4 +7,5 @@ import java.util.List;
 public interface MainMasterService {
     List<MainMasterDTO> getAllMainCodes();
     MainMasterDTO getSelectedMainMasterDetails(String id);
+    void saveMainMasterDetails(MainMasterDTO dto);
 }

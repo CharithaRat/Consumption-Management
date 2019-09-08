@@ -1,14 +1,19 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UnitRelationDTO {
+    @JsonProperty("baseUnit")
     private String BASE_UNIT;
+    @JsonProperty("relUnit")
     private String REL_UNIT;
-    private String UNIT_RATE;
+    @JsonProperty("unitRate")
+    private double UNIT_RATE;
 
     public UnitRelationDTO() {
     }
 
-    public UnitRelationDTO(String BASE_UNIT, String REL_UNIT, String UNIT_RATE) {
+    public UnitRelationDTO(String BASE_UNIT, String REL_UNIT, double UNIT_RATE) {
         this.BASE_UNIT = BASE_UNIT;
         this.REL_UNIT = REL_UNIT;
         this.UNIT_RATE = UNIT_RATE;
@@ -30,11 +35,11 @@ public class UnitRelationDTO {
         this.REL_UNIT = REL_UNIT;
     }
 
-    public String getUNIT_RATE() {
+    public double getUNIT_RATE() {
         return UNIT_RATE;
     }
 
-    public void setUNIT_RATE(String UNIT_RATE) {
+    public void setUNIT_RATE(double UNIT_RATE) {
         this.UNIT_RATE = UNIT_RATE;
     }
 

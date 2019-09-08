@@ -21,28 +21,28 @@ public class ModelServiceImpl implements ModelService {
     @Override
     public List<ModelDTO> getAllModels() {
         List<Model> models = modelRepository.findAll();
-        return models.stream().map(m -> new ModelDTO(m.getMODEL_ID(), m.getMODEL_NAME(), m.getMODEL_CRE_DATE(),
+        return models.stream().map(m -> new ModelDTO(m.getMODEL_ID(),m.getMODEL_CODE(), m.getMODEL_NAME(), m.getMODEL_CRE_DATE(),
                 m.getMODEL_TYPE())).collect(Collectors.toList());
     }
 
     @Override
-    public ModelDTO getModel(String id) {
+    public ModelDTO getModel(int id) {
         Model model = modelRepository.findById(id).get();
-        return new ModelDTO(model.getMODEL_ID(), model.getMODEL_NAME(), model.getMODEL_CRE_DATE(), model.getMODEL_TYPE());
+        return new ModelDTO(model.getMODEL_ID(), model.getMODEL_CODE(), model.getMODEL_NAME(), model.getMODEL_CRE_DATE(), model.getMODEL_TYPE());
     }
 
     @Override
     public void saveModel(ModelDTO dto) {
-        modelRepository.save(new Model(dto.getMODEL_ID(), dto.getMODEL_NAME(), dto.getMODEL_CRE_DATE(), dto.getMODEL_TYPE()));
+        modelRepository.save(new Model(dto.getMODEL_CODE(), dto.getMODEL_NAME(), dto.getMODEL_CRE_DATE(), dto.getMODEL_TYPE()));
     }
 
     @Override
     public void updateModel(ModelDTO dto) {
-        modelRepository.saveAndFlush(new Model(dto.getMODEL_ID(), dto.getMODEL_NAME(), dto.getMODEL_CRE_DATE(), dto.getMODEL_TYPE()));
+        modelRepository.saveAndFlush(new Model(dto.getMODEL_CODE(), dto.getMODEL_NAME(), dto.getMODEL_CRE_DATE(), dto.getMODEL_TYPE()));
     }
 
     @Override
-    public void deleteModel(String id) {
+    public void deleteModel(int id) {
         modelRepository.deleteById(id);
     }
 }

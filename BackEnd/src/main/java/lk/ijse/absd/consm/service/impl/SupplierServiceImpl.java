@@ -26,7 +26,7 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public SupplierDTO getSupplier(String id) {
+    public SupplierDTO getSupplier(int id) {
         Supplier supplier = supplierRepository.findById(id).get();
         return new SupplierDTO(supplier.getSUP_ID(), supplier.getSUP_NAME(), supplier.getSUP_JOIN_DATE(),
                 supplier.getSUP_CONTACT(), supplier.getADDRESS1(), supplier.getADDRESS2(), supplier.getADDRESS3());
@@ -34,18 +34,18 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public void saveSupplier(SupplierDTO dto) {
-        supplierRepository.save(new Supplier(dto.getSUP_ID(), dto.getSUP_NAME(), dto.getSUP_JOIN_DATE(), dto.getSUP_CONTACT(),
+        supplierRepository.save(new Supplier(dto.getSUP_NAME(), dto.getSUP_JOIN_DATE(), dto.getSUP_CONTACT(),
                 dto.getADDRESS1(), dto.getADDRESS2(), dto.getADDRESS3()));
     }
 
     @Override
     public void updateSupplier(SupplierDTO dto) {
-        supplierRepository.saveAndFlush(new Supplier(dto.getSUP_ID(), dto.getSUP_NAME(), dto.getSUP_JOIN_DATE(), dto.getSUP_CONTACT(),
+        supplierRepository.saveAndFlush(new Supplier(dto.getSUP_NAME(), dto.getSUP_JOIN_DATE(), dto.getSUP_CONTACT(),
                 dto.getADDRESS1(), dto.getADDRESS2(), dto.getADDRESS3()));
     }
 
     @Override
-    public void deleteSupplier(String id) {
+    public void deleteSupplier(int id) {
         supplierRepository.deleteById(id);
     }
 }

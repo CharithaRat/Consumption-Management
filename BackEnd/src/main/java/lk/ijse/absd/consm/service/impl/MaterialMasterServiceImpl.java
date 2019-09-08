@@ -21,31 +21,31 @@ public class MaterialMasterServiceImpl implements MaterialMasterService {
     @Override
     public List<MaterialMasterDTO> getAllMaterials() {
         List<MaterialMaster> materials = materialMasterRepository.findAll();
-        return materials.stream().map(m -> new MaterialMasterDTO(m.getMATERIAL_ID(), m.getMATERIAL_NAME(), m.getMATERIAL_TYPE(),
-                m.getMATERIAL_UNIT(), m.getUNIT_PRICE(), m.getMAT_DATE(), m.getMATERIAL_CODE())).collect(Collectors.toList());
+        return materials.stream().map(m -> new MaterialMasterDTO(m.getMATERIAL_ID(), m.getMAT_ID_CODE(), m.getMATERIAL_NAME(), m.getMATERIAL_TYPE(),
+                m.getMATERIAL_GRADE(), m.getMATERIAL_UNIT(), m.getUNIT_PRICE(), m.getMAT_DATE(), m.getMATERIAL_CODE())).collect(Collectors.toList());
     }
 
     @Override
-    public MaterialMasterDTO getMaterial(String id) {
+    public MaterialMasterDTO getMaterial(int id) {
         MaterialMaster material = materialMasterRepository.findById(id).get();
-        return new MaterialMasterDTO(material.getMATERIAL_ID(), material.getMATERIAL_NAME(), material.getMATERIAL_TYPE(), material.getMATERIAL_UNIT(),
-                material.getUNIT_PRICE(), material.getMAT_DATE(), material.getMATERIAL_CODE());
+        return new MaterialMasterDTO(material.getMATERIAL_ID(), material.getMAT_ID_CODE(), material.getMATERIAL_NAME(), material.getMATERIAL_TYPE(), material.getMATERIAL_GRADE(),
+                material.getMATERIAL_UNIT(), material.getUNIT_PRICE(), material.getMAT_DATE(), material.getMATERIAL_CODE());
     }
 
     @Override
     public void saveMaterial(MaterialMasterDTO dto) {
-        materialMasterRepository.save(new MaterialMaster(dto.getMATERIAL_ID(), dto.getMATERIAL_NAME(), dto.getMATERIAL_TYPE(), dto.getMATERIAL_UNIT(),
+        materialMasterRepository.save(new MaterialMaster(dto.getMAT_ID_CODE(), dto.getMATERIAL_NAME(), dto.getMATERIAL_TYPE(), dto.getMATERIAL_GRADE(),dto.getMATERIAL_UNIT(),
                 dto.getUNIT_PRICE(), dto.getMAT_DATE(), dto.getMATERIAL_CODE()));
     }
 
     @Override
     public void updateMaterial(MaterialMasterDTO dto) {
-        materialMasterRepository.saveAndFlush(new MaterialMaster(dto.getMATERIAL_ID(), dto.getMATERIAL_NAME(), dto.getMATERIAL_TYPE(), dto.getMATERIAL_UNIT(),
+        materialMasterRepository.saveAndFlush(new MaterialMaster(dto.getMAT_ID_CODE(), dto.getMATERIAL_NAME(), dto.getMATERIAL_TYPE(), dto.getMATERIAL_GRADE(), dto.getMATERIAL_UNIT(),
                 dto.getUNIT_PRICE(), dto.getMAT_DATE(), dto.getMATERIAL_CODE()));
     }
 
     @Override
-    public void deleteMaterial(String id) {
+    public void deleteMaterial(int id) {
         materialMasterRepository.deleteById(id);
     }
 }

@@ -1,8 +1,6 @@
 package lk.ijse.absd.consm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +8,14 @@ import java.util.List;
 public class Contractor {
 
     @Id
-    private String CONT_ID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int CONT_ID;
 
-    @OneToMany(mappedBy = "contractor")
-    private List<ReqNote> reqNotes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "contractordet")
-    private List<IssueDtl> issueDtls = new ArrayList<>();
+//    @OneToMany(mappedBy = "contractor")
+//    private List<ReqNote> reqNotes = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "contractordet")
+//    private List<IssueDtl> issueDtls = new ArrayList<>();
 
     @OneToMany(mappedBy = "contractordata")
     private List<ProdOutput> prodOutputs = new ArrayList<>();
@@ -31,10 +30,8 @@ public class Contractor {
     public Contractor() {
     }
 
-    public Contractor(String CONT_ID, List<ReqNote> reqNotes, List<IssueDtl> issueDtls, List<ProdOutput> prodOutputs, String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
-        this.CONT_ID = CONT_ID;
-        this.reqNotes = reqNotes;
-        this.issueDtls = issueDtls;
+    public Contractor(List<ProdOutput> prodOutputs, String CONT_NAME, String CONT_JOIN_DATE,
+                      String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
         this.prodOutputs = prodOutputs;
         this.CONT_NAME = CONT_NAME;
         this.CONT_JOIN_DATE = CONT_JOIN_DATE;
@@ -44,7 +41,20 @@ public class Contractor {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public Contractor(String CONT_ID, String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+    //    public Contractor(int CONT_ID, List<ReqNote> reqNotes, List<IssueDtl> issueDtls, List<ProdOutput> prodOutputs, String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+//        this.CONT_ID = CONT_ID;
+//        this.reqNotes = reqNotes;
+//        this.issueDtls = issueDtls;
+//        this.prodOutputs = prodOutputs;
+//        this.CONT_NAME = CONT_NAME;
+//        this.CONT_JOIN_DATE = CONT_JOIN_DATE;
+//        this.CONT_CONTACT = CONT_CONTACT;
+//        this.ADDRESS1 = ADDRESS1;
+//        this.ADDRESS2 = ADDRESS2;
+//        this.ADDRESS3 = ADDRESS3;
+//    }
+
+    public Contractor(int CONT_ID, String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
         this.CONT_ID = CONT_ID;
         this.CONT_NAME = CONT_NAME;
         this.CONT_JOIN_DATE = CONT_JOIN_DATE;
@@ -54,11 +64,21 @@ public class Contractor {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public String getCONT_ID() {
+    public Contractor(String CONT_NAME, String CONT_JOIN_DATE, String CONT_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+        this.CONT_ID = CONT_ID;
+        this.CONT_NAME = CONT_NAME;
+        this.CONT_JOIN_DATE = CONT_JOIN_DATE;
+        this.CONT_CONTACT = CONT_CONTACT;
+        this.ADDRESS1 = ADDRESS1;
+        this.ADDRESS2 = ADDRESS2;
+        this.ADDRESS3 = ADDRESS3;
+    }
+
+    public int getCONT_ID() {
         return CONT_ID;
     }
 
-    public void setCONT_ID(String CONT_ID) {
+    public void setCONT_ID(int CONT_ID) {
         this.CONT_ID = CONT_ID;
     }
 
@@ -110,21 +130,21 @@ public class Contractor {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public List<ReqNote> getReqNotes() {
-        return reqNotes;
-    }
-
-    public void setReqNotes(List<ReqNote> reqNotes) {
-        this.reqNotes = reqNotes;
-    }
-
-    public List<IssueDtl> getIssueDtls() {
-        return issueDtls;
-    }
-
-    public void setIssueDtls(List<IssueDtl> issueDtls) {
-        this.issueDtls = issueDtls;
-    }
+//    public List<ReqNote> getReqNotes() {
+//        return reqNotes;
+//    }
+//
+//    public void setReqNotes(List<ReqNote> reqNotes) {
+//        this.reqNotes = reqNotes;
+//    }
+//
+//    public List<IssueDtl> getIssueDtls() {
+//        return issueDtls;
+//    }
+//
+//    public void setIssueDtls(List<IssueDtl> issueDtls) {
+//        this.issueDtls = issueDtls;
+//    }
 
     public List<ProdOutput> getProdOutputs() {
         return prodOutputs;
@@ -134,12 +154,26 @@ public class Contractor {
         this.prodOutputs = prodOutputs;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Contractor{" +
+//                "CONT_ID='" + CONT_ID + '\'' +
+//                ", reqNotes=" + reqNotes +
+//                ", issueDtls=" + issueDtls +
+//                ", prodOutputs=" + prodOutputs +
+//                ", CONT_NAME='" + CONT_NAME + '\'' +
+//                ", CONT_JOIN_DATE='" + CONT_JOIN_DATE + '\'' +
+//                ", CONT_CONTACT='" + CONT_CONTACT + '\'' +
+//                ", ADDRESS1='" + ADDRESS1 + '\'' +
+//                ", ADDRESS2='" + ADDRESS2 + '\'' +
+//                ", ADDRESS3='" + ADDRESS3 + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "Contractor{" +
-                "CONT_ID='" + CONT_ID + '\'' +
-                ", reqNotes=" + reqNotes +
-                ", issueDtls=" + issueDtls +
+                "CONT_ID=" + CONT_ID +
                 ", prodOutputs=" + prodOutputs +
                 ", CONT_NAME='" + CONT_NAME + '\'' +
                 ", CONT_JOIN_DATE='" + CONT_JOIN_DATE + '\'' +

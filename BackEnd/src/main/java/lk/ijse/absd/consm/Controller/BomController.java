@@ -21,7 +21,7 @@ public class BomController {
     }
 
     @GetMapping("/{id}")
-    public BomDTO getBom(@PathVariable("id") String id){
+    public BomDTO getBom(@PathVariable("id") int id){
         return bomService.getBom(id);
     }
 
@@ -36,7 +36,7 @@ public class BomController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBom(@PathVariable("id") String id){
+    public void deleteBom(@PathVariable("id") int id){
         bomService.deleteBom(id);
     }
 }

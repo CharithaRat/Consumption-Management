@@ -25,6 +25,7 @@ import {MaterialVsOutputComponent} from './pages/reports/material-vs-output/mate
 import {LoginComponent} from './pages/auth/login/login.component';
 import {RegisterComponent} from './pages/auth/register/register.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {SupplyComponent} from './pages/stock/supply/supply.component';
 
 const routes: Routes =
   [
@@ -84,6 +85,10 @@ const routes: Routes =
     },
     // STOCK
     {
+      path: 'pages/stock/supply',
+      component: SupplyComponent
+    },
+    {
       path: 'pages/stock/requestion-note',
       component: RequestionNoteComponent
     },
@@ -118,18 +123,18 @@ const routes: Routes =
       path: 'pages/auth/register',
       component: RegisterComponent
     },
-    {
-      path: 'customers',
-      component: ManageCustomerComponent
-    },
-    {
-      path: 'items',
-      component: ManageItemComponent
-    },
-    {
-      path: 'orders',
-      component: ManageOrderComponent
-    },
+    // {
+    //   path: 'customers',
+    //   component: ManageCustomerComponent
+    // },
+    // {
+    //   path: 'items',
+    //   component: ManageItemComponent
+    // },
+    // {
+    //   path: 'orders',
+    //   component: ManageOrderComponent
+    // },
     {
       path: '',
       pathMatch: 'full',

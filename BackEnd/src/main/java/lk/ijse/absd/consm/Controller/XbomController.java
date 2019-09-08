@@ -23,7 +23,7 @@ public class XbomController {
     }
 
     @GetMapping("/{id}")
-    public XbomDTO getXbom(@PathVariable("id") String id) {
+    public XbomDTO getXbom(@PathVariable("id") int id) {
         return xbomService.getXbom(id);
     }
 
@@ -38,7 +38,7 @@ public class XbomController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteXbom(@PathVariable("id") String id) {
+    public void deleteXbom(@PathVariable("id") int id) {
         xbomService.deleteXbom(id);
     }
 }

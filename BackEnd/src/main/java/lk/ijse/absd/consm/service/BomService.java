@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface BomService {
     List<BomDTO> getAllBoms();
-    BomDTO getBom(String id);
+    BomDTO getBom(int id);
     void saveBom(BomDTO dto);
     void updateBom(BomDTO dto);
-    void deleteBom(String id);
+    void deleteBom(int id);
 }

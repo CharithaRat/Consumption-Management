@@ -1,18 +1,27 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SupplierDTO {
-    private String SUP_ID;
+    @JsonProperty("supId")
+    private int SUP_ID;
+    @JsonProperty("supName")
     private String SUP_NAME;
+    @JsonProperty("supJoinDate")
     private String SUP_JOIN_DATE;
+    @JsonProperty("supContact")
     private String SUP_CONTACT;
+    @JsonProperty("supAddress1")
     private String ADDRESS1;
+    @JsonProperty("supAddress2")
     private String ADDRESS2;
+    @JsonProperty("supAddress3")
     private String ADDRESS3;
 
     public SupplierDTO() {
     }
 
-    public SupplierDTO(String SUP_ID, String SUP_NAME, String SUP_JOIN_DATE, String SUP_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+    public SupplierDTO(int SUP_ID, String SUP_NAME, String SUP_JOIN_DATE, String SUP_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
         this.SUP_ID = SUP_ID;
         this.SUP_NAME = SUP_NAME;
         this.SUP_JOIN_DATE = SUP_JOIN_DATE;
@@ -22,11 +31,11 @@ public class SupplierDTO {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public String getSUP_ID() {
+    public int getSUP_ID() {
         return SUP_ID;
     }
 
-    public void setSUP_ID(String SUP_ID) {
+    public void setSUP_ID(int SUP_ID) {
         this.SUP_ID = SUP_ID;
     }
 

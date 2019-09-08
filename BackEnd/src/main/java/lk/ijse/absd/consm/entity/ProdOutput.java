@@ -1,13 +1,14 @@
 package lk.ijse.absd.consm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class ProdOutput {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int PRD_ID;
+
     private String PRD_DATE;
 
     @ManyToOne
@@ -97,10 +98,32 @@ public class ProdOutput {
         this.contractordata = contractordata;
     }
 
+    public int getPRD_ID() {
+        return PRD_ID;
+    }
+
+    public void setPRD_ID(int PRD_ID) {
+        this.PRD_ID = PRD_ID;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "ProdOutput{" +
+//                "PRD_DATE='" + PRD_DATE + '\'' +
+//                ", contractordata=" + contractordata +
+//                ", MODEL_ID='" + MODEL_ID + '\'' +
+//                ", BOM_ID='" + BOM_ID + '\'' +
+//                ", BOM_USAGE='" + BOM_USAGE + '\'' +
+//                ", COV_AREA=" + COV_AREA +
+//                ", COV_VOLUME=" + COV_VOLUME +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "ProdOutput{" +
-                "PRD_DATE='" + PRD_DATE + '\'' +
+                "PRD_ID=" + PRD_ID +
+                ", PRD_DATE='" + PRD_DATE + '\'' +
                 ", contractordata=" + contractordata +
                 ", MODEL_ID='" + MODEL_ID + '\'' +
                 ", BOM_ID='" + BOM_ID + '\'' +

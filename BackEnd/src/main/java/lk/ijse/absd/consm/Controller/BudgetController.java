@@ -21,7 +21,7 @@ public class BudgetController {
     }
 
     @GetMapping("/{id}")
-    public BudgetDTO getBudget(@PathVariable("id") String id) {
+    public BudgetDTO getBudget(@PathVariable("id") int id) {
         return budgetService.getBudget(id);
     }
 
@@ -36,7 +36,7 @@ public class BudgetController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBudget(@PathVariable("id") String id) {
+    public void deleteBudget(@PathVariable("id") int id) {
         budgetService.deleteBudget(id);
     }
 

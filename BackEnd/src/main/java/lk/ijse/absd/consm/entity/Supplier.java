@@ -1,8 +1,6 @@
 package lk.ijse.absd.consm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +8,11 @@ import java.util.List;
 public class Supplier {
 
     @Id
-    private String SUP_ID;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int SUP_ID;
 
-    @ManyToMany
-    private List<MaterialMaster> materials = new ArrayList<>();
+//    @ManyToMany
+//    private List<MaterialMaster> materials = new ArrayList<>();
 
     private String SUP_NAME;
     private String SUP_JOIN_DATE;
@@ -25,9 +24,19 @@ public class Supplier {
     public Supplier() {
     }
 
-    public Supplier(String SUP_ID, List<MaterialMaster> materials, String SUP_NAME, String SUP_JOIN_DATE, String SUP_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+//    public Supplier(int SUP_ID, List<MaterialMaster> materials, String SUP_NAME, String SUP_JOIN_DATE, String SUP_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+//        this.SUP_ID = SUP_ID;
+//        this.materials = materials;
+//        this.SUP_NAME = SUP_NAME;
+//        this.SUP_JOIN_DATE = SUP_JOIN_DATE;
+//        this.SUP_CONTACT = SUP_CONTACT;
+//        this.ADDRESS1 = ADDRESS1;
+//        this.ADDRESS2 = ADDRESS2;
+//        this.ADDRESS3 = ADDRESS3;
+//    }
+
+    public Supplier(int SUP_ID, String SUP_NAME, String SUP_JOIN_DATE, String SUP_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
         this.SUP_ID = SUP_ID;
-        this.materials = materials;
         this.SUP_NAME = SUP_NAME;
         this.SUP_JOIN_DATE = SUP_JOIN_DATE;
         this.SUP_CONTACT = SUP_CONTACT;
@@ -36,7 +45,7 @@ public class Supplier {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public Supplier(String SUP_ID, String SUP_NAME, String SUP_JOIN_DATE, String SUP_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+    public Supplier(String SUP_NAME, String SUP_JOIN_DATE, String SUP_CONTACT, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
         this.SUP_ID = SUP_ID;
         this.SUP_NAME = SUP_NAME;
         this.SUP_JOIN_DATE = SUP_JOIN_DATE;
@@ -46,11 +55,11 @@ public class Supplier {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public String getSUP_ID() {
+    public int getSUP_ID() {
         return SUP_ID;
     }
 
-    public void setSUP_ID(String SUP_ID) {
+    public void setSUP_ID(int SUP_ID) {
         this.SUP_ID = SUP_ID;
     }
 
@@ -102,19 +111,18 @@ public class Supplier {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public List<MaterialMaster> getMaterials() {
-        return materials;
-    }
+//    public List<MaterialMaster> getMaterials() {
+//        return materials;
+//    }
 
-    public void setMaterials(List<MaterialMaster> materials) {
-        this.materials = materials;
-    }
+//    public void setMaterials(List<MaterialMaster> materials) {
+//        this.materials = materials;
+//    }
 
     @Override
     public String toString() {
         return "Supplier{" +
-                "SUP_ID='" + SUP_ID + '\'' +
-                ", materials=" + materials +
+                "SUP_ID=" + SUP_ID +
                 ", SUP_NAME='" + SUP_NAME + '\'' +
                 ", SUP_JOIN_DATE='" + SUP_JOIN_DATE + '\'' +
                 ", SUP_CONTACT='" + SUP_CONTACT + '\'' +
@@ -123,4 +131,18 @@ public class Supplier {
                 ", ADDRESS3='" + ADDRESS3 + '\'' +
                 '}';
     }
+
+//    @Override
+//    public String toString() {
+//        return "Supplier{" +
+//                "SUP_ID='" + SUP_ID + '\'' +
+//                ", materials=" + materials +
+//                ", SUP_NAME='" + SUP_NAME + '\'' +
+//                ", SUP_JOIN_DATE='" + SUP_JOIN_DATE + '\'' +
+//                ", SUP_CONTACT='" + SUP_CONTACT + '\'' +
+//                ", ADDRESS1='" + ADDRESS1 + '\'' +
+//                ", ADDRESS2='" + ADDRESS2 + '\'' +
+//                ", ADDRESS3='" + ADDRESS3 + '\'' +
+//                '}';
+//    }
 }

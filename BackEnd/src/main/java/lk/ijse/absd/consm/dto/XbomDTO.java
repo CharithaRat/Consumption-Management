@@ -1,17 +1,37 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class XbomDTO {
-    private String XBOM_ID;
+    @JsonProperty("xbomId")
+    private int XBOM_ID;
+    @JsonProperty("xbomCode")
+    private String XBOM_CODE;
+    @JsonProperty("bomId")
     private String BOM_ID;
+    @JsonProperty("bomType")
     private String BOM_TYPE;
+    @JsonProperty("modelId")
     private String MODEL_ID;
+    @JsonProperty("bomCost")
     private double BOM_COST;
+    @JsonProperty("xbomGurPeriod")
     private String XBOM_GUR_PER;
 
     public XbomDTO() {
     }
 
-    public XbomDTO(String XBOM_ID, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
+    public XbomDTO(int XBOM_ID, String XBOM_CODE, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
+        this.XBOM_ID = XBOM_ID;
+        this.XBOM_CODE = XBOM_CODE;
+        this.BOM_ID = BOM_ID;
+        this.BOM_TYPE = BOM_TYPE;
+        this.MODEL_ID = MODEL_ID;
+        this.BOM_COST = BOM_COST;
+        this.XBOM_GUR_PER = XBOM_GUR_PER;
+    }
+
+    public XbomDTO(int XBOM_ID, String BOM_ID, String BOM_TYPE, String MODEL_ID, double BOM_COST, String XBOM_GUR_PER) {
         this.XBOM_ID = XBOM_ID;
         this.BOM_ID = BOM_ID;
         this.BOM_TYPE = BOM_TYPE;
@@ -20,11 +40,11 @@ public class XbomDTO {
         this.XBOM_GUR_PER = XBOM_GUR_PER;
     }
 
-    public String getXBOM_ID() {
+    public int getXBOM_ID() {
         return XBOM_ID;
     }
 
-    public void setXBOM_ID(String XBOM_ID) {
+    public void setXBOM_ID(int XBOM_ID) {
         this.XBOM_ID = XBOM_ID;
     }
 
@@ -68,10 +88,31 @@ public class XbomDTO {
         this.XBOM_GUR_PER = XBOM_GUR_PER;
     }
 
+    public String getXBOM_CODE() {
+        return XBOM_CODE;
+    }
+
+    public void setXBOM_CODE(String XBOM_CODE) {
+        this.XBOM_CODE = XBOM_CODE;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "XbomDTO{" +
+//                "XBOM_ID='" + XBOM_ID + '\'' +
+//                ", BOM_ID='" + BOM_ID + '\'' +
+//                ", BOM_TYPE='" + BOM_TYPE + '\'' +
+//                ", MODEL_ID='" + MODEL_ID + '\'' +
+//                ", BOM_COST=" + BOM_COST +
+//                ", XBOM_GUR_PER='" + XBOM_GUR_PER + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "XbomDTO{" +
-                "XBOM_ID='" + XBOM_ID + '\'' +
+                "XBOM_ID=" + XBOM_ID +
+                ", XBOM_CODE='" + XBOM_CODE + '\'' +
                 ", BOM_ID='" + BOM_ID + '\'' +
                 ", BOM_TYPE='" + BOM_TYPE + '\'' +
                 ", MODEL_ID='" + MODEL_ID + '\'' +

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Bom} from '../../../dto/bom';
 
 @Component({
   selector: 'app-bom',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   // styleUrls: ['./bom.component.css'],
 })
 export class BomComponent implements OnInit {
+// bom: Bom = new Bom('','')
 
   constructor() {
   }

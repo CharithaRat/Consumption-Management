@@ -56,6 +56,36 @@
   <!--=================================================================================-->
   <!--Header Page CSS End-->
   <!--=================================================================================-->
+
+  <!--=================================Chart Option================================================-->
+  <script type="text/javascript">
+    window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+          theme: "light1", // "light2", "dark1", "dark2"
+          animationEnabled: false, // change to true
+          title:{
+            text: "Basic Column Chart"
+          },
+          data: [
+            {
+              // Change type to "bar", "area", "spline", "pie",etc.
+              type: "column",
+              dataPoints: [
+                { label: "apple",  y: 10  },
+                { label: "orange", y: 15  },
+                { label: "banana", y: 25  },
+                { label: "mango",  y: 30  },
+                { label: "grape",  y: 28  }
+              ]
+            }
+          ]
+        });
+        chart.render();
+
+      }
+</script>
+<!--=================================Chart Option================================================-->
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -82,61 +112,123 @@ desired effect
 <app-root></app-root>
 <!--</canvas>-->
 
-<!--=================================================================================-->
-<!--Header Page JS start-->
-<!--=================================================================================-->
-<!-- jQuery 3 -->
+<!--#################################################################################-->
+<!--Previous Library Set-->
+<!--#################################################################################-->
+
+<!--&lt;!&ndash;=================================================================================&ndash;&gt;
+&lt;!&ndash;Header Page JS start&ndash;&gt;
+&lt;!&ndash;=================================================================================&ndash;&gt;
+&lt;!&ndash; jQuery 3 &ndash;&gt;
 <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
+&lt;!&ndash; Bootstrap 3.3.7 &ndash;&gt;
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<!--<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>-->
-<!-- AdminLTE App -->
+&lt;!&ndash; FastClick &ndash;&gt;
+&lt;!&ndash;<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>&ndash;&gt;
+&lt;!&ndash; AdminLTE App &ndash;&gt;
 <script src="assets/dist/js/adminlte.min.js"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
+&lt;!&ndash; Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
-     user experience. -->
-<!--=================================================================================-->
-<!--Header Page JS End-->
-<!--=================================================================================-->
+     user experience. &ndash;&gt;
+&lt;!&ndash;=================================================================================&ndash;&gt;
+&lt;!&ndash;Header Page JS End&ndash;&gt;
+&lt;!&ndash;=================================================================================&ndash;&gt;
 
-<!--========================Dashboard Additional JS==================================-->
-<!-- Sparkline -->
+&lt;!&ndash;========================Dashboard Additional JS==================================&ndash;&gt;
+&lt;!&ndash; Sparkline &ndash;&gt;
 <script src="assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap  -->
+&lt;!&ndash; jvectormap  &ndash;&gt;
 <script src="assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- SlimScroll -->
+&lt;!&ndash; SlimScroll &ndash;&gt;
 <script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS -->
+&lt;!&ndash; ChartJS &ndash;&gt;
 <script src="assets/bower_components/chart.js/Chart.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<!--<script src="assets/dist/js/pages/dashboard2.js"></script>-->
-<!--AdminLTE for demo purposes -->
+&lt;!&ndash; AdminLTE dashboard demo (This is only for demo purposes) &ndash;&gt;
+<script src="assets/dist/js/pages/dashboard2.js"></script>
+&lt;!&ndash;AdminLTE for demo purposes &ndash;&gt;
 <script src="assets/dist/js/demo.js"></script>
-<!--========================Dashboard Additional=============================-->
-<!-- Select2 -->
+&lt;!&ndash;========================Dashboard Additional=============================&ndash;&gt;
+&lt;!&ndash; Select2 &ndash;&gt;
 <script src="assets/bower_components/select2/dist/js/select2.full.min.js"></script>
-<!-- InputMask -->
+&lt;!&ndash; InputMask &ndash;&gt;
 <script src="assets/plugins/input-mask/jquery.inputmask.js"></script>
 <script src="assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
+&lt;!&ndash; date-range-picker &ndash;&gt;
 <script src="assets/bower_components/moment/min/moment.min.js"></script>
 <script src="assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
+&lt;!&ndash; bootstrap datepicker &ndash;&gt;
 <script src="assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- bootstrap time picker -->
+&lt;!&ndash; bootstrap time picker &ndash;&gt;
 <script src="assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- iCheck 1.0.1 -->
+&lt;!&ndash; iCheck 1.0.1 &ndash;&gt;
 <script src="assets/plugins/iCheck/icheck.min.js"></script>
-<!-- bootstrap color picker -->
+&lt;!&ndash; bootstrap color picker &ndash;&gt;
 <script src="assets/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-<!--&lt;!&ndash; FastClick &ndash;&gt;-->
-<!--<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>-->
-<!--&lt;!&ndash; AdminLTE App &ndash;&gt;-->
-<!--<script src="assets/dist/js/adminlte.min.js"></script>-->
+&lt;!&ndash;&lt;!&ndash; FastClick &ndash;&gt;&ndash;&gt;
+<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
+&lt;!&ndash;&lt;!&ndash; AdminLTE App &ndash;&gt;&ndash;&gt;
+<script src="assets/dist/js/adminlte.min.js"></script>-->
+
+<!--######################################################################################################-->
+<!--Previous Library Set-->
+<!--######################################################################################################-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--New Library Set-->
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+<!-- jQuery 3 -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!--New library for chart option-->
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+<!--New library for chart option-->
+<!-- jQuery UI 1.11.4 -->
+<script src="assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.7 -->
+<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Morris.js charts -->
+<script src="assets/bower_components/raphael/raphael.min.js"></script>
+<script src="assets/bower_components/morris.js/morris.min.js"></script>
+<!-- Sparkline -->
+<script src="assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="assets/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="assets/bower_components/moment/min/moment.min.js"></script>
+<script src="assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="assets/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--New Library Set-->
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
 <script>
   $(function () {
     //Initialize Select2 Elements

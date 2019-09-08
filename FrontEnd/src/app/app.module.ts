@@ -33,6 +33,7 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {BomTableComponent} from './pages/creation/bom/bom-table.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {MatAutocompleteModule} from '@angular/material';
+import { SupplyComponent } from './pages/stock/supply/supply.component';
 
 const EXAMPLES_COMPONENTS = [
   BomTableComponent,
@@ -65,6 +66,7 @@ const EXAMPLES_COMPONENTS = [
     LoginComponent,
     RegisterComponent,
     ...EXAMPLES_COMPONENTS,
+    SupplyComponent,
   ],
   imports: [
     HttpClientModule,

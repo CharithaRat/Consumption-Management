@@ -8,16 +8,19 @@ import java.util.List;
 public interface EmployeeService {
     List<EmployeeDTO> getAllEmployees();
 
-    EmployeeDTO getEmployee(String id);
+    EmployeeDTO getEmployee(int id);
 
     void saveEmployee(EmployeeDTO dto);
+//    boolean saveEmployee(EmployeeDTO dto);
 
     void updateEmployee(EmployeeDTO dto);
 
-    void deleteEmployee(String id);
+    void deleteEmployee(int id);
 
     //    Employee findEmployeeBy(String name);
     //    Employee findEmployeeBy();
 
   /*  Employee findEmployeeBy(String name);*/
+
+//    List<EmployeeDTO> saveEmployeeData(EmployeeDTO dto);
 }

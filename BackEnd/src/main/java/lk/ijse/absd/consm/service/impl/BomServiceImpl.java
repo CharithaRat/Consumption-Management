@@ -23,31 +23,31 @@ public class BomServiceImpl implements BomService {
     @Override
     public List<BomDTO> getAllBoms() {
         List<Bom> boms = bomRepository.findAll();
-        return boms.stream().map(b -> new BomDTO(b.getBOM_ID(), b.getBOM_DES(), b.getBOM_TYPE(), b.getBOM_UNIT(), b.getBOM_DATE(),
+        return boms.stream().map(b -> new BomDTO(b.getBOM_ID(), b.getBOM_CODE(), b.getBOM_DES(), b.getBOM_TYPE(), b.getBOM_UNIT(), b.getBOM_DATE(),
                 b.getBOM_VALUE(), b.getBOM_GUR_PER())).collect(Collectors.toList());
     }
 
     @Override
-    public BomDTO getBom(String id) {
+    public BomDTO getBom(int id) {
         Bom bomd = bomRepository.findById(id).get();
-        return new BomDTO(bomd.getBOM_ID(), bomd.getBOM_DES(), bomd.getBOM_TYPE(), bomd.getBOM_UNIT(), bomd.getBOM_DATE(),
+        return new BomDTO(bomd.getBOM_ID(), bomd.getBOM_CODE(), bomd.getBOM_DES(), bomd.getBOM_TYPE(), bomd.getBOM_UNIT(), bomd.getBOM_DATE(),
                 bomd.getBOM_VALUE(), bomd.getBOM_GUR_PER());
     }
 
     @Override
     public void saveBom(BomDTO dto) {
-        bomRepository.save(new Bom(dto.getBOM_ID(), dto.getBOM_DES(), dto.getBOM_TYPE(), dto.getBOM_UNIT(), dto.getBOM_DATE(),
+        bomRepository.save(new Bom(dto.getBOM_CODE(), dto.getBOM_DES(), dto.getBOM_TYPE(), dto.getBOM_UNIT(), dto.getBOM_DATE(),
                 dto.getBOM_VALUE(), dto.getBOM_GUR_PER()));
     }
 
     @Override
     public void updateBom(BomDTO dto) {
-        bomRepository.saveAndFlush(new Bom(dto.getBOM_ID(), dto.getBOM_DES(), dto.getBOM_TYPE(), dto.getBOM_UNIT(), dto.getBOM_DATE(),
+        bomRepository.saveAndFlush(new Bom(dto.getBOM_CODE(), dto.getBOM_DES(), dto.getBOM_TYPE(), dto.getBOM_UNIT(), dto.getBOM_DATE(),
                 dto.getBOM_VALUE(), dto.getBOM_GUR_PER()));
     }
 
     @Override
-    public void deleteBom(String id) {
+    public void deleteBom(int id) {
         bomRepository.deleteById(id);
     }
 }

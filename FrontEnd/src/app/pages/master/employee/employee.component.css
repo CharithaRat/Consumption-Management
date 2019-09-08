@@ -1,3 +1,14 @@
 form label{
   text-align: left;
 }
+ul li:hover{
+  cursor: pointer;
+  background: #a6a6a6;
+}
+ul li{
+  padding-left: 3px;
+  scroll-padding-block: 3px;
+  align-content: left;
+  text-align: left;
+  text-autospace: ideograph-space;
+}

@@ -24,4 +24,9 @@ public class MainMasterController {
     public MainMasterDTO getSingleMainMasterDetails(@PathVariable("id") String id){
         return mainMasterService.getSelectedMainMasterDetails(id);
     }
+
+    @PostMapping
+    public void saveMainMasterDetails(@RequestBody MainMasterDTO dto){
+        mainMasterService.saveMainMasterDetails(dto);
+    }
 }

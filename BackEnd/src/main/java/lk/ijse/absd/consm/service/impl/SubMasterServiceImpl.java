@@ -29,4 +29,9 @@ public class SubMasterServiceImpl implements SubMasterService {
         SubMaster sMaster = subMasterRepository.findById(id).get();
         return new SubMasterDTO(sMaster.getSUB_ID(), sMaster.getSUB_DES());
     }
+
+    @Override
+    public void saveSubMasterDetails(SubMasterDTO dto) {
+        subMasterRepository.save(new SubMaster(dto.getSUB_ID(), dto.getSUB_DES()));
+    }
 }

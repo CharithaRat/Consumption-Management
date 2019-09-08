@@ -1,11 +1,21 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ProdOutputDTO {
+    @JsonProperty("prdId")
+    private int PRD_ID;
+    @JsonProperty("modelId")
     private String MODEL_ID;
+    @JsonProperty("prdDate")
     private String PRD_DATE;
+    @JsonProperty("bomId")
     private String BOM_ID;
+    @JsonProperty("bomUsage")
     private String BOM_USAGE;
+    @JsonProperty("covArea")
     private double COV_AREA;
+    @JsonProperty("covVolume")
     private double COV_VOLUME;
 
     public ProdOutputDTO() {

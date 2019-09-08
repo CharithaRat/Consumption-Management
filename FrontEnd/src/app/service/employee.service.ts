@@ -19,12 +19,20 @@ export class EmployeeService {
     return this.http.get<Employee[]>(this.baseUrl);
   }
 
-  getSelectedEmployee(id: string): Observable<Employee> {
+  getSelectedEmployee(id: any): Observable<Employee> {
     return this.http.get<Employee>(this.baseUrl + id);
   }
 
   saveEmployee(employee: Employee): Observable<null> {
     return this.http.post<null>(this.baseUrl, employee);
+  }
+
+  updateEmployee(employee: Employee): Observable<null> {
+    return this.http.put<null>(this.baseUrl, employee);
+  }
+
+  deleteEmployee(id: any): Observable<null> {
+    return this.http.delete<null>(this.baseUrl + id);
   }
 
   // getEmployeeByName(name: string): Observable<Array<Employee>> {

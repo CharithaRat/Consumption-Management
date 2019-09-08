@@ -27,7 +27,7 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
     @Override
-    public ContractorDTO getContractor(String id) {
+    public ContractorDTO getContractor(int id) {
         Contractor contractor = contractorRepository.findById(id).get();
         return new ContractorDTO(contractor.getCONT_ID(), contractor.getCONT_NAME(), contractor.getCONT_JOIN_DATE(), contractor.getCONT_CONTACT(),
                 contractor.getADDRESS1(), contractor.getADDRESS2(), contractor.getADDRESS3());
@@ -35,18 +35,18 @@ public class ContractorServiceImpl implements ContractorService {
 
     @Override
     public void saveContractor(ContractorDTO dto) {
-        contractorRepository.save(new Contractor(dto.getCONT_ID(), dto.getCONT_NAME(), dto.getCONT_JOIN_DATE(), dto.getCONT_CONTACT(), dto.getADDRESS1(),
+        contractorRepository.save(new Contractor(dto.getCONT_NAME(), dto.getCONT_JOIN_DATE(), dto.getCONT_CONTACT(), dto.getADDRESS1(),
                 dto.getADDRESS2(), dto.getADDRESS3()));
     }
 
     @Override
     public void updateContractor(ContractorDTO dto) {
-        contractorRepository.saveAndFlush(new Contractor(dto.getCONT_ID(), dto.getCONT_NAME(), dto.getCONT_JOIN_DATE(), dto.getCONT_CONTACT(), dto.getADDRESS1(),
+        contractorRepository.saveAndFlush(new Contractor(dto.getCONT_NAME(), dto.getCONT_JOIN_DATE(), dto.getCONT_CONTACT(), dto.getADDRESS1(),
                 dto.getADDRESS2(), dto.getADDRESS3()));
     }
 
     @Override
-    public void deleteContractor(String id) {
+    public void deleteContractor(int id) {
         contractorRepository.deleteById(id);
     }
 }

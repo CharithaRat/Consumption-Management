@@ -1,27 +1,27 @@
 package lk.ijse.absd.consm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Budget implements Serializable {
+public class Budget {
 
     @Id
-    private String BUDGET_ID;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int BUDGET_ID;
 
-    @OneToMany(mappedBy = "budget")
-    private List<BomAssigned> bomAssigneds = new ArrayList<>();
+    private String BUDGET_CODE;
+
+    @OneToOne
+    private BomAssigned assDtl;
 
     @ManyToOne
     private Xbom xbom;
 
-    @ManyToOne
-    private Model model;
+//    @ManyToOne
+//    private Model model;
 
     private String BOM_ID;
     private String MODEL_ID;
@@ -42,11 +42,34 @@ public class Budget implements Serializable {
     public Budget() {
     }
 
-    public Budget(String BUDGET_ID, List<BomAssigned> bomAssigneds, Xbom xbom, Model model, String BOM_ID, String MODEL_ID, String XBOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
-        this.BUDGET_ID = BUDGET_ID;
-        this.bomAssigneds = bomAssigneds;
+//    public Budget(int BUDGET_ID, List<BomAssigned> bomAssigneds, Xbom xbom, Model model, String BOM_ID, String MODEL_ID, String XBOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
+//        this.BUDGET_ID = BUDGET_ID;
+//        this.bomAssigneds = bomAssigneds;
+//        this.xbom = xbom;
+//        this.model = model;
+//        this.BOM_ID = BOM_ID;
+//        this.MODEL_ID = MODEL_ID;
+//        this.XBOM_ID = XBOM_ID;
+//        this.BOM_TYPE = BOM_TYPE;
+//        this.BOM_USAGE = BOM_USAGE;
+//        this.LENGTH = LENGTH;
+//        this.WIDTH = WIDTH;
+//        this.HEIGHT = HEIGHT;
+//        this.BOM_COST = BOM_COST;
+//        this.NO_OF_BOM_UNITS = NO_OF_BOM_UNITS;
+//        this.REQ_AREA = REQ_AREA;
+//        this.COV_AREA_BY_CMT = COV_AREA_BY_CMT;
+//        this.ACT_COST = ACT_COST;
+//        this.BUD_DATE = BUD_DATE;
+//        this.TTL_BUDGET_COST = TTL_BUDGET_COST;
+//    }
+
+
+    public Budget(String BUDGET_CODE, BomAssigned assDtl, Xbom xbom, String BOM_ID, String MODEL_ID, String XBOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA,
+                  double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
+        this.BUDGET_CODE = BUDGET_CODE;
+        this.assDtl = assDtl;
         this.xbom = xbom;
-        this.model = model;
         this.BOM_ID = BOM_ID;
         this.MODEL_ID = MODEL_ID;
         this.XBOM_ID = XBOM_ID;
@@ -64,7 +87,26 @@ public class Budget implements Serializable {
         this.TTL_BUDGET_COST = TTL_BUDGET_COST;
     }
 
-    public Budget(String BUDGET_ID, String BOM_ID, String MODEL_ID, String XBOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
+    public Budget(String BUDGET_CODE, String BOM_ID, String MODEL_ID, String XBOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
+        this.BUDGET_CODE = BUDGET_CODE;
+        this.BOM_ID = BOM_ID;
+        this.MODEL_ID = MODEL_ID;
+        this.XBOM_ID = XBOM_ID;
+        this.BOM_TYPE = BOM_TYPE;
+        this.BOM_USAGE = BOM_USAGE;
+        this.LENGTH = LENGTH;
+        this.WIDTH = WIDTH;
+        this.HEIGHT = HEIGHT;
+        this.BOM_COST = BOM_COST;
+        this.NO_OF_BOM_UNITS = NO_OF_BOM_UNITS;
+        this.REQ_AREA = REQ_AREA;
+        this.COV_AREA_BY_CMT = COV_AREA_BY_CMT;
+        this.ACT_COST = ACT_COST;
+        this.BUD_DATE = BUD_DATE;
+        this.TTL_BUDGET_COST = TTL_BUDGET_COST;
+    }
+
+    public Budget(int BUDGET_ID, String BOM_ID, String MODEL_ID, String XBOM_ID, String BOM_TYPE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, double BOM_COST, double NO_OF_BOM_UNITS, double REQ_AREA, double COV_AREA_BY_CMT, double ACT_COST, String BUD_DATE, double TTL_BUDGET_COST) {
         this.BUDGET_ID = BUDGET_ID;
         this.BOM_ID = BOM_ID;
         this.MODEL_ID = MODEL_ID;
@@ -83,11 +125,11 @@ public class Budget implements Serializable {
         this.TTL_BUDGET_COST = TTL_BUDGET_COST;
     }
 
-    public String getBUDGET_ID() {
+    public int getBUDGET_ID() {
         return BUDGET_ID;
     }
 
-    public void setBUDGET_ID(String BUDGET_ID) {
+    public void setBUDGET_ID(int BUDGET_ID) {
         this.BUDGET_ID = BUDGET_ID;
     }
 
@@ -211,13 +253,13 @@ public class Budget implements Serializable {
         this.TTL_BUDGET_COST = TTL_BUDGET_COST;
     }
 
-    public List<BomAssigned> getBomAssigneds() {
-        return bomAssigneds;
-    }
-
-    public void setBomAssigneds(List<BomAssigned> bomAssigneds) {
-        this.bomAssigneds = bomAssigneds;
-    }
+//    public List<BomAssigned> getBomAssigneds() {
+//        return bomAssigneds;
+//    }
+//
+//    public void setBomAssigneds(List<BomAssigned> bomAssigneds) {
+//        this.bomAssigneds = bomAssigneds;
+//    }
 
     public Xbom getXbom() {
         return xbom;
@@ -227,21 +269,61 @@ public class Budget implements Serializable {
         this.xbom = xbom;
     }
 
-    public Model getModel() {
-        return model;
+//    public Model getModel() {
+//        return model;
+//    }
+//
+//    public void setModel(Model model) {
+//        this.model = model;
+//    }
+
+    public BomAssigned getAssDtl() {
+        return assDtl;
     }
 
-    public void setModel(Model model) {
-        this.model = model;
+    public void setAssDtl(BomAssigned assDtl) {
+        this.assDtl = assDtl;
     }
+
+    public String getBUDGET_CODE() {
+        return BUDGET_CODE;
+    }
+
+    public void setBUDGET_CODE(String BUDGET_CODE) {
+        this.BUDGET_CODE = BUDGET_CODE;
+    }
+//    @Override
+//    public String toString() {
+//        return "Budget{" +
+//                "BUDGET_ID='" + BUDGET_ID + '\'' +
+//                ", bomAssigneds=" + bomAssigneds +
+//                ", xbom=" + xbom +
+//                ", model=" + model +
+//                ", BOM_ID='" + BOM_ID + '\'' +
+//                ", MODEL_ID='" + MODEL_ID + '\'' +
+//                ", XBOM_ID='" + XBOM_ID + '\'' +
+//                ", BOM_TYPE='" + BOM_TYPE + '\'' +
+//                ", BOM_USAGE='" + BOM_USAGE + '\'' +
+//                ", LENGTH=" + LENGTH +
+//                ", WIDTH=" + WIDTH +
+//                ", HEIGHT=" + HEIGHT +
+//                ", BOM_COST=" + BOM_COST +
+//                ", NO_OF_BOM_UNITS=" + NO_OF_BOM_UNITS +
+//                ", REQ_AREA=" + REQ_AREA +
+//                ", COV_AREA_BY_CMT=" + COV_AREA_BY_CMT +
+//                ", ACT_COST=" + ACT_COST +
+//                ", BUD_DATE='" + BUD_DATE + '\'' +
+//                ", TTL_BUDGET_COST=" + TTL_BUDGET_COST +
+//                '}';
+//    }
 
     @Override
     public String toString() {
         return "Budget{" +
-                "BUDGET_ID='" + BUDGET_ID + '\'' +
-                ", bomAssigneds=" + bomAssigneds +
+                "BUDGET_ID=" + BUDGET_ID +
+                ", BUDGET_CODE='" + BUDGET_CODE + '\'' +
+                ", assDtl=" + assDtl +
                 ", xbom=" + xbom +
-                ", model=" + model +
                 ", BOM_ID='" + BOM_ID + '\'' +
                 ", MODEL_ID='" + MODEL_ID + '\'' +
                 ", XBOM_ID='" + XBOM_ID + '\'' +

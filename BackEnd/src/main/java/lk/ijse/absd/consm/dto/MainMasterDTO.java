@@ -1,7 +1,11 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MainMasterDTO {
+    @JsonProperty("mainId")
     private String MAIN_ID;
+    @JsonProperty("mainDes")
     private String MAIN_DES;
 
     public MainMasterDTO() {

@@ -1,21 +1,35 @@
 package lk.ijse.absd.consm.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class EmployeeDTO {
-    private String EMP_ID;
+    @JsonProperty("empId")
+    private int EMP_ID;
+    @JsonProperty("empName")
     private String EMP_NAME;
-    private Date EMP_JOIN_DATE;
+    @JsonProperty("empJoinDate")
+    private String EMP_JOIN_DATE;
+    @JsonProperty("empContact")
     private String EMP_CONTACT;
+    @JsonProperty("empDesignation")
     private String EMP_DESIGNATION;
+    @JsonProperty("empAddress1")
     private String ADDRESS1;
+    @JsonProperty("empAddress2")
     private String ADDRESS2;
+    @JsonProperty("empAddress3")
     private String ADDRESS3;
+
+//Bean specification should follow
+//    variable => 1st 3 letters should be simple
+//    getters & setters methods => get[1st letter should capital]
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(String EMP_ID, String EMP_NAME, Date EMP_JOIN_DATE, String EMP_CONTACT, String EMP_DESIGNATION, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
+    public EmployeeDTO(int EMP_ID, String EMP_NAME, String EMP_JOIN_DATE, String EMP_CONTACT, String EMP_DESIGNATION, String ADDRESS1, String ADDRESS2, String ADDRESS3) {
         this.EMP_ID = EMP_ID;
         this.EMP_NAME = EMP_NAME;
         this.EMP_JOIN_DATE = EMP_JOIN_DATE;
@@ -26,11 +40,11 @@ public class EmployeeDTO {
         this.ADDRESS3 = ADDRESS3;
     }
 
-    public String getEMP_ID() {
+    public int getEMP_ID() {
         return EMP_ID;
     }
 
-    public void setEMP_ID(String EMP_ID) {
+    public void setEMP_ID(int EMP_ID) {
         this.EMP_ID = EMP_ID;
     }
 
@@ -42,11 +56,11 @@ public class EmployeeDTO {
         this.EMP_NAME = EMP_NAME;
     }
 
-    public Date getEMP_JOIN_DATE() {
+    public String getEMP_JOIN_DATE() {
         return EMP_JOIN_DATE;
     }
 
-    public void setEMP_JOIN_DATE(Date EMP_JOIN_DATE) {
+    public void setEMP_JOIN_DATE(String EMP_JOIN_DATE) {
         this.EMP_JOIN_DATE = EMP_JOIN_DATE;
     }
 
