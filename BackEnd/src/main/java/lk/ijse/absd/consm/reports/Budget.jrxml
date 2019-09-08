@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Budget" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="abae0553-1f30-434a-a448-78624e5d18b9">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mcms"/>
+	<queryString language="SQL">
+		<![CDATA[select * from budget]]>
+	</queryString>
+	<field name="BUDGET_ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="BUDGET_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="ACT_COST" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ACT_COST"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="BOM_COST" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="BOM_COST"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="BOM_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BOM_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="BOM_TYPE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BOM_TYPE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="BOM_USAGE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BOM_USAGE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="BUDGET_CODE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BUDGET_CODE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="BUD_DATE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BUD_DATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="COV_AREA_BY_CMT" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="COV_AREA_BY_CMT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="HEIGHT" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="HEIGHT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="LENGTH" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="LENGTH"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="MODEL_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="MODEL_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="NO_OF_BOM_UNITS" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="NO_OF_BOM_UNITS"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="REQ_AREA" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="REQ_AREA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="TTL_BUDGET_COST" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="TTL_BUDGET_COST"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="WIDTH" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="WIDTH"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="XBOM_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="XBOM_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="assDtl_BOM_ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="assDtl_BOM_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<field name="xbom_XBOM_ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="xbom_XBOM_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="budget"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="38" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="99600c05-1fb7-46ee-9a41-9bf71085eb24">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="650aa3b2-efcb-45f6-b95b-40ab5cfdae2a"/>
+				</reportElement>
+				<text><![CDATA[BUDGET_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="0" width="100" height="20" uuid="faf31cfe-bad5-4fc8-ba8a-2ff7c05cde2b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5adffcd-187a-4a1b-ad4d-8b793856a27b"/>
+				</reportElement>
+				<text><![CDATA[ACT_COST]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="346b6619-f528-4c00-9161-023e8db1f065">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="650aa3b2-efcb-45f6-b95b-40ab5cfdae2a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{BUDGET_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="1" width="100" height="30" uuid="ace95c51-735c-4dd1-8021-bdd3c3eafe08">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5adffcd-187a-4a1b-ad4d-8b793856a27b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ACT_COST}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
