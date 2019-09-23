@@ -1,5 +1,6 @@
 package lk.ijse.absd.consm.Controller;
 
+import lk.ijse.absd.consm.dto.BomDTO;
 import lk.ijse.absd.consm.dto.MaterialMasterDTO;
 import lk.ijse.absd.consm.service.MaterialMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,11 @@ public class MaterialMasterController {
     private MaterialMasterService materialMasterService;
 
     @GetMapping
-    public List<MaterialMasterDTO> getAllMaterials() {
-        return materialMasterService.getAllMaterials();
+//    public List<MaterialMasterDTO> getAllMaterials() {
+//        return materialMasterService.getAllMaterials();
+//    }
+    public List<MaterialMasterDTO> findAllMaterials() {
+        return materialMasterService.findAllMaterials();
     }
 
     @GetMapping("/{id}")
@@ -30,6 +34,14 @@ public class MaterialMasterController {
         System.out.println(dto);
         materialMasterService.saveMaterial(dto);
     }
+
+//    @PostMapping
+//    public void saveMaterial(@RequestBody MaterialMasterDTO dto) {
+//        System.out.println(dto);
+//        MaterialMasterDTO masterDTO = new MaterialMasterDTO();
+//
+//        materialMasterService.saveMaterial(dto);
+//    }
 
     @PutMapping
     public void updateMaterial(@RequestBody MaterialMasterDTO dto) {

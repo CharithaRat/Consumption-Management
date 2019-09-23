@@ -1,5 +1,6 @@
 package lk.ijse.absd.consm.Controller;
 
+import lk.ijse.absd.consm.reportManager.DBFacade;
 import net.sf.jasperreports.engine.JasperRunManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class ReportController {
     @Autowired
     private DataSource dataSource;
 
-    @RequestMapping("/bugetreport")
+    @RequestMapping("/bugetreport/costreport")
     public void genarateBudgetReport(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/pdf");
 //
@@ -31,9 +32,10 @@ public class ReportController {
 //        String toDate = request.getParameter("Todate");
         try {
 //            HttpSession session = request.getSession();
-            Connection c = dataSource.getConnection();
+//            Connection c = dataSource.getConnection();
+//            System.out.println(c);
+            Connection c = new DBFacade().connect();
             System.out.println(c);
-//            Connection c = new DBFacade().connect();
             ServletOutputStream outStream = response.getOutputStream();
             Map<String, Object> params = new HashMap<String, Object>();
             String fromCodeShow = "";
@@ -53,11 +55,11 @@ public class ReportController {
 //            String path = url.toURI().toString();//getPath() + "/";
 //            params.put("SUBREPORT_DIR", path);
 //
-//            URL urllogo = this.getClass().getClassLoader().getResource("reports/Images/somro-logo.jpg");
+//            URL urllogo = this.getClass().getClassLoader().getResource("reports/Images/logo.jpg");
 //            String logopath = urllogo.toURI().toString();//getPath() + "/";
 //            params.put("LogoPath", logopath);
 
-            InputStream areportstream1 = this.getClass().getClassLoader().getResourceAsStream("reports/test.jasper");
+            InputStream areportstream1 = this.getClass().getClassLoader().getResourceAsStream("reports/Budget.jasper");
             JasperRunManager.runReportToPdfStream(areportstream1, outStream,params,c);
 
             c.close();

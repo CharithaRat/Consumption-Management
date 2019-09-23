@@ -2,10 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {DashboardsComponent} from './view/dashboards/dashboards.component';
-import {ManageCustomerComponent} from './view/manage-customer/manage-customer.component';
-import {ManageItemComponent} from './view/manage-item/manage-item.component';
-import {ManageOrderComponent} from './view/manage-order/manage-order.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
@@ -43,9 +39,6 @@ const EXAMPLES_COMPONENTS = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    ManageCustomerComponent,
-    ManageItemComponent,
-    ManageOrderComponent,
     EmployeeComponent,
     SupplierComponent,
     ContractorComponent,

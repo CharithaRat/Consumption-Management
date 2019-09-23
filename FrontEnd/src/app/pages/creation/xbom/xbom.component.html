@@ -24,7 +24,7 @@
           <h5 class="box-title">XBOM Informations</h5>
         </div>
         <div class="box-body">
-          <form class="form-horizontal">
+          <form class="form-horizontal" #frmXBom (ngSubmit)="saveXBom()">
             <div class="row">
               <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
@@ -32,10 +32,9 @@
                     <label>Model ID</label>
                   </div>
                   <div class="col-xs-8">
+                    <!--<select class="form-control" id="modelid" [(ngModel)]="" name="">-->
                     <select class="form-control" id="modelid">
-                      <option>Level 1</option>
-                      <option>Level 2</option>
-                      <option>Level 3</option>
+                      <option *ngFor="let model of models" (click)="selectedModel(model)">{{model.modelCode}}</option>
                     </select>
                   </div>
                 </div>
@@ -46,18 +45,19 @@
                     <label>Description</label>
                   </div>
                   <div class="col-xs-8">
-                    <input type="text" id="txtmodeldes" class="form-control" placeholder="Model Description">
+                    <input type="text" id="txtmodeldes" class="form-control" placeholder="Model Description" [(ngModel)]="model.modelName" name="txtModelDes">
+                    <!--<input type="text" id="txtmodeldes" class="form-control" placeholder="Model Description" name="txtModelDes" [value]="model.modelName">-->
                   </div>
                 </div>
               </div>
               <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
                   <div class="col-xs-4">
-                    <label>XBOM ID</label>
+                    <label>XBOM Code</label>
                   </div>
                   <div class="col-xs-8">
                     <!--Auto load all xbom-id => Need to create as auto search-->
-                    <input type="text" id="txtxbomid" class="form-control" placeholder="XBOM Id">
+                    <input type="text" id="txtxbomid" class="form-control" placeholder="XBOM Id" [(ngModel)]="selectedXbom.xbomCode" name="xbomcode">
                   </div>
                 </div>
               </div>
@@ -75,10 +75,9 @@
                   </div>
                   <div class="col-xs-8">
                     <!--Need to load current bom id's-->
-                    <select class="form-control" id="bomid">
-                      <option>Level 1</option>
-                      <option>Level 2</option>
-                      <option>Level 3</option>
+                    <select class="form-control" id="bomid" [(ngModel)]="selectedXbom.bomId" name="bomid">
+                    <!--<select class="form-control" id="bomid">-->
+                      <option *ngFor="let bom of boms">{{bom.bomCode}}</option>
                     </select>
                   </div>
                 </div>
@@ -89,10 +88,9 @@
                     <label>BOM Type</label>
                   </div>
                   <div class="col-xs-8">
-                    <select class="form-control" id="bomtype">
-                      <option>Level 1</option>
-                      <option>Level 2</option>
-                      <option>Level 3</option>
+                    <select class="form-control" id="bomtype" [(ngModel)]="selectedXbom.bomType" name="bomtype">
+                    <!--<select class="form-control" id="bomtype">-->
+                      <option *ngFor="let type of bomTypes">{{type}}</option>
                     </select>
                   </div>
                 </div>
@@ -103,7 +101,7 @@
                     <label>BOM Cost</label>
                   </div>
                   <div class="col-xs-8">
-                    <input type="text" id="txtbomcost" class="form-control" placeholder="BOM Cost" disabled>
+                    <input type="text" id="txtbomcost" class="form-control" placeholder="BOM Cost" [(ngModel)]="selectedXbom.bomCost" name="bomcost" disabled>
                   </div>
                 </div>
               </div>
@@ -113,7 +111,7 @@
                     <label>Gurantee Period</label>
                   </div>
                   <div class="col-xs-8">
-                    <input type="text" id="txtgurantee" class="form-control" placeholder="Gurantee period" disabled>
+                    <input type="text" id="txtgurantee" class="form-control" placeholder="Gurantee period" [(ngModel)]="selectedXbom.xbomGurPeriod" name="bomguranteep" disabled>
                   </div>
                 </div>
               </div>
@@ -129,7 +127,7 @@
                 <button type="button" class="btn btn-success" id="bmUpdate">Update</button>
                 &nbsp;
                 <button type="button" class="btn btn-openid" id="bmDelete">Delete</button>
-                <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel">Cancel</button>
+                <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel" (cancel)="newXBom()">Cancel</button>
               </div>
             </div>
           </div>
@@ -162,14 +160,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
-              <td>{{customer.id | uppercase}}</td>
-              <td>{{customer.name}}</td>
-              <td>{{customer.address}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <!--<tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">xboms-->
+            <tr *ngFor="let xbom of xboms">
+              <td>{{xbom.modelId}}</td>
+              <td>{{xbom.modelId}}</td>
+              <td>{{xbom.xbomCode}}</td>
+              <td>{{xbom.bomId}}</td>
+              <td>{{xbom.bomType}}</td>
+              <td>{{xbom.bomCost}}</td>
+              <td>{{xbom.xbomGurPeriod}}</td>
             </tr>
             </tbody>
           </table>

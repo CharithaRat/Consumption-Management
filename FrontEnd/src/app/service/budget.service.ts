@@ -9,24 +9,25 @@ import {Budget} from '../dto/budget';
   providedIn: 'root'
 })
 export class BudgetService {
-  readonly baseUrl = environment.apiUrl + '/report/bugetreport';
-
+  // For report controller purpose
+  // readonly baseUrl = environment.apiUrl + '/report/bugetreport';
+  readonly baseUrl = environment.apiUrl + '/budget';
   constructor(private http: HttpClient) {
   }
 
-  // getAllBudgets(): Observable<Budget[]> {
-  //   return this.http.get<Budget[]>(this.baseUrl);
-  // }
+  getAllBudgets(): Observable<Budget[]> {
+    return this.http.get<Budget[]>(this.baseUrl);
+  }
 
-  // getSelectedBudget(id: any): Observable<Budget> {
-  //   return this.http.get<Budget>(this.baseUrl + id);
-  // }
-  //
-  // saveBudget(budget: Budget): Observable<null> {
-  //   return this.http.post<null>(this.baseUrl, budget);
-  // }
+  getSelectedBudget(id: any): Observable<Budget> {
+    return this.http.get<Budget>(this.baseUrl + id);
+  }
+
+  saveBudget(budget: Budget): Observable<null> {
+    return this.http.post<null>(this.baseUrl, budget);
+  }
+
   getReports(): Observable<object> {
-    // return this.http.get<null>(this.baseUrl);
     return this.http.get<object>(this.baseUrl);
   }
 }

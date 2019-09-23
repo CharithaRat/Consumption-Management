@@ -12,16 +12,14 @@ public class MaterialMaster {
     private int MATERIAL_ID;
 
     private String MAT_ID_CODE;
+    private String MATERIAL_NAME;
+    private String MATERIAL_TYPE;
+    private String MATERIAL_GRADE;
+    private String MATERIAL_UNIT;
+    private double UNIT_PRICE;
+    private String MAT_DATE;
+    private String MATERIAL_CODE;
 
-//    @ManyToMany(mappedBy = "materials")
-//    private List<Supplier> suppliers = new ArrayList<>();
-//
-//    @ManyToMany(mappedBy = "materialMasters")
-//    private List<Bom> boms = new ArrayList<>();
-//
-//    @ManyToMany(mappedBy = "mats")
-//    private List<Grn> grns = new ArrayList<>();
-//
     @ManyToOne
     private Unit unit;
 
@@ -34,28 +32,18 @@ public class MaterialMaster {
     @ManyToOne
     private DetailMaster detailm;
 
-    @OneToMany(mappedBy = "materialMaster")
+    //    Default fetch type is LAZY(i.e: if you request a material you havent't getting the list of data)
+    @OneToMany(mappedBy = "materialMaster", fetch = FetchType.EAGER)
     private List<Bom> boms;
-
-    private String MATERIAL_NAME;
-    private String MATERIAL_TYPE;
-    private String MATERIAL_GRADE;
-    private String MATERIAL_UNIT;
-    private double UNIT_PRICE;
-    private String MAT_DATE;
-    private String MATERIAL_CODE;
 
     public MaterialMaster() {
     }
 
-    public MaterialMaster(String MAT_ID_CODE, Unit unit, MainMaster mainm, SubMaster subm, DetailMaster detailm, List<Bom> boms, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE, String MATERIAL_UNIT,
-                          double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE) {
+    public MaterialMaster(String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE,
+                          String MATERIAL_UNIT, double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE, Unit unit,
+                          MainMaster mainm, SubMaster subm, DetailMaster detailm, List<Bom> boms) {
+        //        Final Constructor
         this.MAT_ID_CODE = MAT_ID_CODE;
-        this.unit = unit;
-        this.mainm = mainm;
-        this.subm = subm;
-        this.detailm = detailm;
-        this.boms = boms;
         this.MATERIAL_NAME = MATERIAL_NAME;
         this.MATERIAL_TYPE = MATERIAL_TYPE;
         this.MATERIAL_GRADE = MATERIAL_GRADE;
@@ -63,21 +51,30 @@ public class MaterialMaster {
         this.UNIT_PRICE = UNIT_PRICE;
         this.MAT_DATE = MAT_DATE;
         this.MATERIAL_CODE = MATERIAL_CODE;
+        this.unit = unit;
+        this.mainm = mainm;
+        this.subm = subm;
+        this.detailm = detailm;
+        this.boms = boms;
     }
 
-//    public MaterialMaster(String MATERIAL_ID, List<Supplier> suppliers, List<Bom> boms, List<Grn> grns, Unit unit, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_UNIT, double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE) {
-//        this.MATERIAL_ID = MATERIAL_ID;
-//        this.suppliers = suppliers;
-//        this.boms = boms;
-//        this.grns = grns;
-//        this.unit = unit;
-//        this.MATERIAL_NAME = MATERIAL_NAME;
-//        this.MATERIAL_TYPE = MATERIAL_TYPE;
-//        this.MATERIAL_UNIT = MATERIAL_UNIT;
-//        this.UNIT_PRICE = UNIT_PRICE;
-//        this.MAT_DATE = MAT_DATE;
-//        this.MATERIAL_CODE = MATERIAL_CODE;
-//    }
+    public MaterialMaster(String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE,
+                          String MATERIAL_UNIT, double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE, Unit unit,
+                          MainMaster mainm, SubMaster subm, DetailMaster detailm) {
+        //        Testing Constructor
+        this.MAT_ID_CODE = MAT_ID_CODE;
+        this.MATERIAL_NAME = MATERIAL_NAME;
+        this.MATERIAL_TYPE = MATERIAL_TYPE;
+        this.MATERIAL_GRADE = MATERIAL_GRADE;
+        this.MATERIAL_UNIT = MATERIAL_UNIT;
+        this.UNIT_PRICE = UNIT_PRICE;
+        this.MAT_DATE = MAT_DATE;
+        this.MATERIAL_CODE = MATERIAL_CODE;
+        this.unit = unit;
+        this.mainm = mainm;
+        this.subm = subm;
+        this.detailm = detailm;
+    }
 
     public MaterialMaster(String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE, String MATERIAL_UNIT, double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE) {
         this.MAT_ID_CODE = MAT_ID_CODE;
@@ -156,30 +153,6 @@ public class MaterialMaster {
         this.MATERIAL_CODE = MATERIAL_CODE;
     }
 
-//    public List<Supplier> getSuppliers() {
-//        return suppliers;
-//    }
-//
-//    public void setSuppliers(List<Supplier> suppliers) {
-//        this.suppliers = suppliers;
-//    }
-//
-//    public List<Bom> getBoms() {
-//        return boms;
-//    }
-//
-//    public void setBoms(List<Bom> boms) {
-//        this.boms = boms;
-//    }
-//
-//    public List<Grn> getGrns() {
-//        return grns;
-//    }
-//
-//    public void setGrns(List<Grn> grns) {
-//        this.grns = grns;
-//    }
-//
     public Unit getUnit() {
         return unit;
     }
@@ -235,18 +208,6 @@ public class MaterialMaster {
     public void setMATERIAL_GRADE(String MATERIAL_GRADE) {
         this.MATERIAL_GRADE = MATERIAL_GRADE;
     }
-    //    @Override
-//    public String toString() {
-//        return "MaterialMaster{" +
-//                "MATERIAL_ID='" + MATERIAL_ID + '\'' +
-//                ", MATERIAL_NAME='" + MATERIAL_NAME + '\'' +
-//                ", MATERIAL_TYPE='" + MATERIAL_TYPE + '\'' +
-//                ", MATERIAL_UNIT='" + MATERIAL_UNIT + '\'' +
-//                ", UNIT_PRICE=" + UNIT_PRICE +
-//                ", MAT_DATE='" + MAT_DATE + '\'' +
-//                ", MATERIAL_CODE='" + MATERIAL_CODE + '\'' +
-//                '}';
-//    }
 
     @Override
     public String toString() {

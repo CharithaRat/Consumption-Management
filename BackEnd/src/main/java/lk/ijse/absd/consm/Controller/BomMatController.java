@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("bommaterial")
+@RequestMapping("/bommaterial")
 public class BomMatController {
 
     @Autowired

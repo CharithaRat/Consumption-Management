@@ -25,7 +25,7 @@
           <h5 class="box-title">BOM Informations</h5>
         </div>
         <div class="box-body">
-          <form class="form-horizontal">
+          <form class="form-horizontal" #frmBom="ngForm" (ngSubmit)="saveBom()">
             <!--<div class="row">-->
             <div class="col-6 col-md-6 col-sm-12">
               <div class="form-group">
@@ -33,7 +33,7 @@
                   <label>BOM ID</label>
                 </div>
                 <div class="col-xs-8">
-                  <!--<input type="text" id="txtbomid" class="form-control" placeholder="BOM Id" [(ngModel)]="" name="bomid">-->
+                  <input type="text" id="txtbomid" class="form-control" placeholder="BOM Id" [(ngModel)]="selectedBom.bomCode" name="bomid">
                 </div>
               </div>
               <div class="form-group">
@@ -41,7 +41,7 @@
                   <label>Description</label>
                 </div>
                 <div class="col-xs-8">
-                  <!--<input type="text" id="txtbomdes" class="form-control" placeholder="BOM Description" [(ngModel)]="" name="bomdes">-->
+                  <input type="text" id="txtbomdes" class="form-control" placeholder="BOM Description" [(ngModel)]="selectedBom.bomDes" name="bomdes">
                 </div>
               </div>
               <div class="form-group">
@@ -50,9 +50,7 @@
                 </div>
                 <div class="col-xs-8">
                   <select class="form-control" [(ngModel)]="selectedType" (change)="getSelectedType()" name="bomtype">
-                    <option [ngValue]="L1">Level 1</option>
-                    <option [ngValue]="L2">Level 2</option>
-                    <option [ngValue]="L3">Level 3</option>
+                    <option *ngFor="let type of bomTypes">{{type}}</option>
                   </select>
                 </div>
               </div>
@@ -76,7 +74,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <!--<input type="text" class="form-control pull-left" id="datepicker" [(ngModel)]="" name="bomdate">-->
+                    <input type="text" class="form-control pull-left" id="datepicker" [(ngModel)]="selectedBom.bomDate" name="bomdate">
                   </div>
                   <!--Date Picker-->
                 </div>
@@ -86,7 +84,7 @@
                   <label><b>BOM VALUE : </b></label>
                 </div>
                 <div class="col-xs-8">
-                  <!--<input type="text" id="txtbomvalue" class="form-control" placeholder="BOM Value" disabled [(ngModel)]="" name="bomvalue">-->
+                  <input type="text" id="txtbomvalue" class="form-control" placeholder="BOM Value" disabled [(ngModel)]="selectedBom.bomValue" name="bomvalue">
                 </div>
               </div>
               <div class="form-group">
@@ -94,7 +92,7 @@
                   <label>Gurantee Period</label>
                 </div>
                 <div class="col-xs-8">
-                  <!--<input type="text" id="txtbomperiod" class="form-control" placeholder="Gurantee Period" [(ngModel)]="" name="bomgurantee">-->
+                  <input type="text" id="txtbomperiod" class="form-control" placeholder="Gurantee Period" [(ngModel)]="selectedBom.bomGurPeriod" name="bomgurantee">
                 </div>
               </div>
             </div>
@@ -104,7 +102,7 @@
                   <label>Material Id</label>
                 </div>
                 <div class="col-xs-8">
-                  <!--<input type="text" id="txtmatid" class="form-control" placeholder="Material Id" [(ngModel)]="" name="bommaterial">-->
+                  <input type="text" id="txtmatid" class="form-control" placeholder="Material Id" name="bommaterial">
                 </div>
               </div>
               <div class="form-group">
@@ -112,7 +110,7 @@
                   <label>Name</label>
                 </div>
                 <div class="col-xs-8">
-                  <!--<input type="text" id="txtmatname" class="form-control" placeholder="Material Name" [(ngModel)]="" name="bommatname">-->
+                  <input type="text" id="txtmatname" class="form-control" placeholder="Material Name" name="bommatname">
                 </div>
               </div>
               <div class="form-group">
@@ -120,10 +118,8 @@
                   <label>Material Unit</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control" [(ngModel)]="selectedMatUnit" (change)="getSelectedMatUnit()" name="">
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
+                  <select class="form-control" [(ngModel)]="selectedMatUnit" (change)="getSelectedMatUnit()" name="unitSymbol">
+                    <option *ngFor="let unit of units">{{unit.unitSymbol}}</option>
                   </select>
                 </div>
               </div>
@@ -198,7 +194,7 @@
                   <button type="button" id="btnSearch" class="btn btn-space btn-primary" (click)="getID(txtID)">Search
                   </button>
                   &nbsp;
-                  <button class="btn btn-space btn-danger btn-info pull-right" (cancel)="newCustomer()">Cancel
+                  <button class="btn btn-space btn-danger btn-info pull-right" (cancel)="newBom()">Cancel
                   </button>
                 </div>
               </div>
@@ -296,16 +292,20 @@
               <th scope="col">Material Id</th>
               <th scope="col">Material Description</th>
               <th scope="col">Unit</th>
-              <th scope="col">Qty</th>
               <th scope="col">Unit Cost</th>
               <th scope="col">Total Amount</th>
+              <th scope="col">Gurantee Period</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
-              <td>{{customer.id | uppercase}}</td>
-              <td>{{customer.name}}</td>
-              <td>{{customer.address}}</td>
+            <!--<tr *ngFor="let bom of boms" (click)="tableRow_Click(customer)">-->
+            <tr *ngFor="let bom of boms">
+              <td>{{bom.bomCode}}</td>
+              <td>{{bom.bomDes}}</td>
+              <td>{{bom.bomType}}</td>
+              <td>{{bom.bomUnit}}</td>
+              <td>{{bom.bomValue}}</td>
+              <td>{{bom.bomGurPeriod}}</td>
             </tr>
             </tbody>
           </table>

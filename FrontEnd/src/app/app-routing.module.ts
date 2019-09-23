@@ -1,10 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {ManageItemComponent} from './view/manage-item/manage-item.component';
-import {ManageCustomerComponent} from './view/manage-customer/manage-customer.component';
 import {RouterModule, Routes} from '@angular/router';
-import {ManageOrderComponent} from './view/manage-order/manage-order.component';
-import {DashboardsComponent} from './view/dashboards/dashboards.component';
 import {EmployeeComponent} from './pages/master/employee/employee.component';
 import {SupplierComponent} from './pages/master/supplier/supplier.component';
 import {ContractorComponent} from './pages/master/contractor/contractor.component';
@@ -123,18 +118,6 @@ const routes: Routes =
       path: 'pages/auth/register',
       component: RegisterComponent
     },
-    // {
-    //   path: 'customers',
-    //   component: ManageCustomerComponent
-    // },
-    // {
-    //   path: 'items',
-    //   component: ManageItemComponent
-    // },
-    // {
-    //   path: 'orders',
-    //   component: ManageOrderComponent
-    // },
     {
       path: '',
       pathMatch: 'full',

@@ -1,6 +1,7 @@
 package lk.ijse.absd.consm.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -10,7 +11,7 @@ public class MainMaster {
     @Id
     private String MAIN_ID;
 
-    @OneToMany(mappedBy = "mainm")
+    @OneToMany(mappedBy = "mainm", fetch = FetchType.EAGER)
     private List<MaterialMaster> materialmain;
 
     private String MAIN_DES;

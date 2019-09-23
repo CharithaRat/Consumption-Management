@@ -6,7 +6,7 @@
   </h5>
   <ol class="breadcrumb">
     <li><a href="#" routerLink="/pages/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
-    <li class="active">Budjet</li>
+    <li class="active">Budget</li>
   </ol>
 </section>
 
@@ -23,7 +23,7 @@
         <h5 class="box-title">Budget Informations</h5>
       </div>
       <div class="box-body">
-        <form class="form-horizontal">
+        <form class="form-horizontal" #frmBudget (ngSubmit)="saveBudget()">
           <div class="row">
             <div class="col-4 col-md-4 col-sm-12">
               <div class="form-group">
@@ -31,7 +31,7 @@
                   <label>Budget ID</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtbudgetid" class="form-control" placeholder="Budget Id">
+                  <input type="text" id="txtbudgetid" class="form-control" placeholder="Budget Id" [(ngModel)]="selectedBudget.budgetCode" name="budgetcode">
                 </div>
               </div>
             </div>
@@ -41,10 +41,8 @@
                   <label>Model ID</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control" id="modelid">
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
+                  <select class="form-control" id="modelid" [(ngModel)]="selectedBudget.modelId" name="modelid">
+                    <option *ngFor="let model of models">{{model.modelCode}}</option>
                   </select>
                 </div>
               </div>
@@ -55,7 +53,7 @@
                   <label>Description</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="txtmodeldes" class="form-control" placeholder="Model Description">
+                  <input type="text" id="txtmodeldes" class="form-control" placeholder="Model Description" [(ngModel)]="selectedBudget.modelId" name="modeldes">
                 </div>
               </div>
             </div>
@@ -72,7 +70,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-left" id="datepicker">
+                    <input type="text" class="form-control pull-left" id="datepicker" [(ngModel)]="selectedBudget.budDate" name="bdate">
                   </div>
                   <!--Date Picker-->
                 </div>
@@ -84,10 +82,8 @@
                   <label>XBOM ID</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control" id="xbomid">
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
+                  <select class="form-control" id="xbomid" [(ngModel)]="selectedBudget.xbomId" name="xbomid">
+                    <option *ngFor="let xbom of xboms">{{xbom.xbomCode}}</option>
                   </select>
                 </div>
               </div>
@@ -98,7 +94,7 @@
                   <label>Budget Cost</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="budgetcost" class="form-control" placeholder="Budget Cost" disabled>
+                  <input type="text" id="budgetcost" class="form-control" placeholder="Budget Cost" [(ngModel)]="selectedBudget.ttlBudgetCost" name="busgetcost" disabled>
                 </div>
               </div>
             </div>
@@ -110,10 +106,8 @@
                   <label>BOM ID</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control" id="tbomid">
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
+                  <select class="form-control" id="tbomid" [(ngModel)]="selectedBudget.bomId" name="bomid">
+                    <option *ngFor="let bom of boms">{{bom.bomCode}}</option>
                   </select>
                 </div>
               </div>
@@ -124,10 +118,8 @@
                   <label>BOM Type</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control" id="tbomtype">
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
+                  <select class="form-control" id="tbomtype" [(ngModel)]="selectedBudget.bomType" name="bomtype">
+                    <option *ngFor="let type of bomTypes">{{type}}</option>
                   </select>
                 </div>
               </div>
@@ -138,7 +130,7 @@
                   <label>BOM Usage</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control" id="tbomusage">
+                  <select class="form-control" id="tbomusage" [(ngModel)]="selectedBudget.bomUsage" name="bomusage">
                     <option>Floor</option>
                     <option>Wall build by Bricks</option>
                     <option>Wall Covering</option>
@@ -159,7 +151,7 @@
                   <label>Length</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="length" class="form-control" placeholder="Length">
+                  <input type="text" id="length" class="form-control" placeholder="Length" [(ngModel)]="selectedBudget.lengeth" name="length">
                 </div>
               </div>
             </div>
@@ -169,7 +161,7 @@
                   <label>Width</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="width" class="form-control" placeholder="Width">
+                  <input type="text" id="width" class="form-control" placeholder="Width" [(ngModel)]="selectedBudget.width" name="width">
                 </div>
               </div>
             </div>
@@ -179,7 +171,7 @@
                   <label>Height</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="height" class="form-control" placeholder="Height">
+                  <input type="text" id="height" class="form-control" placeholder="Height" [(ngModel)]="selectedBudget.height" name="height">
                 </div>
               </div>
             </div>
@@ -191,7 +183,7 @@
                   <label>Covered Area/CMT</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="covAreaPerCmt" class="form-control" placeholder="Covered Area/CMT">
+                  <input type="text" id="covAreaPerCmt" class="form-control" placeholder="Covered Area/CMT" [(ngModel)]="selectedBudget.covAreaByCMT" name="cmtcover">
                 </div>
               </div>
             </div>
@@ -201,7 +193,7 @@
                   <label>Required Area</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="reqArea" class="form-control" placeholder="Required Area">
+                  <input type="text" id="reqArea" class="form-control" placeholder="Required Area" [(ngModel)]="selectedBudget.reqArea" name="reqarea">
                 </div>
               </div>
             </div>
@@ -211,7 +203,7 @@
                   <label>BOM Units</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="bomUnits" class="form-control" placeholder="BOM Units">
+                  <input type="text" id="bomUnits" class="form-control" placeholder="BOM Units" [(ngModel)]="selectedBudget.bomId" name="bomunit">
                 </div>
               </div>
             </div>
@@ -223,7 +215,7 @@
                   <label>BOM Cost</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="bomCost" class="form-control" placeholder="BOM Cost">
+                  <input type="text" id="bomCost" class="form-control" placeholder="BOM Cost" [(ngModel)]="selectedBudget.bomCost" name="bomcost">
                 </div>
               </div>
             </div>
@@ -233,7 +225,7 @@
                   <label>Actual Cost</label>
                 </div>
                 <div class="col-xs-8">
-                  <input type="text" id="bomactcost" class="form-control" placeholder="Actual Cost">
+                  <input type="text" id="bomactcost" class="form-control" placeholder="Actual Cost"[(ngModel)]="selectedBudget.actCost" name="actcost">
                 </div>
               </div>
             </div>
@@ -251,7 +243,7 @@
               <button type="button" class="btn btn-openid" id="bmDelete">Delete</button>
               &nbsp;
               <button type="button" class="btn btn-dropbox" id="bmPrint" (click)="CallReport()">Print</button>
-              <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel">Cancel</button>
+              <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel" (cancel)="newBudget()">Cancel</button>
             </div>
           </div>
         </div>
@@ -274,7 +266,7 @@
           <table class="table table-bordered table-hover table-responsive" id="tabCustomers">
             <thead>
             <tr>
-              <th scope="col">BOM Id</th>
+              <th scope="col">BOM Code</th>
               <th scope="col">BOM Type</th>
               <th scope="col">BOM Usage</th>
               <th scope="col">Length</th>
@@ -288,18 +280,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
-              <td>{{customer.id | uppercase}}</td>
-              <td>{{customer.name}}</td>
-              <td>{{customer.address}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <!--<tr *ngFor="let budget of budgets" (click)="tableRow_Click(customer)">-->
+            <tr *ngFor="let budget of budgets">
+              <td>{{budget.bomId}}</td>
+              <td>{{budget.bomType}}</td>
+              <td>{{budget.bomUsage}}</td>
+              <td>{{budget.lengeth}}</td>
+              <td>{{budget.width}}</td>
+              <td>{{budget.height}}</td>
+              <td>{{budget.covAreaByCMT}}</td>
+              <td>{{budget.reqArea}}</td>
+              <td>{{budget.noOfBomUnits}}</td>
+              <td>{{budget.bomCost}}</td>
+              <td>{{budget.ttlBudgetCost}}</td>
             </tr>
             </tbody>
           </table>

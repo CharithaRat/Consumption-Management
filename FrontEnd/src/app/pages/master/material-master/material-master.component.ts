@@ -97,7 +97,7 @@ export class MaterialMasterComponent implements OnInit {
   }
 
   onChange(args) {
-    if (args.isChecked) {
+    if (args.isSelected()) {
       alert('checkbox has been checked');
       console.log('checkbox has been checked');
       this.materialTypes = 'B';

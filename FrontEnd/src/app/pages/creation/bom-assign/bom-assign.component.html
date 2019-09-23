@@ -25,7 +25,7 @@
           <h5 class="box-title">BOM Assign Informations</h5>
         </div>
         <div class="box-body">
-          <form class="form-horizontal">
+          <form class="form-horizontal" #frmBomAssign (ngSubmit)="saveAssignedBom()">
             <!--<div class="row">-->
             <div class="col-6 col-md-6 col-sm-12">
               <div class="form-group">
@@ -34,10 +34,8 @@
                 </div>
                 <div class="col-xs-8">
                   <!--Need to load current bom id's-->
-                  <select class="form-control" id="bomid">
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
+                  <select class="form-control" id="bomid" [(ngModel)]="selectedBomAssignedDetail.bomCode" name="bomcode">
+                    <option *ngFor="let bom of boms" (click)="selectedBom(bom)">{{bom.bomCode}}</option>
                   </select>
                 </div>
               </div>
@@ -47,7 +45,7 @@
                 </div>
                 <div class="col-xs-8">
                   <!--Need to load bom description after select a bom-->
-                  <input type="text" id="txtbomdes" class="form-control" placeholder="BOM Description">
+                  <input type="text" id="txtbomdes" class="form-control" placeholder="BOM Description" [value]="bom.bomDes" name="bomdes">
                 </div>
               </div>
               <div class="form-group">
@@ -55,7 +53,7 @@
                   <label>BOM Usage</label>
                 </div>
                 <div class="col-xs-8">
-                  <select class="form-control" id="bomuse">
+                  <select class="form-control" id="bomuse" [(ngModel)]="selectedBomAssignedDetail.bomUsage" name="bomusage">
                     <option>Floor</option>
                     <option>Wall build by Bricks</option>
                     <option>Wall Covering</option>
@@ -87,7 +85,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-left" id="datepicker">
+                    <input type="text" class="form-control pull-left" id="datepicker" [(ngModel)]="selectedBomAssignedDetail.bomAssignDate" name="bomassigneddate">
                   </div>
                   <!--Date Picker-->
                 </div>
@@ -115,7 +113,7 @@
                   <label>Length</label>
                 </div>
                 <div class="col-xs-9">
-                  <input type="text" id="length" class="form-control" placeholder="Length">
+                  <input type="text" id="length" class="form-control" placeholder="Length" [(ngModel)]="selectedBomAssignedDetail.bomLength" name="bomlength">
                 </div>
               </div>
               <div class="form-group">
@@ -123,7 +121,7 @@
                   <label>Width</label>
                 </div>
                 <div class="col-xs-9">
-                  <input type="text" id="width" class="form-control" placeholder="Width">
+                  <input type="text" id="width" class="form-control" placeholder="Width" [(ngModel)]="selectedBomAssignedDetail.bomWidth" name="bomwidth">
                 </div>
               </div>
               <div class="form-group">
@@ -131,7 +129,7 @@
                   <label>Height</label>
                 </div>
                 <div class="col-xs-9">
-                  <input type="text" id="height" class="form-control" placeholder="Height">
+                  <input type="text" id="height" class="form-control" placeholder="Height" [(ngModel)]="selectedBomAssignedDetail.bomHeight" name="bomheight">
                 </div>
               </div>
               <div class="form-group">
@@ -139,13 +137,13 @@
                   <label>Covering Unit</label>
                 </div>
                 <div class="col-xs-3">
-                  <input type="text" id="txtcovAreaUnit" class="form-control" placeholder="L x W Unit">
+                  <input type="text" id="txtcovAreaUnit" class="form-control" placeholder="L x W Unit" [(ngModel)]="selectedBomAssignedDetail.bomCovAreaUnit" name="bomcoverareaunit">
                 </div>
                 <div class="col-xs-3">
                   <label>Covering Area</label>
                 </div>
                 <div class="col-xs-3">
-                  <input type="text" id="txtcovarea" class="form-control" placeholder="Area L x W">
+                  <input type="text" id="txtcovarea" class="form-control" placeholder="Area L x W" [(ngModel)]="selectedBomAssignedDetail.bomCovArea" name="bomcoverarea">
                 </div>
               </div>
               <div class="form-group">
@@ -153,7 +151,7 @@
                   <label>BOM Cost</label>
                 </div>
                 <div class="col-xs-9">
-                  <input type="text" id="txtbomcost" class="form-control" placeholder="BOM Cost">
+                  <input type="text" id="txtbomcost" class="form-control" placeholder="BOM Cost" [(ngModel)]="selectedBomAssignedDetail.bomCost" name="bomcost">
                 </div>
               </div>
               <div class="form-group">
@@ -161,7 +159,7 @@
                   <label>Cost/Unit Area</label>
                 </div>
                 <div class="col-xs-9">
-                  <input type="text" id="txtareacost" class="form-control" placeholder="Cost/Unit Area">
+                  <input type="text" id="txtareacost" class="form-control" placeholder="Cost/Unit Area" [(ngModel)]="selectedBomAssignedDetail.bomCostPerUnitArea" name="areacost">
                 </div>
               </div>
             </div>
@@ -178,7 +176,7 @@
                 <button type="button" class="btn btn-success" id="bmUpdate">Update</button>
                 &nbsp;
                 <button type="button" class="btn btn-openid" id="bmDelete">Delete</button>
-                <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel">Cancel</button>
+                <button type="reset" class="btn btn-danger btn-info pull-right" id="bmCancel" (cancel)="newAssignedBom()">Cancel</button>
               </div>
             </div>
           </div>
@@ -212,15 +210,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer)">
-              <td>{{customer.id | uppercase}}</td>
-              <td>{{customer.name}}</td>
-              <td>{{customer.address}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr *ngFor="let boma of bomAssignedDetails" (click)="tableRow_Click(customer)">
+              <td>{{boma.bomId}}</td>
+              <td>{{boma.bomUsage}}</td>
+              <td>{{boma.bomLength}}</td>
+              <td>{{boma.bomWidth}}</td>
+              <td>{{boma.bomHeight}}</td>
+              <td>{{boma.bomCovArea}}</td>
+              <td>{{boma.bomCost}}</td>
+              <td>{{boma.bomCostPerUnitArea}}</td>
             </tr>
             </tbody>
           </table>

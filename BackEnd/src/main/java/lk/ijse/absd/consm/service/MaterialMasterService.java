@@ -15,4 +15,8 @@ public interface MaterialMasterService {
     void updateMaterial(MaterialMasterDTO dto);
 
     void deleteMaterial(int id);
+
+    List<MaterialMasterDTO> findAllMaterials();
+
+    MaterialMasterDTO findByFirstName(String id);
 }

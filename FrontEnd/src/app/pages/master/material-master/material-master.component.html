@@ -193,12 +193,12 @@
             <tr *ngFor="let material of materials">
               <td>{{material.materialIdCode}}</td>
               <td>{{material.materialName}}</td>
-              <td>{{material.materialUnit}}</td>
+              <td>{{material.unit.unitSymbol}}</td>
               <td>{{material.unitPrice}}</td>
               <td>{{material.materialGrade}}</td>
-              <td>{{material.main}}</td>
-              <td>{{material.sub}}</td>
-              <td>{{material.detail}}</td>
+              <td>{{material.mainMaster.mainId}}</td>
+              <td>{{material.subMaster.subId}}</td>
+              <td>{{material.detailMaster.detailId}}</td>
             </tr>
             </tbody>
           </table>

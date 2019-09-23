@@ -6,7 +6,6 @@ import lk.ijse.absd.consm.entity.MainMaster;
 import lk.ijse.absd.consm.entity.SubMaster;
 import lk.ijse.absd.consm.entity.Unit;
 
-import javax.xml.soap.Detail;
 
 public class MaterialMasterDTO {
     @JsonProperty("materialId")
@@ -37,33 +36,12 @@ public class MaterialMasterDTO {
     @JsonProperty("detailMaster")
     private DetailMaster details;
 
-//    private String unit;
-//    private String main;
-//    private String sub;
-//    private String detail;
-
     public MaterialMasterDTO() {
     }
 
-//    public MaterialMasterDTO(int MATERIAL_ID, String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE, String MATERIAL_UNIT,
-//                             double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE, String unit, String main, String sub, String detail) {
-//        this.MATERIAL_ID = MATERIAL_ID;
-//        this.MAT_ID_CODE = MAT_ID_CODE;
-//        this.MATERIAL_NAME = MATERIAL_NAME;
-//        this.MATERIAL_TYPE = MATERIAL_TYPE;
-//        this.MATERIAL_GRADE = MATERIAL_GRADE;
-//        this.MATERIAL_UNIT = MATERIAL_UNIT;
-//        this.UNIT_PRICE = UNIT_PRICE;
-//        this.MAT_DATE = MAT_DATE;
-//        this.MATERIAL_CODE = MATERIAL_CODE;
-//        this.unit = unit;
-//        this.main = main;
-//        this.sub = sub;
-//        this.detail = detail;
-//    }
-
-    public MaterialMasterDTO(int MATERIAL_ID, String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE, String MATERIAL_UNIT, double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE,
-                             Unit unit, MainMaster main, SubMaster sub, DetailMaster detail) {
+    public MaterialMasterDTO(int MATERIAL_ID, String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE,
+                             String MATERIAL_UNIT, double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE, Unit unit,
+                             MainMaster main, SubMaster sub, DetailMaster details) {
         this.MATERIAL_ID = MATERIAL_ID;
         this.MAT_ID_CODE = MAT_ID_CODE;
         this.MATERIAL_NAME = MATERIAL_NAME;
@@ -76,8 +54,24 @@ public class MaterialMasterDTO {
         this.unit = unit;
         this.main = main;
         this.sub = sub;
-        this.details = detail;
+        this.details = details;
     }
+//    public MaterialMasterDTO(int MATERIAL_ID, String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE, String MATERIAL_UNIT, double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE,
+//                             Unit unit, MainMaster main, SubMaster sub, DetailMaster detail) {
+//        this.MATERIAL_ID = MATERIAL_ID;
+//        this.MAT_ID_CODE = MAT_ID_CODE;
+//        this.MATERIAL_NAME = MATERIAL_NAME;
+//        this.MATERIAL_TYPE = MATERIAL_TYPE;
+//        this.MATERIAL_GRADE = MATERIAL_GRADE;
+//        this.MATERIAL_UNIT = MATERIAL_UNIT;
+//        this.UNIT_PRICE = UNIT_PRICE;
+//        this.MAT_DATE = MAT_DATE;
+//        this.MATERIAL_CODE = MATERIAL_CODE;
+//        this.unit = unit;
+//        this.main = main;
+//        this.sub = sub;
+//        this.details = detail;
+//    }
 
     public MaterialMasterDTO(int MATERIAL_ID, String MAT_ID_CODE, String MATERIAL_NAME, String MATERIAL_TYPE, String MATERIAL_GRADE, String MATERIAL_UNIT,
                              double UNIT_PRICE, String MAT_DATE, String MATERIAL_CODE) {
@@ -199,14 +193,6 @@ public class MaterialMasterDTO {
         this.sub = sub;
     }
 
-//    public DetailMaster getDetail() {
-//        return details;
-//    }
-//
-//    public void setDetail(DetailMaster detail) {
-//        this.details = detail;
-//    }
-
     public DetailMaster getDetails() {
         return details;
     }
@@ -214,84 +200,6 @@ public class MaterialMasterDTO {
     public void setDetails(DetailMaster details) {
         this.details = details;
     }
-//    public String getUnit() {
-//        return unit;
-//    }
-//
-//    public void setUnit(String unit) {
-//        this.unit = unit;
-//    }
-//
-//    public String getMain() {
-//        return main;
-//    }
-//
-//    public void setMain(String main) {
-//        this.main = main;
-//    }
-//
-//    public String getSub() {
-//        return sub;
-//    }
-//
-//    public void setSub(String sub) {
-//        this.sub = sub;
-//    }
-//
-//    public String getDetail() {
-//        return detail;
-//    }
-//
-//    public void setDetail(String detail) {
-//        this.detail = detail;
-//    }
-
-    //    @Override
-//    public String toString() {
-//        return "MaterialMasterDTO{" +
-//                "MATERIAL_ID='" + MATERIAL_ID + '\'' +
-//                ", MATERIAL_NAME='" + MATERIAL_NAME + '\'' +
-//                ", MATERIAL_TYPE='" + MATERIAL_TYPE + '\'' +
-//                ", MATERIAL_UNIT='" + MATERIAL_UNIT + '\'' +
-//                ", UNIT_PRICE=" + UNIT_PRICE +
-//                ", MAT_DATE='" + MAT_DATE + '\'' +
-//                ", MATERIAL_CODE='" + MATERIAL_CODE + '\'' +
-//                '}';
-//    }
-
-//    @Override
-//    public String toString() {
-//        return "MaterialMasterDTO{" +
-//                "MATERIAL_ID=" + MATERIAL_ID +
-//                ", MAT_ID_CODE='" + MAT_ID_CODE + '\'' +
-//                ", MATERIAL_NAME='" + MATERIAL_NAME + '\'' +
-//                ", MATERIAL_TYPE='" + MATERIAL_TYPE + '\'' +
-//                ", MATERIAL_GRADE='" + MATERIAL_GRADE + '\'' +
-//                ", MATERIAL_UNIT='" + MATERIAL_UNIT + '\'' +
-//                ", UNIT_PRICE=" + UNIT_PRICE +
-//                ", MAT_DATE='" + MAT_DATE + '\'' +
-//                ", MATERIAL_CODE='" + MATERIAL_CODE + '\'' +
-//                '}';
-//    }
-
-//    @Override
-//    public String toString() {
-//        return "MaterialMasterDTO{" +
-//                "MATERIAL_ID=" + MATERIAL_ID +
-//                ", MAT_ID_CODE='" + MAT_ID_CODE + '\'' +
-//                ", MATERIAL_NAME='" + MATERIAL_NAME + '\'' +
-//                ", MATERIAL_TYPE='" + MATERIAL_TYPE + '\'' +
-//                ", MATERIAL_GRADE='" + MATERIAL_GRADE + '\'' +
-//                ", MATERIAL_UNIT='" + MATERIAL_UNIT + '\'' +
-//                ", UNIT_PRICE=" + UNIT_PRICE +
-//                ", MAT_DATE='" + MAT_DATE + '\'' +
-//                ", MATERIAL_CODE='" + MATERIAL_CODE + '\'' +
-//                ", unit=" + unit +
-//                ", main=" + main +
-//                ", sub=" + sub +
-//                ", detail=" + detail +
-//                '}';
-//    }
 
     @Override
     public String toString() {

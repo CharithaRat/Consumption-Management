@@ -61,31 +61,33 @@
   <script type="text/javascript">
     window.onload = function () {
 
-        var chart = new CanvasJS.Chart("chartContainer", {
-          theme: "light1", // "light2", "dark1", "dark2"
-          animationEnabled: false, // change to true
-          title:{
-            text: "Basic Column Chart"
-          },
-          data: [
-            {
-              // Change type to "bar", "area", "spline", "pie",etc.
-              type: "column",
-              dataPoints: [
-                { label: "apple",  y: 10  },
-                { label: "orange", y: 15  },
-                { label: "banana", y: 25  },
-                { label: "mango",  y: 30  },
-                { label: "grape",  y: 28  }
-              ]
-            }
-          ]
-        });
-        chart.render();
+      var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        animationEnabled: true, // change to true
+        title: {
+          text: "Module Consumption Chart"
+        },
+        data: [
+          {
+            // Change type to "column", "bar", "area", "spline", "pie",etc.
+            type: "pie",
+            dataPoints: [
+              {label: "Cement", y: 100},
+              {label: "Metal-stones", y: 20},
+              {label: "Sand", y: 25},
+              {label: "Bricks", y: 5000},
+              {label: "Stones", y: 12},
+              {label: "Roofing Sheets", y: 800},
+              {label: "Metal Bars", y: 80}
+            ]
+          }
+        ]
+      });
+      chart.render();
 
-      }
-</script>
-<!--=================================Chart Option================================================-->
+    }
+  </script>
+  <!--=================================Chart Option================================================-->
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -110,6 +112,59 @@ desired effect
 <body class="hold-transition skin-blue sidebar-mini">
 <!--<canvas id="canvas">-->
 <app-root></app-root>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--<div class="login-box">
+  <div class="login-logo">
+    <a href="#"><b>Admin</b>LTE</a>
+  </div>
+  &lt;!&ndash; /.login-logo &ndash;&gt;
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+    <form (ngSubmit)="login()" #frmLogin="ngForm">
+      <div class="form-group has-feedback">
+        <input #userName type="text" class="form-control" [(ngModel)]="username" name="username"
+               placeholder="User Name" required="true" minlength="3">
+        <span class="glyphicon glyphicon-eye-open form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" [(ngModel)]="password" name="password"
+               placeholder="Password" required="true" minlength="3">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+        </div>
+        &lt;!&ndash; /.col &ndash;&gt;
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        &lt;!&ndash; /.col &ndash;&gt;
+      </div>
+    </form>
+
+    <div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+        Facebook</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+        Google+</a>
+    </div>
+    &lt;!&ndash; /.social-auth-links &ndash;&gt;
+
+    <a href="#">I forgot my password</a><br>
+    <a href="register.html" class="text-center">Register a new membership</a>
+
+  </div>
+  &lt;!&ndash; /.login-box-body &ndash;&gt;
+</div>
+&lt;!&ndash; /.login-box &ndash;&gt;-->
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 <!--</canvas>-->
 
 <!--#################################################################################-->
@@ -187,7 +242,7 @@ desired effect
   crossorigin="anonymous"></script>
 <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!--New library for chart option-->
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <!--New library for chart option-->
 <!-- jQuery UI 1.11.4 -->
 <script src="assets/bower_components/jquery-ui/jquery-ui.min.js"></script>

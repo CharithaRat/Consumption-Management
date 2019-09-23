@@ -1,6 +1,7 @@
 package lk.ijse.absd.consm.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lk.ijse.absd.consm.entity.Budget;
 
 public class BomAssignedDTO {
     @JsonProperty("bomId")
@@ -9,6 +10,10 @@ public class BomAssignedDTO {
     private String BOM_CODE;
     @JsonProperty("bomUsage")
     private String BOM_USAGE;
+
+    @JsonProperty("budget")
+    private Budget budget;
+
     @JsonProperty("bomLength")
     private double LENGTH;
     @JsonProperty("bomWidth")
@@ -29,7 +34,24 @@ public class BomAssignedDTO {
     public BomAssignedDTO() {
     }
 
-    public BomAssignedDTO(int BOM_ID, String BOM_CODE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT, String COV_AREA_UNIT, double COV_AREA, double BOM_COST, String ASSIGN_DATE, double COST_PER_UNITAREA) {
+    public BomAssignedDTO(int BOM_ID, String BOM_CODE, String BOM_USAGE, Budget budget, double LENGTH, double WIDTH,
+                          double HEIGHT, String COV_AREA_UNIT, double COV_AREA, double BOM_COST, String ASSIGN_DATE, double COST_PER_UNITAREA) {
+        this.BOM_ID = BOM_ID;
+        this.BOM_CODE = BOM_CODE;
+        this.BOM_USAGE = BOM_USAGE;
+        this.budget = budget;
+        this.LENGTH = LENGTH;
+        this.WIDTH = WIDTH;
+        this.HEIGHT = HEIGHT;
+        this.COV_AREA_UNIT = COV_AREA_UNIT;
+        this.COV_AREA = COV_AREA;
+        this.BOM_COST = BOM_COST;
+        this.ASSIGN_DATE = ASSIGN_DATE;
+        this.COST_PER_UNITAREA = COST_PER_UNITAREA;
+    }
+
+    public BomAssignedDTO(int BOM_ID, String BOM_CODE, String BOM_USAGE, double LENGTH, double WIDTH, double HEIGHT,
+                          String COV_AREA_UNIT, double COV_AREA, double BOM_COST, String ASSIGN_DATE, double COST_PER_UNITAREA) {
         this.BOM_ID = BOM_ID;
         this.BOM_CODE = BOM_CODE;
         this.BOM_USAGE = BOM_USAGE;
@@ -144,21 +166,13 @@ public class BomAssignedDTO {
         this.BOM_CODE = BOM_CODE;
     }
 
-//    @Override
-//    public String toString() {
-//        return "BomAssignedDTO{" +
-//                "BOM_ID='" + BOM_ID + '\'' +
-//                ", BOM_USAGE='" + BOM_USAGE + '\'' +
-//                ", LENGTH=" + LENGTH +
-//                ", WIDTH=" + WIDTH +
-//                ", HEIGHT=" + HEIGHT +
-//                ", COV_AREA_UNIT='" + COV_AREA_UNIT + '\'' +
-//                ", COV_AREA=" + COV_AREA +
-//                ", BOM_COST=" + BOM_COST +
-//                ", ASSIGN_DATE='" + ASSIGN_DATE + '\'' +
-//                ", COST_PER_UNITAREA=" + COST_PER_UNITAREA +
-//                '}';
-//    }
+    public Budget getBudget() {
+        return budget;
+    }
+
+    public void setBudget(Budget budget) {
+        this.budget = budget;
+    }
 
     @Override
     public String toString() {
@@ -166,6 +180,7 @@ public class BomAssignedDTO {
                 "BOM_ID=" + BOM_ID +
                 ", BOM_CODE='" + BOM_CODE + '\'' +
                 ", BOM_USAGE='" + BOM_USAGE + '\'' +
+                ", budget=" + budget +
                 ", LENGTH=" + LENGTH +
                 ", WIDTH=" + WIDTH +
                 ", HEIGHT=" + HEIGHT +

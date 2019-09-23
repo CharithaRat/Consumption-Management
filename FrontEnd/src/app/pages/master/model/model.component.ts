@@ -11,8 +11,8 @@ import {NgForm} from '@angular/forms';
 })
 export class ModelComponent implements OnInit {
   models: Model[] = [];
-  model: Model = new Model('', '', '', '');
-  selectedmodel: Model = new Model('', '', '', '');
+  model: Model = new Model('', '', '', '', '');
+  selectedmodel: Model = new Model('', '', '', '', '');
 
   @ViewChild('frmModel', {static: false}) frmModels: NgForm;
 
